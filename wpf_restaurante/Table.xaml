@@ -9,6 +9,7 @@
              BorderBrush="Black" BorderThickness="5" 
              Background="BlueViolet" 
              MouseMove="UserControl_MouseMove" 
+             MouseDown="UserControl_MouseDown"
              PreviewGiveFeedback="UserControl_PreviewGiveFeedback"
              >
     <Grid>

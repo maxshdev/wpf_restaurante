@@ -5,8 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpf_restaurante"
         mc:Ignorable="d"
-        Title="Barmap" Height="800" Width="1080">
+        Title="Barmap" Height="600" Width="1080">
     <Grid>
-        <InkCanvas></InkCanvas>
+        <StackPanel Margin="10">
+            <TextBox Text="Right-click here for context menu!">
+                <TextBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Table" Click="Add_Table">
+                            <MenuItem.Icon>
+                                <Image Source="/WpfTutorialSamples;component/Images/cut.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Command="Copy">
+                            <MenuItem.Icon>
+                                <Image Source="/WpfTutorialSamples;component/Images/copy.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Command="Paste">
+                            <MenuItem.Icon>
+                                <Image Source="/WpfTutorialSamples;component/Images/paste.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+                </TextBox.ContextMenu>
+            </TextBox>
+        </StackPanel>
+        <Canvas 
+            Name="canvasBarMain"
+            Height="520"
+            VerticalAlignment="Bottom"
+        ></Canvas>
     </Grid>
 </Window>

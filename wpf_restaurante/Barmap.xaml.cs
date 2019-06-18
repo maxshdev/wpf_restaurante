@@ -23,5 +23,14 @@ namespace wpf_restaurante
         {
             InitializeComponent();
         }
+
+        private void Add_Table(object sender, RoutedEventArgs e)
+        {
+            Table tbl = new Table();
+            tbl.Height = 100;
+            tbl.Width = 100;
+
+            canvasBarMain.Children.Add(tbl);
+        }
     }
 }

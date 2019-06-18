@@ -32,7 +32,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="OnClickBTN"
-            >OPEN INK CANVAS</Button>
+            >OPEN CANVAS</Button>
             
             <materialDesign:Card Padding="32" Margin="10,70,10,0" Grid.ColumnSpan="1">
                 <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">Welcome</TextBlock>

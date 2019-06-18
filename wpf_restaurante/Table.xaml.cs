@@ -21,9 +21,21 @@ namespace wpf_restaurante
     /// </summary>
     public partial class Table : UserControl
     {
+
+        private Point mouseLocation;
+        private Point pointOrig;
+        private TranslateTransform transPoint;
+
         public Table()
         {
             InitializeComponent();
+        }
+
+        public Table(Table t)
+        {
+            InitializeComponent();
+            this.Height = t.Height;
+            this.Width = t.Height;
         }
 
         #region Adornments
@@ -78,14 +90,20 @@ namespace wpf_restaurante
 
         private void UserControl_MouseMove(object sender, MouseEventArgs e)
         {
+            mouseLocation = e.GetPosition(this);
+
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                var obj = new DataObject("COLOR", this.Background);
-                var adLayer = AdornerLayer.GetAdornerLayer(this);
-                myAdornment = new TableAdorner(this);
-                adLayer.Add(myAdornment);
-                DragDrop.DoDragDrop(this, obj, DragDropEffects.Copy);
-                adLayer.Remove(myAdornment);
+                //var obj = new DataObject("COLOR", this.Background);
+                //var adLayer = AdornerLayer.GetAdornerLayer(this);
+                //myAdornment = new TableAdorner(this);
+                //adLayer.Add(myAdornment);
+                //DragDrop.DoDragDrop(this, obj, DragDropEffects.Copy);
+                //adLayer.Remove(myAdornment);
+
+                transPoint.X = (mouseLocation.X - pointOrig.X);
+                transPoint.Y = (mouseLocation.Y - pointOrig.Y);
+                this.RenderTransform = transPoint;
             }
         }
 
@@ -98,5 +116,16 @@ namespace wpf_restaurante
 
         #endregion
 
+        private void UserControl_MouseDown(object sender, MouseEventArgs e)
+        {
+            Point myLocation = e.GetPosition(this);
+            pointOrig = new Point(myLocation.X, myLocation.Y);
+            transPoint = new TranslateTransform(pointOrig.X, pointOrig.Y);
+        }
+
+        private void UserControl_MouseUp(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }
