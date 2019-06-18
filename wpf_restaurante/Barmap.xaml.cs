@@ -10,25 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace wpf_restaurante
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para Barmap.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Barmap : Window
     {
-        public MainWindow()
+        public Barmap()
         {
             InitializeComponent();
-        }
-
-        private void OnClickBTN(object sender, RoutedEventArgs e)
-        {
-            Barmap bar = new Barmap();
-            bar.Show();
         }
     }
 }

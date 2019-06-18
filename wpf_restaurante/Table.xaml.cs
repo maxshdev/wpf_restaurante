@@ -17,23 +17,23 @@ using System.Runtime.InteropServices;
 namespace wpf_restaurante
 {
     /// <summary>
-    /// Lógica de interacción para Draggable.xaml
+    /// Lógica de interacción para Table.xaml
     /// </summary>
-    public partial class Draggable : UserControl
+    public partial class Table : UserControl
     {
-        public Draggable()
+        public Table()
         {
             InitializeComponent();
         }
 
         #region Adornments
         //Adorner subclass specific to this control
-        private class DraggableAdorner : Adorner
+        private class TableAdorner : Adorner
         {
             Rect renderRect;
             Brush renderBrush;
             public Point CenterOffset;
-            public DraggableAdorner(Draggable adornedElement) : base(adornedElement)
+            public TableAdorner(Table adornedElement) : base(adornedElement)
             {
                 renderRect = new Rect(adornedElement.RenderSize);
                 this.IsHitTestVisible = false;
@@ -73,7 +73,7 @@ namespace wpf_restaurante
         [DllImport("user32.dll")]
         static extern void GetCursorPos(ref PInPoint p);
 
-        private DraggableAdorner myAdornment;
+        private TableAdorner myAdornment;
         private PInPoint pointRef = new PInPoint();
 
         private void UserControl_MouseMove(object sender, MouseEventArgs e)
@@ -82,7 +82,7 @@ namespace wpf_restaurante
             {
                 var obj = new DataObject("COLOR", this.Background);
                 var adLayer = AdornerLayer.GetAdornerLayer(this);
-                myAdornment = new DraggableAdorner(this);
+                myAdornment = new TableAdorner(this);
                 adLayer.Add(myAdornment);
                 DragDrop.DoDragDrop(this, obj, DragDropEffects.Copy);
                 adLayer.Remove(myAdornment);
@@ -97,5 +97,6 @@ namespace wpf_restaurante
         }
 
         #endregion
+
     }
 }

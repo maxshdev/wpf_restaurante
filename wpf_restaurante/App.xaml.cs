@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace wpf_calculator
+namespace wpf_restaurante
 {
     /// <summary>
     /// Lógica de interacción para App.xaml

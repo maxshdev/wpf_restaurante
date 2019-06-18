@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace wpf_calculator
+namespace wpf_restaurante
 {
     /// <summary>
     /// Lógica de interacción para DropZone.xaml
