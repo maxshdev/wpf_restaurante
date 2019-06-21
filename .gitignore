@@ -2,3 +2,11 @@
 packages
 wpf_restaurante/bin
 wpf_restaurante/obj
+/Prog3_2019.RestoDotNet.App/obj
+/Prog3_2019.RestoDotNet.App/bin
+/Prog3_2019.RestoDotNet.Business/obj
+/Prog3_2019.RestoDotNet.Business/bin
+/Prog3_2019.RestoDotNet.Data/bin
+/Prog3_2019.RestoDotNet.Data/obj
+/Prog3_2019.RestoDotNet.Model/bin
+/Prog3_2019.RestoDotNet.Model/obj
