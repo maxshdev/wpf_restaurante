@@ -28,8 +28,7 @@
       <HintPath>..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.identity.stores\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Identity.Stores.dll</HintPath>
     </Reference>
     <Reference Include="Pandora.NetStandard.Core">
-      <HintPath>..\..\SchoolMngrDemo\Pandora.NetStandard.Core\bin\Release\netstandard2.0\Pandora.NetStandard.Core.dll</HintPath>
-      <Private>true</Private>
+      <HintPath>..\Libraries\Pandora.NetStandard.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
 
