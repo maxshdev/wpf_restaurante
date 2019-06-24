@@ -1,0 +1,16 @@
+C:\- Projects\SchoolMngrDemo\Pandora.NetStandard.Business\bin\Release\netstandard2.0\Pandora.NetStandard.Business.deps.json
+C:\- Projects\SchoolMngrDemo\Pandora.NetStandard.Business\bin\Release\netstandard2.0\Pandora.NetStandard.Business.dll
+C:\- Projects\SchoolMngrDemo\Pandora.NetStandard.Business\bin\Release\netstandard2.0\Pandora.NetStandard.Business.pdb
+C:\- Projects\SchoolMngrDemo\Pandora.NetStandard.Business\bin\Release\netstandard2.0\Pandora.NetStandard.Core.dll
+C:\- Projects\SchoolMngrDemo\Pandora.NetStandard.Business\bin\Release\netstandard2.0\Pandora.NetStandard.Data.dll
+C:\- Projects\SchoolMngrDemo\Pandora.NetStandard.Business\bin\Release\netstandard2.0\Pandora.NetStandard.Model.dll
+C:\- Projects\SchoolMngrDemo\Pandora.NetStandard.Business\bin\Release\netstandard2.0\Pandora.NetStandard.Data.pdb
+C:\- Projects\SchoolMngrDemo\Pandora.NetStandard.Business\bin\Release\netstandard2.0\Pandora.NetStandard.Core.pdb
+C:\- Projects\SchoolMngrDemo\Pandora.NetStandard.Business\bin\Release\netstandard2.0\Pandora.NetStandard.Model.pdb
+C:\- Projects\SchoolMngrDemo\Pandora.NetStandard.Business\obj\Release\netstandard2.0\Pandora.NetStandard.Business.csprojAssemblyReference.cache
+C:\- Projects\SchoolMngrDemo\Pandora.NetStandard.Business\obj\Release\netstandard2.0\Pandora.NetStandard.Business.csproj.CoreCompileInputs.cache
+C:\- Projects\SchoolMngrDemo\Pandora.NetStandard.Business\obj\Release\netstandard2.0\Pandora.NetStandard.Business.AssemblyInfoInputs.cache
+C:\- Projects\SchoolMngrDemo\Pandora.NetStandard.Business\obj\Release\netstandard2.0\Pandora.NetStandard.Business.AssemblyInfo.cs
+C:\- Projects\SchoolMngrDemo\Pandora.NetStandard.Business\obj\Release\netstandard2.0\Pandora.NetStandard.Business.csproj.CopyComplete
+C:\- Projects\SchoolMngrDemo\Pandora.NetStandard.Business\obj\Release\netstandard2.0\Pandora.NetStandard.Business.dll
+C:\- Projects\SchoolMngrDemo\Pandora.NetStandard.Business\obj\Release\netstandard2.0\Pandora.NetStandard.Business.pdb

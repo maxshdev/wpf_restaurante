@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Services\AuthSvc.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Prog3_2019.RestoDotNet.Data\Prog3.RestoDotNet.Data.csproj" />
+    <ProjectReference Include="..\Prog3_2019.RestoDotNet.Model\Prog3.RestoDotNet.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Pandora.NetStandard.Core">
+      <HintPath>..\Libraries\Pandora.NetStandard.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
