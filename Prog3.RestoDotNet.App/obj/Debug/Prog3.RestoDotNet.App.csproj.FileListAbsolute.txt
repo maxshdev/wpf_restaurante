@@ -29,3 +29,34 @@ C:\- Projects\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\Prog3.RestoDotNet.
 C:\- Projects\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\Prog3.RestoDotNet.App.csproj.CopyComplete
 C:\- Projects\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\wpf_restaurante.exe
 C:\- Projects\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\wpf_restaurante.pdb
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\bin\Debug\wpf_restaurante.exe.config
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\bin\Debug\wpf_restaurante.exe
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\bin\Debug\wpf_restaurante.pdb
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\bin\Debug\MaterialDesignColors.dll
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\bin\Debug\MaterialDesignThemes.Wpf.dll
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\bin\Debug\MaterialDesignColors.pdb
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\bin\Debug\MaterialDesignThemes.Wpf.pdb
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\bin\Debug\MaterialDesignThemes.Wpf.xml
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\Barmap.g.cs
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\Draggable.g.cs
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\DropZone.g.cs
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\MainWindow.g.cs
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\Table.g.cs
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\App.g.cs
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\wpf_restaurante_MarkupCompile.cache
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\wpf_restaurante_MarkupCompile.lref
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\App.baml
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\Barmap.baml
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\Draggable.baml
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\DropZone.baml
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\MainWindow.baml
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\Table.baml
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\wpf_restaurante.g.resources
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\wpf_restaurante.Properties.Resources.resources
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\Prog3.RestoDotNet.App.csproj.GenerateResource.cache
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\Prog3.RestoDotNet.App.csproj.CoreCompileInputs.cache
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\Prog3.RestoDotNet.App.csproj.CopyComplete
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\wpf_restaurante.exe
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\wpf_restaurante.pdb
+E:\vsnet\wpf_restaurante\Prog3.RestoDotNet.App\obj\Debug\Prog3.RestoDotNet.App.csprojAssemblyReference.cache

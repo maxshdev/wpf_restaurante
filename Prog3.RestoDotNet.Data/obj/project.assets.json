@@ -2843,7 +2843,7 @@
       ]
     },
     "System.Collections.Specialized/4.3.0": {
-      "sha512": "NoPBj0ykejqAWW4p4gGtrrL+3c84ZLSvGnHgq422ew1Rj4WKj1FA8/BCybqC111EtgcqUl6ZJNFYYS22HLgbjA==",
+      "sha512": "Epx8PoVZR0iuOnJJDzp7pWvdfMMOAvpUo95pC4ScH2mJuXkKA2Y4aR3cG9qt2klHgSons1WFh4kcGW7cSXvrxg==",
       "type": "package",
       "path": "system.collections.specialized/4.3.0",
       "files": [
@@ -3067,7 +3067,7 @@
       ]
     },
     "System.ComponentModel.TypeConverter/4.3.0": {
-      "sha512": "HZiP0DwTHJ+C+rdFqP47nBYUh5283kcwXIGY2zOVVhsJmVI/2tYiX2zNRdjRQRHsTox58Ydkec6h0pWSh8wAsw==",
+      "sha512": "16pQ6P+EdhcXzPiEK4kbA953Fu0MNG2ovxTZU81/qsCd1zPRsKc3uif5NgvllCY598k6bI0KUyKW8fanlfaDQg==",
       "type": "package",
       "path": "system.componentmodel.typeconverter/4.3.0",
       "files": [
@@ -5660,7 +5660,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "C:\\- Projects\\wpf_restaurante\\Prog3_2019.RestoDotNet.Model\\Prog3.RestoDotNet.Model.csproj",
+      "E:\\vsnet\\wpf_restaurante\\Prog3_2019.RestoDotNet.Model\\Prog3.RestoDotNet.Model.csproj",
       "Microsoft.AspNetCore.Identity >= 2.2.0",
       "Microsoft.EntityFrameworkCore >= 2.2.4",
       "Microsoft.EntityFrameworkCore.Design >= 2.2.4",
@@ -5670,46 +5670,35 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Leonardo\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Users\\PC-Max\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\- Projects\\wpf_restaurante\\Prog3.RestoDotNet.Data\\Prog3.RestoDotNet.Data.csproj",
+      "projectUniqueName": "E:\\vsnet\\wpf_restaurante\\Prog3.RestoDotNet.Data\\Prog3.RestoDotNet.Data.csproj",
       "projectName": "Prog3.RestoDotNet.Data",
-      "projectPath": "C:\\- Projects\\wpf_restaurante\\Prog3.RestoDotNet.Data\\Prog3.RestoDotNet.Data.csproj",
-      "packagesPath": "C:\\Users\\Leonardo\\.nuget\\packages\\",
-      "outputPath": "C:\\- Projects\\wpf_restaurante\\Prog3.RestoDotNet.Data\\obj\\",
+      "projectPath": "E:\\vsnet\\wpf_restaurante\\Prog3.RestoDotNet.Data\\Prog3.RestoDotNet.Data.csproj",
+      "packagesPath": "C:\\Users\\PC-Max\\.nuget\\packages\\",
+      "outputPath": "E:\\vsnet\\wpf_restaurante\\Prog3.RestoDotNet.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Leonardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\PC-Max\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore-tooling/index.json": {},
-        "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore/index.json": {},
-        "https://dotnetfeed.blob.core.windows.net/aspnet-entityframeworkcore/index.json": {},
-        "https://dotnetfeed.blob.core.windows.net/aspnet-extensions/index.json": {},
-        "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
-        "https://dotnetfeed.blob.core.windows.net/dotnet-windowsdesktop/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\- Projects\\wpf_restaurante\\Prog3_2019.RestoDotNet.Model\\Prog3.RestoDotNet.Model.csproj": {
-              "projectPath": "C:\\- Projects\\wpf_restaurante\\Prog3_2019.RestoDotNet.Model\\Prog3.RestoDotNet.Model.csproj"
+            "E:\\vsnet\\wpf_restaurante\\Prog3_2019.RestoDotNet.Model\\Prog3.RestoDotNet.Model.csproj": {
+              "projectPath": "E:\\vsnet\\wpf_restaurante\\Prog3_2019.RestoDotNet.Model\\Prog3.RestoDotNet.Model.csproj"
             }
           }
         }
@@ -5762,8 +5751,8 @@
     {
       "code": "NU1104",
       "level": "Error",
-      "message": "Unable to find project 'C:\\- Projects\\wpf_restaurante\\Prog3_2019.RestoDotNet.Model\\Prog3.RestoDotNet.Model.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "C:\\- Projects\\wpf_restaurante\\Prog3_2019.RestoDotNet.Model\\Prog3.RestoDotNet.Model.csproj",
+      "message": "No se encuentra el proyecto \"E:\\vsnet\\wpf_restaurante\\Prog3_2019.RestoDotNet.Model\\Prog3.RestoDotNet.Model.csproj\". Compruebe que la referencia al proyecto sea válida y que exista el archivo de proyecto.",
+      "libraryId": "E:\\vsnet\\wpf_restaurante\\Prog3_2019.RestoDotNet.Model\\Prog3.RestoDotNet.Model.csproj",
       "targetGraphs": [
         ".NETStandard,Version=v2.0"
       ]

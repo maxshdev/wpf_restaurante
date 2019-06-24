@@ -10,7 +10,6 @@
              Background="BlueViolet" 
              MouseMove="UserControl_MouseMove" 
              MouseDown="UserControl_MouseDown"
-             PreviewGiveFeedback="UserControl_PreviewGiveFeedback"
              >
     <Grid>
         <Label 
