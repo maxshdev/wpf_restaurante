@@ -1,0 +1,10 @@
+C:\Users\CPCE-MAX\source\repos\wf_restaurante\wf_restaurante\bin\Debug\wf_restaurante.exe.config
+C:\Users\CPCE-MAX\source\repos\wf_restaurante\wf_restaurante\bin\Debug\wf_restaurante.exe
+C:\Users\CPCE-MAX\source\repos\wf_restaurante\wf_restaurante\bin\Debug\wf_restaurante.pdb
+C:\Users\CPCE-MAX\source\repos\wf_restaurante\wf_restaurante\obj\Debug\wf_restaurante.csprojAssemblyReference.cache
+C:\Users\CPCE-MAX\source\repos\wf_restaurante\wf_restaurante\obj\Debug\wf_restaurante.Form1.resources
+C:\Users\CPCE-MAX\source\repos\wf_restaurante\wf_restaurante\obj\Debug\wf_restaurante.Properties.Resources.resources
+C:\Users\CPCE-MAX\source\repos\wf_restaurante\wf_restaurante\obj\Debug\wf_restaurante.csproj.GenerateResource.cache
+C:\Users\CPCE-MAX\source\repos\wf_restaurante\wf_restaurante\obj\Debug\wf_restaurante.csproj.CoreCompileInputs.cache
+C:\Users\CPCE-MAX\source\repos\wf_restaurante\wf_restaurante\obj\Debug\wf_restaurante.exe
+C:\Users\CPCE-MAX\source\repos\wf_restaurante\wf_restaurante\obj\Debug\wf_restaurante.pdb
