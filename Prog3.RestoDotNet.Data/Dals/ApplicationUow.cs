@@ -2,15 +2,16 @@
 using Pandora.NetStandard.Core.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Threading.Tasks;
 
 namespace Prog3.RestoDotNet.Data.Dals
 {
     public class ApplicationUow : IApplicationUow, IDisposable
     {
-        private readonly ApplicationDbContext _dbContext;
+        private readonly DbContext _dbContext;
 
-        public ApplicationUow(ApplicationDbContext dbContext)
+        public ApplicationUow(DbContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -44,7 +45,7 @@ namespace Prog3.RestoDotNet.Data.Dals
 
         protected Dictionary<Type, object> RepositoriesCache { get; private set; }
 
-        public T GetRepository<T>(Func<ApplicationDbContext, object> factory = null) where T : class
+        public T GetRepository<T>(Func<DbContext, object> factory = null) where T : class
         {
             // Look for T dictionary cache under typeof(T).
             RepositoriesCache.TryGetValue(typeof(T), out object repoObj);
@@ -57,7 +58,7 @@ namespace Prog3.RestoDotNet.Data.Dals
             return MakeRepository<T>(factory, _dbContext);
         }
 
-        protected virtual T MakeRepository<T>(Func<ApplicationDbContext, object> factory, ApplicationDbContext dbContext)
+        protected virtual T MakeRepository<T>(Func<DbContext, object> factory, DbContext dbContext)
         {
             //var f = factory ?? _repositoryFactories.GetRepositoryFactory<T>();
             if (factory == null)

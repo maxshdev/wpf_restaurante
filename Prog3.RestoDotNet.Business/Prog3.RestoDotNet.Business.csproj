@@ -10,18 +10,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="8.1.0" />
+    <PackageReference Include="AutoMapper" Version="8.1.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Prog3_2019.RestoDotNet.Data\Prog3.RestoDotNet.Data.csproj" />
-    <ProjectReference Include="..\Prog3_2019.RestoDotNet.Model\Prog3.RestoDotNet.Model.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Pandora.NetStandard.Core">
-      <HintPath>..\Libraries\Pandora.NetStandard.Core.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\Prog3.RestoDotNet.Core\Prog3.RestoDotNet.Core.csproj" />
+    <ProjectReference Include="..\Prog3.RestoDotNet.Data\Prog3.RestoDotNet.Data.csproj" />
+    <ProjectReference Include="..\Prog3.RestoDotNet.Model\Prog3.RestoDotNet.Model.csproj" />
   </ItemGroup>
 
 </Project>

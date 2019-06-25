@@ -4,6 +4,74 @@
     "C:\\- Projects\\wpf_restaurante\\Prog3.RestoDotNet.Model\\Prog3.RestoDotNet.Model.csproj": {}
   },
   "projects": {
+    "C:\\- Projects\\wpf_restaurante\\Prog3.RestoDotNet.Core\\Prog3.RestoDotNet.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\- Projects\\wpf_restaurante\\Prog3.RestoDotNet.Core\\Prog3.RestoDotNet.Core.csproj",
+        "projectName": "Prog3.RestoDotNet.Core",
+        "projectPath": "C:\\- Projects\\wpf_restaurante\\Prog3.RestoDotNet.Core\\Prog3.RestoDotNet.Core.csproj",
+        "packagesPath": "C:\\Users\\Leonardo\\.nuget\\packages\\",
+        "outputPath": "C:\\- Projects\\wpf_restaurante\\Prog3.RestoDotNet.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Leonardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore-tooling/index.json": {},
+          "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore/index.json": {},
+          "https://dotnetfeed.blob.core.windows.net/aspnet-entityframeworkcore/index.json": {},
+          "https://dotnetfeed.blob.core.windows.net/aspnet-extensions/index.json": {},
+          "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
+          "https://dotnetfeed.blob.core.windows.net/dotnet-windowsdesktop/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.2.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
     "C:\\- Projects\\wpf_restaurante\\Prog3.RestoDotNet.Model\\Prog3.RestoDotNet.Model.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -37,7 +105,11 @@
         },
         "frameworks": {
           "netstandard2.0": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\- Projects\\wpf_restaurante\\Prog3.RestoDotNet.Core\\Prog3.RestoDotNet.Core.csproj": {
+                "projectPath": "C:\\- Projects\\wpf_restaurante\\Prog3.RestoDotNet.Core\\Prog3.RestoDotNet.Core.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

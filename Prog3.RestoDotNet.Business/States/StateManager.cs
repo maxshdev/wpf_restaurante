@@ -1,39 +1,35 @@
 ﻿using Prog3.RestoDotNet.Business.Services.Contracts;
 using Pandora.NetStandard.Core.Utils;
+using System.Threading.Tasks;
+using Prog3.RestoDotNet.Model.Dtos;
+using Prog3.RestoDotNet.Model.Enums;
 
 namespace Prog3.RestoDotNet.Business.States
 {
-    public abstract class StateManager
+    public abstract class TableStateManager 
     {
-        //protected static IWaiterStateSvc _WaiterStateSvc;
+        protected static ITableSvc _tableSvc;
 
-        //public StateManager(IWaiterStateSvc WaiterStateSvc)
-        //{
-        //    _WaiterStateSvc = WaiterStateSvc;
-        //}
+        public async static Task<TableStateManager> GetTableStateManagerAsync(OrderDto consumeDto)
+        {
+            //var validState = (await WaiterStateSvc.GetLastValidStateAsync(WaiterId, subjectId)).Data;
 
-        //public async static Task<StateManager> GetStateManagerAsync(IWaiterStateSvc WaiterStateSvc, int WaiterId, int subjectId)
-        //{
-        //    var validState = (await WaiterStateSvc.GetLastValidStateAsync(WaiterId, subjectId)).Data;
+            switch (consumeDto?.BaseEntity.Table.State)
+            {
+                case TableStateEnum.AVAILABLE:
+                    return new TableAvailableState();
+                case TableStateEnum.OCCUPIED:
+                    return null;
+                case TableStateEnum.RESERVED:
+                    return null;
+                default:
+                    return new TableAvailableState();
+            }
+        }
 
-        //    switch (validState?.AcademicState)
-        //    {
-        //        case WaiterStateEnum.ENROLLED:
-        //            return new WaiterEnrolledState(WaiterStateSvc);
-        //        case WaiterStateEnum.ACTIVE:
-        //            return null;
-        //        case WaiterStateEnum.INACTIVE:
-        //            return null;
-        //        case WaiterStateEnum.ACHIEVED:
-        //            return null;
-        //        default:
-        //            return new WaiterInitialState(WaiterStateSvc);
-        //    }
-        //}
-
-        //public abstract Task<bool> EnrollWaiterAsync(WaiterDto WaiterDto, SubjectDto subjectDto);
-        //public abstract Task<bool> SaveExamsResultAsync(IList<ExamDto> examDtos);
-        //public abstract Task<bool> StoreAttendenceAsync(WaiterDto WaiterDto, SubjectDto subjectDto);
+        public abstract Task<bool> ReservingAsync(OrderDto consumeDto);
+        public abstract Task<bool> AssigningAsync(OrderDto consumeDto);
+        public abstract Task<bool> ReleasingAsync(OrderDto consumeDto);
 
         protected virtual bool StateManagerResponseHandler(BLResponse bLResponse)
         {

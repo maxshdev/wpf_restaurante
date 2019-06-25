@@ -1,10 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Pandora.NetStandard.Core.Base;
+﻿using Pandora.NetStandard.Core.Base;
 using Pandora.NetStandard.Core.Interfaces;
-using Pandora.NetStandard.Core.Interfaces.Data;
 using Pandora.NetStandard.Core.Utils;
 using System;
-using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -13,17 +11,17 @@ namespace Prog3.RestoDotNet.Data.Dals
 {
     public class EfRepository<TEntity> : IEfRepository<TEntity> where TEntity : class
     {
-        protected readonly ApplicationDbContext _dbContext;
+        protected readonly DbContext _dbContext;
         protected readonly DbSet<TEntity> _dbSet;
 
-        public EfRepository(ApplicationDbContext context)
+        public EfRepository(DbContext context)
         {
             _dbContext = context;
             _dbSet = _dbContext.Set<TEntity>();
         }
 
         public async Task<IQueryable<TEntity>> AllAsync(Expression<Func<TEntity, bool>> predicate, Func<IQueryable<TEntity>,
-            IOrderedQueryable<TEntity>> orderBy, params Expression<Func<IIncludable<TEntity>, IIncludable>>[] includes)
+            IOrderedQueryable<TEntity>> orderBy, params Expression<Func<TEntity, object>>[] includes)
         {
             return await Task.Run(() =>
             {
@@ -41,7 +39,7 @@ namespace Prog3.RestoDotNet.Data.Dals
         public async Task<BLPagedResponse<TEntity>> AllPagedAsync(int skip, int take, int pageSize, int currentPage,
             Expression<Func<TEntity, bool>> predicate,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy,
-            params Expression<Func<IIncludable<TEntity>, IIncludable>>[] includes)
+            params Expression<Func<TEntity, object>>[] includes)
         {
             IQueryable<TEntity> entities = _dbSet.IncludeMultiple(includes);
 
@@ -69,7 +67,7 @@ namespace Prog3.RestoDotNet.Data.Dals
         }
 
         public async Task<TEntity> FindAsync(Expression<Func<TEntity, bool>> predicate,
-            params Expression<Func<IIncludable<TEntity>, IIncludable>>[] includes)
+            params Expression<Func<TEntity, object>>[] includes)
         {
             return await _dbSet.IncludeMultiple(includes).FirstOrDefaultAsync(predicate);
         }
@@ -92,8 +90,9 @@ namespace Prog3.RestoDotNet.Data.Dals
             {
                 return _dbSet.Add(entity);
             });
-            return result.Entity;
+            return result;
         }
+
 
         public async Task DeleteAsync(object id)
         {
@@ -139,18 +138,6 @@ namespace Prog3.RestoDotNet.Data.Dals
             {
                 return 1;
             });
-        }
-
-        public async Task<List<TEntity>> ExecSp(string spName, params object[] parameters)
-        {
-            var tEntity = new List<TEntity>();
-            var spResult = await Task.Run(() => _dbSet.FromSql(spName, parameters));
-            foreach (var item in spResult)
-            {
-                tEntity.Add(item);
-            }
-
-            return tEntity;
         }
 
         public async Task<bool> ExistAsync(Expression<Func<TEntity, bool>> predicate)

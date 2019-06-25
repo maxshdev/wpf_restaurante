@@ -5,9 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="Pandora.NetStandard.Core">
-      <HintPath>..\Libraries\Pandora.NetStandard.Core.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\Prog3.RestoDotNet.Core\Prog3.RestoDotNet.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="System.ComponentModel.Annotations">
       <HintPath>..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.netcore.app\2.2.0\ref\netcoreapp2.2\System.ComponentModel.Annotations.dll</HintPath>
     </Reference>

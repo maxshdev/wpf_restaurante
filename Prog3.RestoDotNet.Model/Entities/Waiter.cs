@@ -10,6 +10,6 @@ namespace Prog3.RestoDotNet.Model.Entities
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public virtual IEnumerable<Consume> Consumes { get; set; }
+        public virtual IEnumerable<Order> Orders { get; set; }
     }
 }

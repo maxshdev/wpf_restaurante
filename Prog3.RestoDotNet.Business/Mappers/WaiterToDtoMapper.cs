@@ -9,7 +9,13 @@ namespace Prog3.RestoDotNet.Business.Mappers
     {
         protected override IMapper CreateMapConfiguration()
         {
-            return DefaultMapConfiguration();
+            return new MapperConfiguration(c =>
+            {
+                c.CreateMap<Waiter, WaiterDto>()
+                .ForMember(m => m.BaseEntity, o => o.MapFrom(s => s))
+                .ReverseMap();
+
+            }).CreateMapper();
         }
     }
 }

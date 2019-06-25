@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-using Prog3.RestoDotNet.Business.Mappers;
+﻿using Prog3.RestoDotNet.Business.Mappers;
 using Prog3.RestoDotNet.Business.Services.Contracts;
 using Pandora.NetStandard.Core.Interfaces;
 using Pandora.NetStandard.Core.Base;
@@ -14,8 +13,8 @@ namespace Prog3.RestoDotNet.Business.Services
 {
     public class WaiterSvc : BaseService<Waiter, WaiterDto>, IWaiterSvc
     {
-        public WaiterSvc(IIdentityAppUow applicationUow, ILogger<WaiterSvc> logger)
-            : base(applicationUow, logger, new WaiterToDtoMapper())
+        public WaiterSvc(IApplicationUow applicationUow)
+            : base(applicationUow, new WaiterToDtoMapper())
         {
 
         }
@@ -26,7 +25,7 @@ namespace Prog3.RestoDotNet.Business.Services
 
             try
             {
-                var entityResult = await _uow.GetRepo<Waiter>().InsertAsync(pDto);
+                var entityResult = await _uow.GetRepo<Waiter>().InsertAsync(pDto.BaseEntity);
                 if (await _uow.CommitAsync())
                 {
                     response.Data = _mapper.MapEntity(entityResult);
@@ -76,7 +75,7 @@ namespace Prog3.RestoDotNet.Business.Services
 
             try
             {
-                await _uow.GetRepo<Waiter>().UpdateAsync(pWaiter);
+                await _uow.GetRepo<Waiter>().UpdateAsync(pWaiter.BaseEntity);
                 if (await _uow.CommitAsync())
                 {
                     response.Data = true;
