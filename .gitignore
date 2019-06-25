@@ -8,3 +8,5 @@ packages
 /Prog3.RestoDotNet.Model/obj
 /Prog3.RestoDotNet.Core/obj
 /Prog3.RestoDotNet.Core/bin
+/Prog3.RestoDotNet.App/obj
+/Prog3.RestoDotNet.App/bin

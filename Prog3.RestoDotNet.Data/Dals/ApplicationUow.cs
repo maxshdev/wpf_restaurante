@@ -14,6 +14,7 @@ namespace Prog3.RestoDotNet.Data.Dals
         public ApplicationUow(DbContext dbContext)
         {
             _dbContext = dbContext;
+            RepositoriesCache = new Dictionary<Type, object>();
         }
 
 

@@ -35,8 +35,9 @@ namespace Prog3.RestoDotNet.Business.Services
             throw new NotImplementedException();
         }
 
-        public Task<BLSingleResponse<TableDto>> GetByIdAsync(int pId)
+        public async Task<BLSingleResponse<TableDto>> GetByIdAsync(int pId)
         {
+            //var a = await _uow.GetRepo<Table>().GetByIdAsync(pId);
             throw new NotImplementedException();
         }
 
