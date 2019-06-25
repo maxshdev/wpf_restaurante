@@ -1,6 +1,6 @@
 ﻿namespace wf_restaurante
 {
-    partial class Form1
+    partial class FormMapEdition
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,155 +28,225 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.groupBoxTools = new System.Windows.Forms.GroupBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.mesaRed = new System.Windows.Forms.PictureBox();
-            this.mesaRec = new System.Windows.Forms.PictureBox();
-            this.btn_addTable = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.Map = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
-            this.splitContainer.Panel1.SuspendLayout();
-            this.splitContainer.Panel2.SuspendLayout();
-            this.splitContainer.SuspendLayout();
-            this.groupBoxTools.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mesaRed)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mesaRec)).BeginInit();
+            this.PnlLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.TabControlToolBox = new System.Windows.Forms.TabControl();
+            this.TabToolBoxTables = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.PnlToolBox = new System.Windows.Forms.Panel();
+            this.PnlButtons = new System.Windows.Forms.Panel();
+            this.BtnCancel = new System.Windows.Forms.Button();
+            this.BtnSave = new System.Windows.Forms.Button();
+            this.MesaRedo = new System.Windows.Forms.PictureBox();
+            this.MesaCuad = new System.Windows.Forms.PictureBox();
+            this.MesaRec = new System.Windows.Forms.PictureBox();
+            this.PnlMap = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.PnlLayout.SuspendLayout();
+            this.TabControlToolBox.SuspendLayout();
+            this.TabToolBoxTables.SuspendLayout();
+            this.PnlToolBox.SuspendLayout();
+            this.PnlButtons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MesaRedo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MesaCuad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MesaRec)).BeginInit();
             this.SuspendLayout();
             // 
-            // splitContainer
+            // PnlLayout
             // 
-            this.splitContainer.BackColor = System.Drawing.SystemColors.Control;
-            this.splitContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer.Name = "splitContainer";
+            this.PnlLayout.ColumnCount = 2;
+            this.PnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.72242F));
+            this.PnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.27758F));
+            this.PnlLayout.Controls.Add(this.PnlToolBox, 0, 0);
+            this.PnlLayout.Controls.Add(this.PnlMap, 1, 0);
+            this.PnlLayout.Controls.Add(this.PnlButtons, 0, 1);
+            this.PnlLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlLayout.Location = new System.Drawing.Point(0, 0);
+            this.PnlLayout.Name = "PnlLayout";
+            this.PnlLayout.RowCount = 2;
+            this.PnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.84862F));
+            this.PnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.151382F));
+            this.PnlLayout.Size = new System.Drawing.Size(1124, 568);
+            this.PnlLayout.TabIndex = 1;
             // 
-            // splitContainer.Panel1
+            // TabControlToolBox
             // 
-            this.splitContainer.Panel1.BackColor = System.Drawing.Color.Lavender;
-            this.splitContainer.Panel1.Controls.Add(this.groupBoxTools);
+            this.TabControlToolBox.Controls.Add(this.TabToolBoxTables);
+            this.TabControlToolBox.Controls.Add(this.tabPage2);
+            this.TabControlToolBox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.TabControlToolBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabControlToolBox.Location = new System.Drawing.Point(0, 0);
+            this.TabControlToolBox.Name = "TabControlToolBox";
+            this.TabControlToolBox.SelectedIndex = 0;
+            this.TabControlToolBox.Size = new System.Drawing.Size(136, 515);
+            this.TabControlToolBox.TabIndex = 2;
             // 
-            // splitContainer.Panel2
+            // TabToolBoxTables
             // 
-            this.splitContainer.Panel2.Controls.Add(this.button1);
-            this.splitContainer.Panel2.Controls.Add(this.Map);
-            this.splitContainer.Size = new System.Drawing.Size(784, 451);
-            this.splitContainer.SplitterDistance = 166;
-            this.splitContainer.TabIndex = 0;
+            this.TabToolBoxTables.Controls.Add(this.label3);
+            this.TabToolBoxTables.Controls.Add(this.label2);
+            this.TabToolBoxTables.Controls.Add(this.label1);
+            this.TabToolBoxTables.Controls.Add(this.MesaRedo);
+            this.TabToolBoxTables.Controls.Add(this.MesaCuad);
+            this.TabToolBoxTables.Controls.Add(this.MesaRec);
+            this.TabToolBoxTables.Location = new System.Drawing.Point(4, 22);
+            this.TabToolBoxTables.Name = "TabToolBoxTables";
+            this.TabToolBoxTables.Padding = new System.Windows.Forms.Padding(3);
+            this.TabToolBoxTables.Size = new System.Drawing.Size(128, 489);
+            this.TabToolBoxTables.TabIndex = 0;
+            this.TabToolBoxTables.Text = "Tables";
+            this.TabToolBoxTables.UseVisualStyleBackColor = true;
             // 
-            // groupBoxTools
+            // tabPage2
             // 
-            this.groupBoxTools.Controls.Add(this.pictureBox3);
-            this.groupBoxTools.Controls.Add(this.mesaRed);
-            this.groupBoxTools.Controls.Add(this.mesaRec);
-            this.groupBoxTools.Controls.Add(this.btn_addTable);
-            this.groupBoxTools.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxTools.Location = new System.Drawing.Point(3, 3);
-            this.groupBoxTools.Name = "groupBoxTools";
-            this.groupBoxTools.Size = new System.Drawing.Size(162, 442);
-            this.groupBoxTools.TabIndex = 0;
-            this.groupBoxTools.TabStop = false;
-            this.groupBoxTools.Text = "Herramientas";
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(128, 678);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Walls";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // pictureBox3
+            // PnlToolBox
             // 
-            this.pictureBox3.Image = global::wf_restaurante.Properties.Resources.woodfloor;
-            this.pictureBox3.Location = new System.Drawing.Point(28, 276);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(53, 50);
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseDown);
-            this.pictureBox3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseMove);
+            this.PnlToolBox.Controls.Add(this.TabControlToolBox);
+            this.PnlToolBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlToolBox.Location = new System.Drawing.Point(3, 3);
+            this.PnlToolBox.Name = "PnlToolBox";
+            this.PnlToolBox.Size = new System.Drawing.Size(136, 515);
+            this.PnlToolBox.TabIndex = 2;
             // 
-            // mesaRed
+            // PnlButtons
             // 
-            this.mesaRed.Image = global::wf_restaurante.Properties.Resources.woodfloor;
-            this.mesaRed.Location = new System.Drawing.Point(28, 197);
-            this.mesaRed.Name = "mesaRed";
-            this.mesaRed.Size = new System.Drawing.Size(53, 50);
-            this.mesaRed.TabIndex = 1;
-            this.mesaRed.TabStop = false;
-            this.mesaRed.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseDown);
-            this.mesaRed.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseMove);
+            this.PnlButtons.Controls.Add(this.BtnSave);
+            this.PnlButtons.Controls.Add(this.BtnCancel);
+            this.PnlButtons.Location = new System.Drawing.Point(3, 524);
+            this.PnlButtons.Name = "PnlButtons";
+            this.PnlButtons.Size = new System.Drawing.Size(136, 41);
+            this.PnlButtons.TabIndex = 3;
             // 
-            // mesaRec
+            // BtnCancel
             // 
-            this.mesaRec.Image = global::wf_restaurante.Properties.Resources.woodfloor;
-            this.mesaRec.Location = new System.Drawing.Point(28, 114);
-            this.mesaRec.Name = "mesaRec";
-            this.mesaRec.Size = new System.Drawing.Size(100, 50);
-            this.mesaRec.TabIndex = 1;
-            this.mesaRec.TabStop = false;
-            this.mesaRec.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseDown);
-            this.mesaRec.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseMove);
+            this.BtnCancel.Location = new System.Drawing.Point(9, 14);
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(48, 23);
+            this.BtnCancel.TabIndex = 4;
+            this.BtnCancel.Text = "Cancelar";
+            this.BtnCancel.UseVisualStyleBackColor = true;
             // 
-            // btn_addTable
+            // BtnSave
             // 
-            this.btn_addTable.BackColor = System.Drawing.Color.SandyBrown;
-            this.btn_addTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_addTable.Location = new System.Drawing.Point(8, 42);
-            this.btn_addTable.Name = "btn_addTable";
-            this.btn_addTable.Size = new System.Drawing.Size(148, 27);
-            this.btn_addTable.TabIndex = 0;
-            this.btn_addTable.Text = "Mesa";
-            this.btn_addTable.UseVisualStyleBackColor = false;
-            this.btn_addTable.Click += new System.EventHandler(this.Btn_addTable_Click);
+            this.BtnSave.Location = new System.Drawing.Point(64, 14);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(54, 23);
+            this.BtnSave.TabIndex = 5;
+            this.BtnSave.Text = "Guardar";
+            this.BtnSave.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // MesaRedo
             // 
-            this.button1.Location = new System.Drawing.Point(245, 200);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 30);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "mesa_1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.MesaRedo.Image = global::wf_restaurante.Properties.Resources.woodfloor;
+            this.MesaRedo.Location = new System.Drawing.Point(36, 332);
+            this.MesaRedo.Name = "MesaRedo";
+            this.MesaRedo.Size = new System.Drawing.Size(53, 50);
+            this.MesaRedo.TabIndex = 1;
+            this.MesaRedo.TabStop = false;
+            this.MesaRedo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
             // 
-            // Map
+            // MesaCuad
             // 
-            this.Map.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Map.AutoSize = true;
-            this.Map.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Map.Location = new System.Drawing.Point(249, 0);
-            this.Map.Name = "Map";
-            this.Map.Size = new System.Drawing.Size(96, 17);
-            this.Map.TabIndex = 0;
-            this.Map.Text = "---PLANO---";
+            this.MesaCuad.Image = global::wf_restaurante.Properties.Resources.woodfloor;
+            this.MesaCuad.Location = new System.Drawing.Point(36, 210);
+            this.MesaCuad.Name = "MesaCuad";
+            this.MesaCuad.Size = new System.Drawing.Size(53, 50);
+            this.MesaCuad.TabIndex = 1;
+            this.MesaCuad.TabStop = false;
+            this.MesaCuad.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
             // 
-            // Form1
+            // MesaRec
+            // 
+            this.MesaRec.Image = global::wf_restaurante.Properties.Resources.woodfloor;
+            this.MesaRec.Location = new System.Drawing.Point(36, 61);
+            this.MesaRec.Name = "MesaRec";
+            this.MesaRec.Size = new System.Drawing.Size(53, 86);
+            this.MesaRec.TabIndex = 1;
+            this.MesaRec.TabStop = false;
+            this.MesaRec.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            // 
+            // PnlMap
+            // 
+            this.PnlMap.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.PnlMap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlMap.Location = new System.Drawing.Point(145, 3);
+            this.PnlMap.Name = "PnlMap";
+            this.PnlMap.Size = new System.Drawing.Size(976, 515);
+            this.PnlMap.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(33, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Rect (6)";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(33, 194);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Cuad (2)";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(33, 316);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Red (4)";
+            // 
+            // FormMapEdition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 451);
-            this.Controls.Add(this.splitContainer);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.splitContainer.Panel1.ResumeLayout(false);
-            this.splitContainer.Panel2.ResumeLayout(false);
-            this.splitContainer.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
-            this.splitContainer.ResumeLayout(false);
-            this.groupBoxTools.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mesaRed)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mesaRec)).EndInit();
+            this.ClientSize = new System.Drawing.Size(1124, 568);
+            this.Controls.Add(this.PnlLayout);
+            this.Name = "FormMapEdition";
+            this.Text = "Edición";
+            this.PnlLayout.ResumeLayout(false);
+            this.TabControlToolBox.ResumeLayout(false);
+            this.TabToolBoxTables.ResumeLayout(false);
+            this.TabToolBoxTables.PerformLayout();
+            this.PnlToolBox.ResumeLayout(false);
+            this.PnlButtons.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MesaRedo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MesaCuad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MesaRec)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.SplitContainer splitContainer;
-        private System.Windows.Forms.Label Map;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.GroupBox groupBoxTools;
-        private System.Windows.Forms.Button btn_addTable;
-        private System.Windows.Forms.PictureBox mesaRec;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox mesaRed;
+        private System.Windows.Forms.PictureBox MesaRec;
+        private System.Windows.Forms.PictureBox MesaRedo;
+        private System.Windows.Forms.PictureBox MesaCuad;
+        private System.Windows.Forms.TableLayoutPanel PnlLayout;
+        private System.Windows.Forms.Panel PnlToolBox;
+        private System.Windows.Forms.TabControl TabControlToolBox;
+        private System.Windows.Forms.TabPage TabToolBoxTables;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Panel PnlMap;
+        private System.Windows.Forms.Panel PnlButtons;
+        private System.Windows.Forms.Button BtnSave;
+        private System.Windows.Forms.Button BtnCancel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 

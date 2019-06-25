@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Pandora.NetStandard.Core.Interfaces;
+using Pandora.NetStandard.Core.Mapper;
 using Prog3.RestoDotNet.Business.Services;
 using Prog3.RestoDotNet.Business.Services.Contracts;
 using Prog3.RestoDotNet.Data.Dals;
@@ -24,7 +25,7 @@ namespace wf_restaurante
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             RegisterContainers();
-            Application.Run(container.Resolve<Form1>());
+            Application.Run(container.Resolve<FormMapEdition>());
         }
 
         private static void RegisterContainers()
@@ -35,6 +36,7 @@ namespace wf_restaurante
 
 
             // Register your types, for instance:
+            container.RegisterSingleton<IMapperCore, GenericMapperCore>();
             container.RegisterSingleton<DbContext, RestoDbContext>();
             container.RegisterType<IApplicationUow, ApplicationUow>();
             container.RegisterType<ITableSvc, TableSvc>();
