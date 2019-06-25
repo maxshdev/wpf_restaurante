@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\vsnet\\wpf_restaurante\\Prog3.RestoDotNet.Model\\Prog3.RestoDotNet.Model.csproj": {}
+    "F:\\VSNET\\wpf_restaurante\\Prog3.RestoDotNet.Model\\Prog3.RestoDotNet.Model.csproj": {}
   },
   "projects": {
-    "E:\\vsnet\\wpf_restaurante\\Prog3.RestoDotNet.Model\\Prog3.RestoDotNet.Model.csproj": {
+    "F:\\VSNET\\wpf_restaurante\\Prog3.RestoDotNet.Model\\Prog3.RestoDotNet.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\vsnet\\wpf_restaurante\\Prog3.RestoDotNet.Model\\Prog3.RestoDotNet.Model.csproj",
+        "projectUniqueName": "F:\\VSNET\\wpf_restaurante\\Prog3.RestoDotNet.Model\\Prog3.RestoDotNet.Model.csproj",
         "projectName": "Prog3.RestoDotNet.Model",
-        "projectPath": "E:\\vsnet\\wpf_restaurante\\Prog3.RestoDotNet.Model\\Prog3.RestoDotNet.Model.csproj",
-        "packagesPath": "C:\\Users\\PC-Max\\.nuget\\packages\\",
-        "outputPath": "E:\\vsnet\\wpf_restaurante\\Prog3.RestoDotNet.Model\\obj\\",
+        "projectPath": "F:\\VSNET\\wpf_restaurante\\Prog3.RestoDotNet.Model\\Prog3.RestoDotNet.Model.csproj",
+        "packagesPath": "C:\\Users\\CPCE-MAX\\.nuget\\packages\\",
+        "outputPath": "F:\\VSNET\\wpf_restaurante\\Prog3.RestoDotNet.Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\PC-Max\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\CPCE-MAX\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
