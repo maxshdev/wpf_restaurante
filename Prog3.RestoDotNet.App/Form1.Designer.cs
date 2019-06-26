@@ -225,19 +225,21 @@
             this.fijarToolStripMenuItem,
             this.eliminarToolStripMenuItem});
             this.cmenuStripTable.Name = "cmenuStripTable";
-            this.cmenuStripTable.Size = new System.Drawing.Size(118, 48);
+            this.cmenuStripTable.Size = new System.Drawing.Size(181, 70);
             // 
             // fijarToolStripMenuItem
             // 
             this.fijarToolStripMenuItem.Name = "fijarToolStripMenuItem";
-            this.fijarToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.fijarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fijarToolStripMenuItem.Text = "Fijar";
+            this.fijarToolStripMenuItem.Click += new System.EventHandler(this.FijarToolStripMenuItem_Click);
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.EliminarToolStripMenuItem_Click);
             // 
             // FormMapEdition
             // 

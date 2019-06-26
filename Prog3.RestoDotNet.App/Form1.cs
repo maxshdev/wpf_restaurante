@@ -106,5 +106,17 @@ namespace wf_restaurante
                 Size = ctr.Size
             };
         }
+
+        private void FijarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Control ctr = (Control)sender; //ESTE ES EL CONTEXT MENU STRIP
+            
+            this.PnlMap.Controls.Remove(ctr);
+        }
     }
 }
