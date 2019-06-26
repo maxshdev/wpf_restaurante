@@ -85,6 +85,9 @@ namespace wf_restaurante
                 moveableItem = CreateMoveableTable(sender as PictureBox);
                 moveableItem.Left = 300;
                 moveableItem.Top = 300;
+                moveableItem.Width = 90;
+                moveableItem.Height = 90;
+                moveableItem.SizeMode = PictureBoxSizeMode.StretchImage;
 
                 this.PnlMap.Controls.Add(moveableItem);
                 this.SetAsMoveable();
