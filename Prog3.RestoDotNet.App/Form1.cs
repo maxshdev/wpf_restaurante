@@ -1,5 +1,6 @@
 ﻿using Pandora.NetStandard.Core.Mapper;
 using Prog3.RestoDotNet.Business.Services.Contracts;
+using Prog3.RestoDotNet.Model.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -117,6 +118,18 @@ namespace wf_restaurante
             Control ctr = (Control)sender; //ESTE ES EL CONTEXT MENU STRIP
             
             this.PnlMap.Controls.Remove(ctr);
+        }
+
+        private async void BtnSave_Click(object sender, EventArgs e)
+        {
+            //TODO: al presionar guardar llenar esta lista con las mesas creadas luego de ediar el mapa
+            var tableList = new List<TableDto>();
+            var svcResp = await _tableSvc.SetInitialTableArrangementAsync(tableList);
+
+            if (svcResp.HasError)
+            {
+                //TODO tratar error
+            }
         }
     }
 }

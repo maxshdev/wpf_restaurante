@@ -41,9 +41,26 @@ namespace Prog3.RestoDotNet.Business.Services
             throw new NotImplementedException();
         }
 
-        public Task<BLSingleResponse<bool>> SetInitialTableArrangementAsync(IEnumerable<TableDto> tablesDtos)
+        public async Task<BLSingleResponse<bool>> SetInitialTableArrangementAsync(IEnumerable<TableDto> tablesDtos)
         {
-            throw new NotImplementedException();
+            var response = new BLSingleResponse<bool>();
+
+            try
+            {
+                foreach (TableDto table in tablesDtos)
+                {
+                    
+                    await _uow.GetRepo<Table>().InsertAsync(table.BaseEntity);
+                }
+
+                response.Data = await _uow.CommitAsync();
+            }
+            catch (Exception ex)
+            {
+                HandleSVCException(ex);
+            }
+
+            return response;
         }
 
         public Task<BLSingleResponse<bool>> UpdateAsync(TableDto pDto)

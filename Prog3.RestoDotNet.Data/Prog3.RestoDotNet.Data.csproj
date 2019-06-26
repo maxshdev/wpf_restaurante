@@ -51,6 +51,10 @@
     <Compile Include="Dals\ApplicationUow.cs" />
     <Compile Include="Dals\EfRepository.cs" />
     <Compile Include="Dals\RestoDbContext.cs" />
+    <Compile Include="Migrations\201906261859181_initialMigration.cs" />
+    <Compile Include="Migrations\201906261859181_initialMigration.Designer.cs">
+      <DependentUpon>201906261859181_initialMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -67,6 +71,11 @@
       <Project>{453418b3-40ca-4dc3-95b8-411041b3ccc7}</Project>
       <Name>Prog3.RestoDotNet.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201906261859181_initialMigration.resx">
+      <DependentUpon>201906261859181_initialMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
