@@ -1,4 +1,4 @@
-﻿namespace wf_restaurante
+﻿namespace Prog3.RestoDotNet.App
 {
     partial class FormMapEdition
     {
@@ -219,6 +219,7 @@
             this.BtnCancel.TabIndex = 4;
             this.BtnCancel.Text = "Cancelar";
             this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // cmenuStripTable
             // 
@@ -249,7 +250,7 @@
             this.ClientSize = new System.Drawing.Size(1124, 568);
             this.Controls.Add(this.PnlLayout);
             this.Name = "FormMapEdition";
-            this.Text = "Edición";
+            this.Text = "Editar Mapa";
             this.PnlLayout.ResumeLayout(false);
             this.PnlToolBox.ResumeLayout(false);
             this.TabControlToolBox.ResumeLayout(false);

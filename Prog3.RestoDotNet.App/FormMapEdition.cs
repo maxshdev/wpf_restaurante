@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace wf_restaurante
+namespace Prog3.RestoDotNet.App
 {
     public partial class FormMapEdition : Form
     {
@@ -130,6 +130,17 @@ namespace wf_restaurante
             {
                 //TODO tratar error
             }
+
+            if (svcResp.Data)
+            {
+                //TODO: guardar antes el mapa
+                this.Close();
+            }
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

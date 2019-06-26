@@ -19,9 +19,9 @@ namespace Prog3.RestoDotNet.Business.States
                 case TableStateEnum.AVAILABLE:
                     return new TableAvailableState();
                 case TableStateEnum.OCCUPIED:
-                    return null;
+                    return new TableOccupiedState();
                 case TableStateEnum.RESERVED:
-                    return null;
+                    return new TableReservedState();
                 default:
                     return new TableAvailableState();
             }

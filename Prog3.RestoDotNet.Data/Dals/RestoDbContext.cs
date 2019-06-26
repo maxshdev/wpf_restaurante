@@ -19,7 +19,7 @@ namespace Prog3.RestoDotNet.Data.Dals
         public virtual IDbSet<Chair> Chairs { get; set; }
         public virtual IDbSet<Meal> Meals { get; set; }
         public virtual IDbSet<Waiter> Waiters { get; set; }
-
+        public virtual IDbSet<Order> Orders { get; set; }
 
     }
 }

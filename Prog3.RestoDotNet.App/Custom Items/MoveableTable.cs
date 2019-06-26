@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace wf_restaurante
+namespace Prog3.RestoDotNet.App
 {
     public class MoveableTable : PictureBox
     {

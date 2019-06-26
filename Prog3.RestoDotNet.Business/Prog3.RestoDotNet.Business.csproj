@@ -50,10 +50,13 @@
     <Compile Include="Services\Contracts\IOrderSvc.cs" />
     <Compile Include="Services\Contracts\ITableSvc.cs" />
     <Compile Include="Services\Contracts\IWaiterSvc.cs" />
+    <Compile Include="Services\OrderSvc.cs" />
     <Compile Include="Services\TableSvc.cs" />
     <Compile Include="Services\WaiterSvc.cs" />
     <Compile Include="States\StateManager.cs" />
     <Compile Include="States\StateManagerException.cs" />
+    <Compile Include="States\TableOccupiedState.cs" />
+    <Compile Include="States\TableReservedState.cs" />
     <Compile Include="States\TableAvailableState.cs" />
   </ItemGroup>
   <ItemGroup>

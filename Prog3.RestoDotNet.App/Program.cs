@@ -11,7 +11,7 @@ using Prog3.RestoDotNet.Business.Services.Contracts;
 using Prog3.RestoDotNet.Data.Dals;
 using Unity;
 
-namespace wf_restaurante
+namespace Prog3.RestoDotNet.App
 {
     static class Program
     {
@@ -25,7 +25,7 @@ namespace wf_restaurante
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             RegisterContainers();
-            Application.Run(container.Resolve<FormMapEdition>());
+            Application.Run(container.Resolve<FormMain>());
         }
 
         private static void RegisterContainers()
@@ -40,7 +40,7 @@ namespace wf_restaurante
             container.RegisterSingleton<DbContext, RestoDbContext>();
             container.RegisterType<IApplicationUow, ApplicationUow>();
             container.RegisterType<ITableSvc, TableSvc>();
-
+            container.RegisterType<IOrderSvc, OrderSvc>();
         }
     }
 }
