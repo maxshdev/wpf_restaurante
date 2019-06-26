@@ -89,6 +89,8 @@ namespace wf_restaurante
                 moveableItem.Height = 90;
                 moveableItem.SizeMode = PictureBoxSizeMode.StretchImage;
 
+                moveableItem.ContextMenuStrip = this.cmenuStripTable;
+
                 this.PnlMap.Controls.Add(moveableItem);
                 this.SetAsMoveable();
             }
