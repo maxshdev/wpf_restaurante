@@ -108,7 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Prog3.RestoDotNet.Business\Prog3.RestoDotNet.Business.csproj">
-      <Project>{1c9a096b-e1b1-40bd-b135-a4426ebf3cf2}</Project>
+      <Project>{c9e2aa95-1642-41dc-9167-ad197c7a9daf}</Project>
       <Name>Prog3.RestoDotNet.Business</Name>
     </ProjectReference>
     <ProjectReference Include="..\Prog3.RestoDotNet.Core\Prog3.RestoDotNet.Core.csproj">
@@ -116,11 +116,11 @@
       <Name>Prog3.RestoDotNet.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Prog3.RestoDotNet.Data\Prog3.RestoDotNet.Data.csproj">
-      <Project>{9b795e98-afb6-4a75-9b16-51d089f01c90}</Project>
+      <Project>{d750350e-57ef-4413-8729-ca8876b74ea9}</Project>
       <Name>Prog3.RestoDotNet.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Prog3.RestoDotNet.Model\Prog3.RestoDotNet.Model.csproj">
-      <Project>{7268a6c5-ef3e-4b67-a500-cac9d7f78eb1}</Project>
+      <Project>{453418b3-40ca-4dc3-95b8-411041b3ccc7}</Project>
       <Name>Prog3.RestoDotNet.Model</Name>
     </ProjectReference>
   </ItemGroup>

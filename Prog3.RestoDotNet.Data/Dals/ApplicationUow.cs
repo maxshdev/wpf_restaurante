@@ -9,9 +9,9 @@ namespace Prog3.RestoDotNet.Data.Dals
 {
     public class ApplicationUow : IApplicationUow, IDisposable
     {
-        private readonly DbContext _dbContext;
+        private readonly RestoDbContext _dbContext;
 
-        public ApplicationUow(DbContext dbContext)
+        public ApplicationUow(RestoDbContext dbContext)
         {
             _dbContext = dbContext;
             RepositoriesCache = new Dictionary<Type, object>();
@@ -46,7 +46,7 @@ namespace Prog3.RestoDotNet.Data.Dals
 
         protected Dictionary<Type, object> RepositoriesCache { get; private set; }
 
-        public T GetRepository<T>(Func<DbContext, object> factory = null) where T : class
+        public T GetRepository<T>(Func<RestoDbContext, object> factory = null) where T : class
         {
             // Look for T dictionary cache under typeof(T).
             RepositoriesCache.TryGetValue(typeof(T), out object repoObj);
@@ -59,7 +59,7 @@ namespace Prog3.RestoDotNet.Data.Dals
             return MakeRepository<T>(factory, _dbContext);
         }
 
-        protected virtual T MakeRepository<T>(Func<DbContext, object> factory, DbContext dbContext)
+        protected virtual T MakeRepository<T>(Func<RestoDbContext, object> factory, RestoDbContext dbContext)
         {
             //var f = factory ?? _repositoryFactories.GetRepositoryFactory<T>();
             if (factory == null)

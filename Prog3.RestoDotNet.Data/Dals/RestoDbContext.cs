@@ -8,16 +8,17 @@ namespace Prog3.RestoDotNet.Data.Dals
 {
     public class RestoDbContext : DbContext
     {
-        public RestoDbContext()
-        {
+#if DEBUG
+        public RestoDbContext() : base("name=DebugConnection") { }
+#else
+        public RestoDbContext() : base("name=ReleaseConnection") { }
+#endif
 
-        }
 
-
-        public DbSet<Table> Tables { get; set; }
-        public DbSet<Chair> Chairs { get; set; }
-        public DbSet<Meal> Meals { get; set; }
-        public DbSet<Waiter> Waiters { get; set; }
+        public virtual IDbSet<Table> Tables { get; set; }
+        public virtual IDbSet<Chair> Chairs { get; set; }
+        public virtual IDbSet<Meal> Meals { get; set; }
+        public virtual IDbSet<Waiter> Waiters { get; set; }
 
 
     }

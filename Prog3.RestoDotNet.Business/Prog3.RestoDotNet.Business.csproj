@@ -1,22 +1,77 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <LangVersion>latest</LangVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C9E2AA95-1642-41DC-9167-AD197C7A9DAF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Prog3.RestoDotNet.Business</RootNamespace>
+    <AssemblyName>Prog3.RestoDotNet.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
-
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Services\AuthSvc.cs" />
+    <Reference Include="AutoMapper, Version=8.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.8.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
-
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="8.1.1" />
+    <Compile Include="Mappers\TableToDtoMapper.cs" />
+    <Compile Include="Mappers\WaiterToDtoMapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Contracts\IOrderSvc.cs" />
+    <Compile Include="Services\Contracts\ITableSvc.cs" />
+    <Compile Include="Services\Contracts\IWaiterSvc.cs" />
+    <Compile Include="Services\TableSvc.cs" />
+    <Compile Include="Services\WaiterSvc.cs" />
+    <Compile Include="States\StateManager.cs" />
+    <Compile Include="States\StateManagerException.cs" />
+    <Compile Include="States\TableAvailableState.cs" />
   </ItemGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\Prog3.RestoDotNet.Core\Prog3.RestoDotNet.Core.csproj" />
-    <ProjectReference Include="..\Prog3.RestoDotNet.Data\Prog3.RestoDotNet.Data.csproj" />
-    <ProjectReference Include="..\Prog3.RestoDotNet.Model\Prog3.RestoDotNet.Model.csproj" />
+    <None Include="packages.config" />
   </ItemGroup>
-
+  <ItemGroup>
+    <ProjectReference Include="..\Prog3.RestoDotNet.Core\Prog3.RestoDotNet.Core.csproj">
+      <Project>{e0051e3a-e77f-43b8-8771-da507e1eae81}</Project>
+      <Name>Prog3.RestoDotNet.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prog3.RestoDotNet.Data\Prog3.RestoDotNet.Data.csproj">
+      <Project>{d750350e-57ef-4413-8729-ca8876b74ea9}</Project>
+      <Name>Prog3.RestoDotNet.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prog3.RestoDotNet.Model\Prog3.RestoDotNet.Model.csproj">
+      <Project>{453418b3-40ca-4dc3-95b8-411041b3ccc7}</Project>
+      <Name>Prog3.RestoDotNet.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

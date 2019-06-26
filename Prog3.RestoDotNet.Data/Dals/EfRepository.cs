@@ -11,10 +11,10 @@ namespace Prog3.RestoDotNet.Data.Dals
 {
     public class EfRepository<TEntity> : IEfRepository<TEntity> where TEntity : class
     {
-        protected readonly DbContext _dbContext;
+        protected readonly RestoDbContext _dbContext;
         protected readonly DbSet<TEntity> _dbSet;
 
-        public EfRepository(DbContext context)
+        public EfRepository(RestoDbContext context)
         {
             _dbContext = context;
             _dbSet = _dbContext.Set<TEntity>();
