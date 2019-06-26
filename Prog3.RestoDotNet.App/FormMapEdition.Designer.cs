@@ -110,7 +110,7 @@
             this.TabToolBoxTables.Padding = new System.Windows.Forms.Padding(3);
             this.TabToolBoxTables.Size = new System.Drawing.Size(128, 489);
             this.TabToolBoxTables.TabIndex = 0;
-            this.TabToolBoxTables.Text = "Tables";
+            this.TabToolBoxTables.Text = "Mesas";
             this.TabToolBoxTables.UseVisualStyleBackColor = true;
             // 
             // label3
@@ -180,7 +180,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(128, 489);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Walls";
+            this.tabPage2.Text = "Paredes";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // PnlMap
@@ -203,7 +203,7 @@
             // 
             // BtnSave
             // 
-            this.BtnSave.Location = new System.Drawing.Point(64, 14);
+            this.BtnSave.Location = new System.Drawing.Point(73, 14);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(54, 23);
             this.BtnSave.TabIndex = 5;
@@ -215,7 +215,7 @@
             // 
             this.BtnCancel.Location = new System.Drawing.Point(9, 14);
             this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(48, 23);
+            this.BtnCancel.Size = new System.Drawing.Size(58, 23);
             this.BtnCancel.TabIndex = 4;
             this.BtnCancel.Text = "Cancelar";
             this.BtnCancel.UseVisualStyleBackColor = true;

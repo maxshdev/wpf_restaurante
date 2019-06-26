@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mappers\OrderToDtoMapper.cs" />
     <Compile Include="Mappers\TableToDtoMapper.cs" />
     <Compile Include="Mappers\WaiterToDtoMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -53,7 +54,7 @@
     <Compile Include="Services\OrderSvc.cs" />
     <Compile Include="Services\TableSvc.cs" />
     <Compile Include="Services\WaiterSvc.cs" />
-    <Compile Include="States\StateManager.cs" />
+    <Compile Include="States\TableStateManager.cs" />
     <Compile Include="States\StateManagerException.cs" />
     <Compile Include="States\TableOccupiedState.cs" />
     <Compile Include="States\TableReservedState.cs" />

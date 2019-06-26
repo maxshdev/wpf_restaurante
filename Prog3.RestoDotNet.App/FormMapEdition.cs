@@ -1,5 +1,4 @@
-﻿using Pandora.NetStandard.Core.Mapper;
-using Prog3.RestoDotNet.Business.Services.Contracts;
+﻿using Prog3.RestoDotNet.Business.Services.Contracts;
 using Prog3.RestoDotNet.Model.Dtos;
 using System;
 using System.Collections.Generic;
@@ -109,14 +108,14 @@ namespace Prog3.RestoDotNet.App
         }
 
         private void FijarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        {            
 
         }
 
         private void EliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Control ctr = (Control)sender; //ESTE ES EL CONTEXT MENU STRIP
-            
+
             this.PnlMap.Controls.Remove(ctr);
         }
 
