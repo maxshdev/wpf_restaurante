@@ -28,29 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMapEdition));
             this.PnlLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.PnlToolBox = new System.Windows.Forms.Panel();
             this.TabControlToolBox = new System.Windows.Forms.TabControl();
             this.TabToolBoxTables = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.PnlToolBox = new System.Windows.Forms.Panel();
-            this.PnlButtons = new System.Windows.Forms.Panel();
-            this.BtnCancel = new System.Windows.Forms.Button();
-            this.BtnSave = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.MesaRedo = new System.Windows.Forms.PictureBox();
             this.MesaCuad = new System.Windows.Forms.PictureBox();
             this.MesaRec = new System.Windows.Forms.PictureBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.PnlMap = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.PnlButtons = new System.Windows.Forms.Panel();
+            this.BtnSave = new System.Windows.Forms.Button();
+            this.BtnCancel = new System.Windows.Forms.Button();
             this.PnlLayout.SuspendLayout();
+            this.PnlToolBox.SuspendLayout();
             this.TabControlToolBox.SuspendLayout();
             this.TabToolBoxTables.SuspendLayout();
-            this.PnlToolBox.SuspendLayout();
-            this.PnlButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MesaRedo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MesaCuad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MesaRec)).BeginInit();
+            this.PnlButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnlLayout
@@ -69,6 +70,15 @@
             this.PnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.151382F));
             this.PnlLayout.Size = new System.Drawing.Size(1124, 568);
             this.PnlLayout.TabIndex = 1;
+            // 
+            // PnlToolBox
+            // 
+            this.PnlToolBox.Controls.Add(this.TabControlToolBox);
+            this.PnlToolBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlToolBox.Location = new System.Drawing.Point(3, 3);
+            this.PnlToolBox.Name = "PnlToolBox";
+            this.PnlToolBox.Size = new System.Drawing.Size(136, 515);
+            this.PnlToolBox.TabIndex = 2;
             // 
             // TabControlToolBox
             // 
@@ -98,99 +108,14 @@
             this.TabToolBoxTables.Text = "Tables";
             this.TabToolBoxTables.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // label3
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(128, 678);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Walls";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // PnlToolBox
-            // 
-            this.PnlToolBox.Controls.Add(this.TabControlToolBox);
-            this.PnlToolBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlToolBox.Location = new System.Drawing.Point(3, 3);
-            this.PnlToolBox.Name = "PnlToolBox";
-            this.PnlToolBox.Size = new System.Drawing.Size(136, 515);
-            this.PnlToolBox.TabIndex = 2;
-            // 
-            // PnlButtons
-            // 
-            this.PnlButtons.Controls.Add(this.BtnSave);
-            this.PnlButtons.Controls.Add(this.BtnCancel);
-            this.PnlButtons.Location = new System.Drawing.Point(3, 524);
-            this.PnlButtons.Name = "PnlButtons";
-            this.PnlButtons.Size = new System.Drawing.Size(136, 41);
-            this.PnlButtons.TabIndex = 3;
-            // 
-            // BtnCancel
-            // 
-            this.BtnCancel.Location = new System.Drawing.Point(9, 14);
-            this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(48, 23);
-            this.BtnCancel.TabIndex = 4;
-            this.BtnCancel.Text = "Cancelar";
-            this.BtnCancel.UseVisualStyleBackColor = true;
-            // 
-            // BtnSave
-            // 
-            this.BtnSave.Location = new System.Drawing.Point(64, 14);
-            this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(54, 23);
-            this.BtnSave.TabIndex = 5;
-            this.BtnSave.Text = "Guardar";
-            this.BtnSave.UseVisualStyleBackColor = true;
-            // 
-            // MesaRedo
-            // 
-            this.MesaRedo.Image = global::wf_restaurante.Properties.Resources.woodfloor;
-            this.MesaRedo.Location = new System.Drawing.Point(36, 332);
-            this.MesaRedo.Name = "MesaRedo";
-            this.MesaRedo.Size = new System.Drawing.Size(53, 50);
-            this.MesaRedo.TabIndex = 1;
-            this.MesaRedo.TabStop = false;
-            this.MesaRedo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
-            // 
-            // MesaCuad
-            // 
-            this.MesaCuad.Image = global::wf_restaurante.Properties.Resources.woodfloor;
-            this.MesaCuad.Location = new System.Drawing.Point(36, 210);
-            this.MesaCuad.Name = "MesaCuad";
-            this.MesaCuad.Size = new System.Drawing.Size(53, 50);
-            this.MesaCuad.TabIndex = 1;
-            this.MesaCuad.TabStop = false;
-            this.MesaCuad.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
-            // 
-            // MesaRec
-            // 
-            this.MesaRec.Image = global::wf_restaurante.Properties.Resources.woodfloor;
-            this.MesaRec.Location = new System.Drawing.Point(36, 61);
-            this.MesaRec.Name = "MesaRec";
-            this.MesaRec.Size = new System.Drawing.Size(53, 86);
-            this.MesaRec.TabIndex = 1;
-            this.MesaRec.TabStop = false;
-            this.MesaRec.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
-            // 
-            // PnlMap
-            // 
-            this.PnlMap.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.PnlMap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlMap.Location = new System.Drawing.Point(145, 3);
-            this.PnlMap.Name = "PnlMap";
-            this.PnlMap.Size = new System.Drawing.Size(976, 515);
-            this.PnlMap.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Rect (6)";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(33, 316);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Red (4)";
             // 
             // label2
             // 
@@ -201,14 +126,93 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Cuad (2)";
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 316);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Red (4)";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(33, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Rect (6)";
+            // 
+            // MesaRedo
+            // 
+            this.MesaRedo.Image = ((System.Drawing.Image)(resources.GetObject("MesaRedo.Image")));
+            this.MesaRedo.Location = new System.Drawing.Point(36, 332);
+            this.MesaRedo.Name = "MesaRedo";
+            this.MesaRedo.Size = new System.Drawing.Size(53, 50);
+            this.MesaRedo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.MesaRedo.TabIndex = 1;
+            this.MesaRedo.TabStop = false;
+            this.MesaRedo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            // 
+            // MesaCuad
+            // 
+            this.MesaCuad.Image = ((System.Drawing.Image)(resources.GetObject("MesaCuad.Image")));
+            this.MesaCuad.Location = new System.Drawing.Point(36, 210);
+            this.MesaCuad.Name = "MesaCuad";
+            this.MesaCuad.Size = new System.Drawing.Size(53, 50);
+            this.MesaCuad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.MesaCuad.TabIndex = 1;
+            this.MesaCuad.TabStop = false;
+            this.MesaCuad.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            // 
+            // MesaRec
+            // 
+            this.MesaRec.Image = ((System.Drawing.Image)(resources.GetObject("MesaRec.Image")));
+            this.MesaRec.Location = new System.Drawing.Point(36, 61);
+            this.MesaRec.Name = "MesaRec";
+            this.MesaRec.Size = new System.Drawing.Size(53, 86);
+            this.MesaRec.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.MesaRec.TabIndex = 1;
+            this.MesaRec.TabStop = false;
+            this.MesaRec.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(128, 489);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Walls";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // PnlMap
+            // 
+            this.PnlMap.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.PnlMap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlMap.Location = new System.Drawing.Point(145, 3);
+            this.PnlMap.Name = "PnlMap";
+            this.PnlMap.Size = new System.Drawing.Size(976, 515);
+            this.PnlMap.TabIndex = 1;
+            // 
+            // PnlButtons
+            // 
+            this.PnlButtons.Controls.Add(this.BtnSave);
+            this.PnlButtons.Controls.Add(this.BtnCancel);
+            this.PnlButtons.Location = new System.Drawing.Point(3, 524);
+            this.PnlButtons.Name = "PnlButtons";
+            this.PnlButtons.Size = new System.Drawing.Size(136, 41);
+            this.PnlButtons.TabIndex = 3;
+            // 
+            // BtnSave
+            // 
+            this.BtnSave.Location = new System.Drawing.Point(64, 14);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(54, 23);
+            this.BtnSave.TabIndex = 5;
+            this.BtnSave.Text = "Guardar";
+            this.BtnSave.UseVisualStyleBackColor = true;
+            // 
+            // BtnCancel
+            // 
+            this.BtnCancel.Location = new System.Drawing.Point(9, 14);
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(48, 23);
+            this.BtnCancel.TabIndex = 4;
+            this.BtnCancel.Text = "Cancelar";
+            this.BtnCancel.UseVisualStyleBackColor = true;
             // 
             // FormMapEdition
             // 
@@ -219,14 +223,14 @@
             this.Name = "FormMapEdition";
             this.Text = "Edición";
             this.PnlLayout.ResumeLayout(false);
+            this.PnlToolBox.ResumeLayout(false);
             this.TabControlToolBox.ResumeLayout(false);
             this.TabToolBoxTables.ResumeLayout(false);
             this.TabToolBoxTables.PerformLayout();
-            this.PnlToolBox.ResumeLayout(false);
-            this.PnlButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MesaRedo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MesaCuad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MesaRec)).EndInit();
+            this.PnlButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
