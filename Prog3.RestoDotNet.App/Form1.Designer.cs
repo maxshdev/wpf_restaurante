@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMapEdition));
             this.PnlLayout = new System.Windows.Forms.TableLayoutPanel();
             this.PnlToolBox = new System.Windows.Forms.Panel();
@@ -44,6 +45,9 @@
             this.PnlButtons = new System.Windows.Forms.Panel();
             this.BtnSave = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
+            this.cmenuStripTable = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.fijarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PnlLayout.SuspendLayout();
             this.PnlToolBox.SuspendLayout();
             this.TabControlToolBox.SuspendLayout();
@@ -52,6 +56,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MesaCuad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MesaRec)).BeginInit();
             this.PnlButtons.SuspendLayout();
+            this.cmenuStripTable.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnlLayout
@@ -214,6 +219,28 @@
             this.BtnCancel.Text = "Cancelar";
             this.BtnCancel.UseVisualStyleBackColor = true;
             // 
+            // cmenuStripTable
+            // 
+            this.cmenuStripTable.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fijarToolStripMenuItem,
+            this.eliminarToolStripMenuItem});
+            this.cmenuStripTable.Name = "cmenuStripTable";
+            this.cmenuStripTable.Size = new System.Drawing.Size(181, 70);
+            // 
+            // fijarToolStripMenuItem
+            // 
+            this.fijarToolStripMenuItem.Name = "fijarToolStripMenuItem";
+            this.fijarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fijarToolStripMenuItem.Text = "Fijar";
+            this.fijarToolStripMenuItem.Click += new System.EventHandler(this.FijarToolStripMenuItem_Click);
+            // 
+            // eliminarToolStripMenuItem
+            // 
+            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.EliminarToolStripMenuItem_Click);
+            // 
             // FormMapEdition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,6 +258,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MesaCuad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MesaRec)).EndInit();
             this.PnlButtons.ResumeLayout(false);
+            this.cmenuStripTable.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -251,6 +279,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ContextMenuStrip cmenuStripTable;
+        private System.Windows.Forms.ToolStripMenuItem fijarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
     }
 }
 

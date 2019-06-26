@@ -85,6 +85,11 @@ namespace wf_restaurante
                 moveableItem = CreateMoveableTable(sender as PictureBox);
                 moveableItem.Left = 300;
                 moveableItem.Top = 300;
+                moveableItem.Width = 90;
+                moveableItem.Height = 90;
+                moveableItem.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                moveableItem.ContextMenuStrip = this.cmenuStripTable;
 
                 this.PnlMap.Controls.Add(moveableItem);
                 this.SetAsMoveable();
@@ -100,6 +105,18 @@ namespace wf_restaurante
                 Name = "temp",
                 Size = ctr.Size
             };
+        }
+
+        private void FijarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Control ctr = (Control)sender; //ESTE ES EL CONTEXT MENU STRIP
+            
+            this.PnlMap.Controls.Remove(ctr);
         }
     }
 }
