@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.btnMapEdit = new System.Windows.Forms.Button();
+            this.btnMapLoad = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnMapEdit
@@ -41,11 +42,22 @@
             this.btnMapEdit.UseVisualStyleBackColor = true;
             this.btnMapEdit.Click += new System.EventHandler(this.BtnMapEdit_Click);
             // 
+            // btnMapLoad
+            // 
+            this.btnMapLoad.Location = new System.Drawing.Point(369, 218);
+            this.btnMapLoad.Name = "btnMapLoad";
+            this.btnMapLoad.Size = new System.Drawing.Size(84, 23);
+            this.btnMapLoad.TabIndex = 1;
+            this.btnMapLoad.Text = "Cargar Mapa";
+            this.btnMapLoad.UseVisualStyleBackColor = true;
+            this.btnMapLoad.Click += new System.EventHandler(this.BtnMapLoad_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnMapLoad);
             this.Controls.Add(this.btnMapEdit);
             this.Name = "FormMain";
             this.Text = "Resto DotNet";
@@ -56,5 +68,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnMapEdit;
+        private System.Windows.Forms.Button btnMapLoad;
     }
 }

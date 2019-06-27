@@ -3,7 +3,10 @@ using Prog3.RestoDotNet.Model.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace Prog3.RestoDotNet.App
 {
@@ -123,6 +126,14 @@ namespace Prog3.RestoDotNet.App
         {
             //TODO: al presionar guardar llenar esta lista con las mesas creadas luego de ediar el mapa
             var tableList = new List<TableDto>();
+
+            List<Control> controlsPictureBox = this.PnlMap.Controls.OfType<MoveableTable>().Cast<Control>().ToList();
+
+            foreach (MoveableTable item in controlsPictureBox)
+            {
+                tableList.Add(item.BindedEntity);
+            }
+
             var svcResp = await _tableSvc.SetInitialTableArrangementAsync(tableList);
 
             if (svcResp.HasError)
@@ -133,8 +144,16 @@ namespace Prog3.RestoDotNet.App
             if (svcResp.Data)
             {
                 //TODO: guardar antes el mapa
+                XmlSerializer xs = new XmlSerializer(typeof(TableLayoutPanel));
+                using (FileStream fs = new FileStream("MapEdition.xml", FileMode.Create))
+                {
+                    xs.Serialize(fs, this.PnlMap);
+                }
+
                 this.Close();
             }
+
+
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
