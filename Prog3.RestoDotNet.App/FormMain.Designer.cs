@@ -35,9 +35,10 @@
             // 
             // btnMapEdit
             // 
-            this.btnMapEdit.Location = new System.Drawing.Point(102, 12);
+            this.btnMapEdit.Location = new System.Drawing.Point(136, 15);
+            this.btnMapEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMapEdit.Name = "btnMapEdit";
-            this.btnMapEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnMapEdit.Size = new System.Drawing.Size(100, 28);
             this.btnMapEdit.TabIndex = 0;
             this.btnMapEdit.Text = "Editar Mapa";
             this.btnMapEdit.UseVisualStyleBackColor = true;
@@ -45,9 +46,10 @@
             // 
             // btnMapLoad
             // 
-            this.btnMapLoad.Location = new System.Drawing.Point(12, 12);
+            this.btnMapLoad.Location = new System.Drawing.Point(16, 15);
+            this.btnMapLoad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMapLoad.Name = "btnMapLoad";
-            this.btnMapLoad.Size = new System.Drawing.Size(84, 23);
+            this.btnMapLoad.Size = new System.Drawing.Size(112, 28);
             this.btnMapLoad.TabIndex = 1;
             this.btnMapLoad.Text = "Cargar Mapa";
             this.btnMapLoad.UseVisualStyleBackColor = true;
@@ -56,21 +58,24 @@
             // PnlMapLoad
             // 
             this.PnlMapLoad.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.PnlMapLoad.Location = new System.Drawing.Point(12, 41);
+            this.PnlMapLoad.Location = new System.Drawing.Point(16, 50);
+            this.PnlMapLoad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PnlMapLoad.Name = "PnlMapLoad";
-            this.PnlMapLoad.Size = new System.Drawing.Size(892, 515);
+            this.PnlMapLoad.Size = new System.Drawing.Size(1189, 634);
             this.PnlMapLoad.TabIndex = 2;
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(919, 572);
+            this.ClientSize = new System.Drawing.Size(1225, 704);
             this.Controls.Add(this.PnlMapLoad);
             this.Controls.Add(this.btnMapLoad);
             this.Controls.Add(this.btnMapEdit);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormMain";
             this.Text = "Resto DotNet";
+            this.Activated += new System.EventHandler(this.FormMain_Activated);
             this.ResumeLayout(false);
 
         }

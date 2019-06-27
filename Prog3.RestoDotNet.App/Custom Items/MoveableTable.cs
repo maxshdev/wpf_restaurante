@@ -14,5 +14,10 @@ namespace Prog3.RestoDotNet.App
     {
         public TableDto BindedEntity { get; set; }
         public Point CurrentPosition { get; set; }
+
+        public override string ToString()
+        {
+            return $"{ BindedEntity?.Caption} { BindedEntity?.Shape}";
+        }
     }
 }

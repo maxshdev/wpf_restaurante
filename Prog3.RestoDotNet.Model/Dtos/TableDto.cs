@@ -1,15 +1,16 @@
 ﻿using Pandora.NetStandard.Core.Interfaces;
 using Prog3.RestoDotNet.Model.Entities;
 using Prog3.RestoDotNet.Model.Enums;
+using System;
 
 namespace Prog3.RestoDotNet.Model.Dtos
 {
     public class TableDto : IDto<Table>
     {
-        public TableDto(int id, string description, TableStateEnum state, TableShapeEnum shape, byte maxChairs)
+        public TableDto(string caption, Guid mapTrackId, TableStateEnum state, TableShapeEnum shape, byte maxChairs)
         {
-            Id = id;
-            Description = description;
+            Caption = caption;
+            BoundedMapId = mapTrackId;
             State = state;
             Shape = shape;
             MaxChairs = maxChairs;
@@ -18,7 +19,8 @@ namespace Prog3.RestoDotNet.Model.Dtos
         public Table BaseEntity { get; set; }
 
         public int Id { get; set; }
-        public string Description { get; set; }
+        public string Caption { get; set; }
+        public Guid BoundedMapId { get; set; }
         public TableStateEnum State { get; set; }
         public TableShapeEnum Shape { get; set; }
         public byte MaxChairs { get; set; }

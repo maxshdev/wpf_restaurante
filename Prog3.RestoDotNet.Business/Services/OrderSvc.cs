@@ -15,7 +15,7 @@ namespace Prog3.RestoDotNet.Business.Services
     public class OrderSvc : BaseService<Order, OrderDto>, IOrderSvc
     {
         public OrderSvc(IApplicationUow applicationUow)
-            : base(applicationUow, new OrderToDtoMapper())
+            : base(applicationUow, new OrderMapper())
         {
         }
 
@@ -33,7 +33,7 @@ namespace Prog3.RestoDotNet.Business.Services
                 TableStateManager stateManager = await TableStateManager.GetTableStateManagerAsync(consumeDto);
                 if (await stateManager.AssigningAsync(consumeDto))
                 {
-                    var resp = await _uow.GetRepo<Order>().InsertAsync(consumeDto.BaseEntity);
+                    var resp = await _uow.GetEfRepository<Order>().InsertAsync(consumeDto.BaseEntity);
                     await _uow.CommitAsync();
                     response.Data = resp.Id;
                 }

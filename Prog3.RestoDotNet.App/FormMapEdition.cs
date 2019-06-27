@@ -19,7 +19,9 @@ namespace Prog3.RestoDotNet.App
     {
 
         MoveableTable moveableItem;
+        Guid currentMapTrackId;
         int cont = 0;
+
         private bool isPressedDown = false;
         Point initial;
 
@@ -28,6 +30,7 @@ namespace Prog3.RestoDotNet.App
         public FormMapEdition(ITableSvc tableSvc)
         {
             InitializeComponent();
+            currentMapTrackId = Guid.NewGuid();//track id diferente por cda instancia de edicion
             _tableSvc = tableSvc;
         }
 
@@ -113,14 +116,14 @@ namespace Prog3.RestoDotNet.App
             {
                 Image = ctr.Image,
                 Location = ctr.Location,
-                Name = "temp",
-                Size = ctr.Size
+                Name = $"temp_{cont}",
+                Size = ctr.Size                
             };
 
             mvtb.BindedEntity = new TableDto
                 (
-                id: cont,
-                description: $"Mesa {cont}",
+                caption: $"Mesa {cont}",
+                mapTrackId: currentMapTrackId,
                 state: TableStateEnum.AVAILABLE,
                 shape: ctr.Shape,
                 maxChairs: ctr.Shape.GetId<byte>()
@@ -151,8 +154,6 @@ namespace Prog3.RestoDotNet.App
         {
             //TODO: al presionar guardar llenar esta lista con las mesas creadas luego de ediar el mapa
             var tableList = new List<TableDto>();
-
-            var xmlPanel = new XmlPanel();
             var xmlTables = new List<XmlTable>();
 
             List<Control> controlsPictureBox = this.PnlMap.Controls.OfType<MoveableTable>().Cast<Control>().ToList();
@@ -164,7 +165,6 @@ namespace Prog3.RestoDotNet.App
                 // voy a crear un objeto tipo tabla para poder guardar
                 // las propiedades y serializarlo luego en un archivo xml.
                 XmlTable xTable = new XmlTable();
-
                 xTable.Id = item.GetHashCode();
                 xTable.Bottom = bounds.Bottom;
                 xTable.Height = bounds.Height;

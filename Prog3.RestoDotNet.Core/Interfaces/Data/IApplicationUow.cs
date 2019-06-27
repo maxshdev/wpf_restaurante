@@ -5,7 +5,7 @@ namespace Pandora.NetStandard.Core.Interfaces
 {
     public interface IApplicationUow : IDisposable
     {
-        IRepository<TEntity> GetRepo<TEntity>() where TEntity : class;
+        IEfRepository<TEntity> GetEfRepository<TEntity>() where TEntity : class;
         bool Commit();
         Task<bool> CommitAsync();
     }

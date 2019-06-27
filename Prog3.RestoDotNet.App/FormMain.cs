@@ -65,5 +65,10 @@ namespace Prog3.RestoDotNet.App
 
             file.Close();
         }
+
+        private async void FormMain_Activated(object sender, EventArgs e)
+        {
+           // await _tableSvc.CleanTableForInitialUsageAsync();
+        }
     }
 }

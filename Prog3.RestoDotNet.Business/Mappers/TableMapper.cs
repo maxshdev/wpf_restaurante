@@ -5,15 +5,13 @@ using Prog3.RestoDotNet.Model.Entities;
 
 namespace Prog3.RestoDotNet.Business.Mappers
 {
-    public class OrderToDtoMapper : GenericMapperCore<Order, OrderDto>
+    public class TableMapper : GenericMapperCore<Table, TableDto>
     {
         protected override IMapper CreateMapConfiguration()
         {
             return new MapperConfiguration(c =>
             {
-                c.CreateMap<Order, OrderDto>()
-                .ForMember(m => m.BaseEntity, o => o.MapFrom(s => s));
-
+                c.CreateMap<Table, TableDto>();
             }).CreateMapper();
         }
 
@@ -21,9 +19,7 @@ namespace Prog3.RestoDotNet.Business.Mappers
         {
             return new MapperConfiguration(c =>
             {
-                c.CreateMap<OrderDto, Order>()
-                .ForMember(m => m, o => o.MapFrom(s => s.BaseEntity));
-
+                c.CreateMap<TableDto, Table>();
             }).CreateMapper();
         }
     }

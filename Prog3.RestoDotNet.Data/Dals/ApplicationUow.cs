@@ -1,8 +1,6 @@
-﻿using Pandora.NetStandard.Core.Base;
-using Pandora.NetStandard.Core.Interfaces;
+﻿using Pandora.NetStandard.Core.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Threading.Tasks;
 
 namespace Prog3.RestoDotNet.Data.Dals
@@ -36,9 +34,9 @@ namespace Prog3.RestoDotNet.Data.Dals
         }
 
 
-        public IRepository<T> GetRepo<T>() where T : class
+        public IEfRepository<T> GetEfRepository<T>() where T : class
         {
-            return GetRepository<IRepository<T>>(ctx =>
+            return GetRepository<IEfRepository<T>>(ctx =>
             {
                 return new EfRepository<T>(ctx);
             });
@@ -46,7 +44,7 @@ namespace Prog3.RestoDotNet.Data.Dals
 
         protected Dictionary<Type, object> RepositoriesCache { get; private set; }
 
-        public T GetRepository<T>(Func<RestoDbContext, object> factory = null) where T : class
+        protected virtual T GetRepository<T>(Func<RestoDbContext, object> factory = null) where T : class
         {
             // Look for T dictionary cache under typeof(T).
             RepositoriesCache.TryGetValue(typeof(T), out object repoObj);

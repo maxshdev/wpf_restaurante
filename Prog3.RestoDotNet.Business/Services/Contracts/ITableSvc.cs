@@ -9,5 +9,6 @@ namespace Prog3.RestoDotNet.Business.Services.Contracts
     public interface ITableSvc : IBasicCrudOperations<TableDto>
     {
         Task<BLSingleResponse<bool>> SetInitialTableArrangementAsync(IEnumerable<TableDto> tablesDtos);
+        Task<BLResponse> CleanTableForInitialUsageAsync();
     }
 }

@@ -1,5 +1,4 @@
-﻿using Pandora.NetStandard.Core.Base;
-using Pandora.NetStandard.Core.Interfaces;
+﻿using Pandora.NetStandard.Core.Interfaces;
 using Pandora.NetStandard.Core.Utils;
 using System;
 using System.Data.Entity;
@@ -93,7 +92,6 @@ namespace Prog3.RestoDotNet.Data.Dals
             return result;
         }
 
-
         public async Task DeleteAsync(object id)
         {
             await DeleteAsync(_dbSet.Find(id));
@@ -134,10 +132,8 @@ namespace Prog3.RestoDotNet.Data.Dals
 
         public async Task<int> ExecuteQueryAsync(string query, params object[] paramaters)
         {
-            return await Task.Run(() =>
-            {
-                return 1;
-            });
+            return await _dbContext.Database.ExecuteSqlCommandAsync(
+                string.Format(query, paramaters));
         }
 
         public async Task<bool> ExistAsync(Expression<Func<TEntity, bool>> predicate)

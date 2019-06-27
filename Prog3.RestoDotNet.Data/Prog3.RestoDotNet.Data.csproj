@@ -55,9 +55,9 @@
     <Compile Include="Migrations\201906261859181_initialMigration.Designer.cs">
       <DependentUpon>201906261859181_initialMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906261954355_addingOrders.cs" />
-    <Compile Include="Migrations\201906261954355_addingOrders.Designer.cs">
-      <DependentUpon>201906261954355_addingOrders.cs</DependentUpon>
+    <Compile Include="Migrations\201906271845281_tableIdentityOn.cs" />
+    <Compile Include="Migrations\201906271845281_tableIdentityOn.Designer.cs">
+      <DependentUpon>201906271845281_tableIdentityOn.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,8 +80,8 @@
     <EmbeddedResource Include="Migrations\201906261859181_initialMigration.resx">
       <DependentUpon>201906261859181_initialMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906261954355_addingOrders.resx">
-      <DependentUpon>201906261954355_addingOrders.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906271845281_tableIdentityOn.resx">
+      <DependentUpon>201906271845281_tableIdentityOn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

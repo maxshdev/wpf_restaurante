@@ -16,8 +16,24 @@ namespace Prog3.RestoDotNet.Business.Services
     public class TableSvc : BaseService<Table, TableDto>, ITableSvc
     {
         public TableSvc(IApplicationUow applicationUow)
-            : base(applicationUow, new TableToDtoMapper())
+            : base(applicationUow, new TableMapper())
         {
+        }
+
+        public async Task<BLResponse> CleanTableForInitialUsageAsync()
+        {
+            var response = new BLResponse();
+
+            try
+            {
+                await _uow.GetEfRepository<Table>().ExecuteQueryAsync("TRUNCATE TABLE [Resto].[Tables]"); 
+            }
+            catch (Exception ex)
+            {
+                HandleSVCException(response, ex);
+            }
+
+            return response;
         }
 
         public Task<BLSingleResponse<TableDto>> CreateAsync(TableDto pDto)
@@ -50,14 +66,14 @@ namespace Prog3.RestoDotNet.Business.Services
                 foreach (TableDto table in tablesDtos)
                 {
                     var entityReult = _mapper.MapToEntity(table);
-                    await _uow.GetRepo<Table>().InsertAsync(entityReult);
+                    await _uow.GetEfRepository<Table>().InsertAsync(entityReult);
                 }
 
                 response.Data = await _uow.CommitAsync();
             }
             catch (Exception ex)
             {
-                HandleSVCException(ex);
+                HandleSVCException(response, ex);
             }
 
             return response;

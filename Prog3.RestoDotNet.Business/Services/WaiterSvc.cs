@@ -14,7 +14,7 @@ namespace Prog3.RestoDotNet.Business.Services
     public class WaiterSvc : BaseService<Waiter, WaiterDto>, IWaiterSvc
     {
         public WaiterSvc(IApplicationUow applicationUow)
-            : base(applicationUow, new WaiterToDtoMapper())
+            : base(applicationUow, new WaiterMapper())
         {
 
         }
@@ -25,7 +25,7 @@ namespace Prog3.RestoDotNet.Business.Services
 
             try
             {
-                var entityResult = await _uow.GetRepo<Waiter>().InsertAsync(pDto.BaseEntity);
+                var entityResult = await _uow.GetEfRepository<Waiter>().InsertAsync(pDto.BaseEntity);
                 if (await _uow.CommitAsync())
                 {
                     response.Data = _mapper.MapFromEntity(entityResult);
@@ -75,7 +75,7 @@ namespace Prog3.RestoDotNet.Business.Services
 
             try
             {
-                await _uow.GetRepo<Waiter>().UpdateAsync(pWaiter.BaseEntity);
+                await _uow.GetEfRepository<Waiter>().UpdateAsync(pWaiter.BaseEntity);
                 if (await _uow.CommitAsync())
                 {
                     response.Data = true;
@@ -99,7 +99,7 @@ namespace Prog3.RestoDotNet.Business.Services
 
             try
             {
-                var entityResult = await _uow.GetRepo<Waiter>().GetByIdAsync(pId);
+                var entityResult = await _uow.GetEfRepository<Waiter>().GetByIdAsync(pId);
                 response.Data = _mapper.MapFromEntity(entityResult);
             }
             catch (Exception ex)

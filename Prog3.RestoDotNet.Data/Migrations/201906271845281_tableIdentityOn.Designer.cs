@@ -7,13 +7,13 @@ namespace Prog3.RestoDotNet.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class addingOrders : IMigrationMetadata
+    public sealed partial class tableIdentityOn : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addingOrders));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(tableIdentityOn));
         
         string IMigrationMetadata.Id
         {
-            get { return "201906261954355_addingOrders"; }
+            get { return "201906271845281_tableIdentityOn"; }
         }
         
         string IMigrationMetadata.Source

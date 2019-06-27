@@ -5,7 +5,7 @@ using Prog3.RestoDotNet.Model.Entities;
 
 namespace Prog3.RestoDotNet.Business.Mappers
 {
-    public class WaiterToDtoMapper : GenericMapperCore<Waiter, WaiterDto>
+    public class WaiterMapper : GenericMapperCore<Waiter, WaiterDto>
     {
         protected override IMapper CreateMapConfiguration()
         {
