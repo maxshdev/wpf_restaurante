@@ -1,4 +1,5 @@
 ﻿using Pandora.NetStandard.Core.Utils;
+using Prog3.RestoDotNet.App.Custom_Items;
 using Prog3.RestoDotNet.Business.Services.Contracts;
 using Prog3.RestoDotNet.Model.Dtos;
 using Prog3.RestoDotNet.Model.Enums;
@@ -88,7 +89,7 @@ namespace Prog3.RestoDotNet.App
         {
             if (e.Button == MouseButtons.Left)
             {
-                moveableItem = CreateMoveableTable(sender as PictureBox);
+                moveableItem = CreateMoveableTable(sender as ReferenceTable);
                 moveableItem.Left = 300;
                 moveableItem.Top = 300;
                 moveableItem.Width = 90;
@@ -102,7 +103,7 @@ namespace Prog3.RestoDotNet.App
             }
         }
 
-        private MoveableTable CreateMoveableTable(PictureBox ctr)
+        private MoveableTable CreateMoveableTable(ReferenceTable ctr)
         {
             cont++;
 
@@ -119,8 +120,8 @@ namespace Prog3.RestoDotNet.App
                 id: cont,
                 description: $"Mesa {cont}",
                 state: TableStateEnum.AVAILABLE,
-                shape: TableShapeEnum.RECTANGLE,
-                maxChairs: TableShapeEnum.RECTANGLE.GetId<byte>()
+                shape: ctr.Shape,
+                maxChairs: ctr.Shape.GetId<byte>()
                 );
 
             return mvtb;
@@ -133,9 +134,15 @@ namespace Prog3.RestoDotNet.App
 
         private void EliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Control ctr = (Control)sender; //ESTE ES EL CONTEXT MENU STRIP
-
-            this.PnlMap.Controls.Remove(ctr);
+            ToolStripItem item = (sender as ToolStripItem);
+            if (item != null)
+            {
+                ContextMenuStrip owner = item.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    this.PnlMap.Controls.Remove(owner.SourceControl);
+                }
+            }
         }
 
         private async void BtnSave_Click(object sender, EventArgs e)
