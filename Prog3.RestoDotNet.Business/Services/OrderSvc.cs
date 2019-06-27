@@ -14,7 +14,7 @@ namespace Prog3.RestoDotNet.Business.Services
 {
     public class OrderSvc : BaseService<Order, OrderDto>, IOrderSvc
     {
-        public OrderSvc(IApplicationUow applicationUow, IMapperCore<Order, OrderDto> mapperCore)
+        public OrderSvc(IApplicationUow applicationUow)
             : base(applicationUow, new OrderToDtoMapper())
         {
         }

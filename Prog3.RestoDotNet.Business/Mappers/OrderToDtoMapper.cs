@@ -12,8 +12,7 @@ namespace Prog3.RestoDotNet.Business.Mappers
             return new MapperConfiguration(c =>
             {
                 c.CreateMap<Order, OrderDto>()
-                .ForMember(m => m.BaseEntity, o => o.MapFrom(s => s))
-                .ReverseMap();
+                .ForMember(m => m.BaseEntity, o => o.MapFrom(s => s));
 
             }).CreateMapper();
         }
