@@ -70,7 +70,7 @@ namespace Prog3.RestoDotNet.App
 
         private void VerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            new FormTableStatus().ShowDialog();
         }
     }
 }

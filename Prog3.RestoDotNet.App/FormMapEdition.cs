@@ -32,6 +32,7 @@ namespace Prog3.RestoDotNet.App
             InitializeComponent();
             currentMapTrackId = Guid.NewGuid();//track id diferente por cda instancia de edicion
             _tableSvc = tableSvc;
+            this.DrawGrid();
         }
 
         private void SetAsMoveable()
@@ -216,6 +217,36 @@ namespace Prog3.RestoDotNet.App
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void DrawGrid() {
+            
+        }
+
+        private void BtnDraw_Click(object sender, EventArgs e)
+        {
+            Graphics gr = PnlMap.CreateGraphics();
+            Pen pen = new Pen(Brushes.Black, 1);
+            int lines = 10; // 10x10
+            float x = 0f;
+            float y = 0f;
+            float xSpace = PnlMap.Width / lines;
+            float ySpace = PnlMap.Height / lines;
+
+            // lineas verticales
+            for (int i = 0; i < lines + 1; i++)
+            {
+                gr.DrawLine(pen, x, y, x, PnlMap.Height);
+                x += xSpace;
+            }
+
+            // lineas horizontales
+            x = 0f;
+            for (int i = 0; i < lines + 1; i++)
+            {
+                gr.DrawLine(pen, x, y, PnlMap.Width, y);
+                y += ySpace;
+            }
         }
     }
 }
