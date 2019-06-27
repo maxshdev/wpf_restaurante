@@ -28,9 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnMapEdit = new System.Windows.Forms.Button();
             this.btnMapLoad = new System.Windows.Forms.Button();
             this.PnlMapLoad = new System.Windows.Forms.Panel();
+            this.cMenuStripMapLoad = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cMenuStripMapLoad.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnMapEdit
@@ -64,6 +69,27 @@
             this.PnlMapLoad.Size = new System.Drawing.Size(1189, 634);
             this.PnlMapLoad.TabIndex = 2;
             // 
+            // cMenuStripMapLoad
+            // 
+            this.cMenuStripMapLoad.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verToolStripMenuItem,
+            this.salirToolStripMenuItem});
+            this.cMenuStripMapLoad.Name = "cMenuStripMapLoad";
+            this.cMenuStripMapLoad.Size = new System.Drawing.Size(181, 70);
+            // 
+            // verToolStripMenuItem
+            // 
+            this.verToolStripMenuItem.Name = "verToolStripMenuItem";
+            this.verToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verToolStripMenuItem.Text = "Ver Estado";
+            this.verToolStripMenuItem.Click += new System.EventHandler(this.VerToolStripMenuItem_Click);
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -75,7 +101,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormMain";
             this.Text = "Resto DotNet";
-            this.Activated += new System.EventHandler(this.FormMain_Activated);
+            this.cMenuStripMapLoad.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -85,5 +111,8 @@
         private System.Windows.Forms.Button btnMapEdit;
         private System.Windows.Forms.Button btnMapLoad;
         private System.Windows.Forms.Panel PnlMapLoad;
+        private System.Windows.Forms.ContextMenuStrip cMenuStripMapLoad;
+        private System.Windows.Forms.ToolStripMenuItem verToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
     }
 }
