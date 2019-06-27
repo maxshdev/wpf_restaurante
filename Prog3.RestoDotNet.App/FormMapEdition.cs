@@ -1,7 +1,7 @@
-﻿using Prog3.RestoDotNet.Business.Services.Contracts;
+﻿using Pandora.NetStandard.Core.Utils;
+using Prog3.RestoDotNet.Business.Services.Contracts;
 using Prog3.RestoDotNet.Model.Dtos;
 using Prog3.RestoDotNet.Model.Enums;
-using Pandora.NetStandard.Core.Utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -160,7 +160,7 @@ namespace Prog3.RestoDotNet.App
             if (svcResp.Data)
             {
                 //TODO: guardar antes el mapa
-                XmlSerializer xs = new XmlSerializer(typeof(TableLayoutPanel));
+                XmlSerializer xs = new XmlSerializer(typeof(Panel));
                 using (FileStream fs = new FileStream("MapEdition.xml", FileMode.Create))
                 {
                     xs.Serialize(fs, this.PnlMap);
