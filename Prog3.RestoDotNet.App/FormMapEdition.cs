@@ -95,8 +95,8 @@ namespace Prog3.RestoDotNet.App
             if (e.Button == MouseButtons.Left)
             {
                 moveableItem = CreateMoveableTable(sender as ReferenceTable);
-                moveableItem.Left = 300;
-                moveableItem.Top = 300;
+                moveableItem.Left = 100 + (100 * PnlMap.Controls.Count);//para crear en diferentes lugares
+                moveableItem.Top = 100 + (100 * PnlMap.Controls.Count);
                 moveableItem.Width = 90;
                 moveableItem.Height = 90;
                 moveableItem.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -105,6 +105,7 @@ namespace Prog3.RestoDotNet.App
 
                 this.PnlMap.Controls.Add(moveableItem);
                 this.SetAsMoveable();
+                this.BtnSave.Enabled = PnlMap.Controls.Count > 0;
             }
         }
 
@@ -117,7 +118,7 @@ namespace Prog3.RestoDotNet.App
                 Image = ctr.Image,
                 Location = ctr.Location,
                 Name = $"temp_{cont}",
-                Size = ctr.Size                
+                Size = ctr.Size
             };
 
             mvtb.BindedEntity = new TableDto
@@ -148,6 +149,7 @@ namespace Prog3.RestoDotNet.App
                     this.PnlMap.Controls.Remove(owner.SourceControl);
                 }
             }
+            this.BtnSave.Enabled = PnlMap.Controls.Count > 0;
         }
 
         private async void BtnSave_Click(object sender, EventArgs e)
@@ -173,21 +175,26 @@ namespace Prog3.RestoDotNet.App
                 xTable.Top = bounds.Top;
                 xTable.X = bounds.X;
                 xTable.Y = bounds.Y;
-                xTable.imageFile = "table_" + item.GetHashCode().ToString() + ".png";
+                xTable.imageFile = $"table_{item.BindedEntity.Shape}.png";
 
-                var path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "//" + xTable.imageFile;
+                var dir = Directory.CreateDirectory($@"{Environment.CurrentDirectory}/Imagenes");
+                var path = $@"{dir.FullName}/{xTable.imageFile}";
                 item.Image.Save(path, ImageFormat.Png);
 
                 xmlTables.Add(xTable);
-
                 tableList.Add(item.BindedEntity);
             }
 
             var svcResp = await _tableSvc.SetInitialTableArrangementAsync(tableList);
 
-            if (svcResp.HasError)
+            if (svcResp.HasError || !svcResp.Data)
             {
-                //TODO tratar error
+#if DEBUG
+                MessageBox.Show(string.Join(" - ", svcResp.Errors), "Ocurrio un error");
+#else
+                MessageBox.Show("Ocurrio un error");
+#endif
+
             }
 
             if (svcResp.Data)
@@ -195,36 +202,15 @@ namespace Prog3.RestoDotNet.App
                 //TODO: guardar antes el mapa
                 XmlSerializer writer = new XmlSerializer(typeof(List<XmlTable>));
 
-                var path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "//XmlTables.xml";
+                var dir = Directory.CreateDirectory($@"{Environment.CurrentDirectory}/Mapas");
+                var path = $@"{dir.FullName}/Mapa_{currentMapTrackId}.xml";
                 FileStream file = File.Create(path);
 
                 writer.Serialize(file, xmlTables);
                 file.Close();
 
-                // por objetos individuales
-                /*
-                XmlSerializer writer = new XmlSerializer(typeof(XmlTable));
-
-                foreach (XmlTable item in xmlTables)
-                {
-
-                    var path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "//XmlTable_" + item.Id.ToString() + ".xml";
-                    FileStream file = File.Create(path);
-
-                    writer.Serialize(file, item);
-                }
-
-                // USING
-                using (FileStream fs = new FileStream("XmlTables.xml", FileMode.Create))
-                {
-                    writer.Serialize(fs, xmlTables);
-                }
-                */
-
                 this.Close();
             }
-
-
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
