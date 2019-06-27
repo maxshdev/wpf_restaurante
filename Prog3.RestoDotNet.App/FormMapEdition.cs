@@ -1,11 +1,13 @@
 ﻿using Pandora.NetStandard.Core.Utils;
 using Prog3.RestoDotNet.App.Custom_Items;
+using Prog3.RestoDotNet.App.XmlObjects;
 using Prog3.RestoDotNet.Business.Services.Contracts;
 using Prog3.RestoDotNet.Model.Dtos;
 using Prog3.RestoDotNet.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -150,10 +152,34 @@ namespace Prog3.RestoDotNet.App
             //TODO: al presionar guardar llenar esta lista con las mesas creadas luego de ediar el mapa
             var tableList = new List<TableDto>();
 
+            var xmlPanel = new XmlPanel();
+            var xmlTables = new List<XmlTable>();
+
             List<Control> controlsPictureBox = this.PnlMap.Controls.OfType<MoveableTable>().Cast<Control>().ToList();
 
             foreach (MoveableTable item in controlsPictureBox)
             {
+                // obtengo los valores ui del pictureBox.
+                var bounds = item.Bounds;
+                // voy a crear un objeto tipo tabla para poder guardar
+                // las propiedades y serializarlo luego en un archivo xml.
+                XmlTable xTable = new XmlTable();
+
+                xTable.Id = item.GetHashCode();
+                xTable.Bottom = bounds.Bottom;
+                xTable.Height = bounds.Height;
+                xTable.Width = bounds.Width;
+                xTable.Left = bounds.Left;
+                xTable.Top = bounds.Top;
+                xTable.X = bounds.X;
+                xTable.Y = bounds.Y;
+                xTable.imageFile = "table_" + item.GetHashCode().ToString() + ".png";
+
+                var path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "//" + xTable.imageFile;
+                item.Image.Save(path, ImageFormat.Png);
+
+                xmlTables.Add(xTable);
+
                 tableList.Add(item.BindedEntity);
             }
 
@@ -167,11 +193,33 @@ namespace Prog3.RestoDotNet.App
             if (svcResp.Data)
             {
                 //TODO: guardar antes el mapa
-                XmlSerializer xs = new XmlSerializer(typeof(Panel));
-                using (FileStream fs = new FileStream("MapEdition.xml", FileMode.Create))
+                XmlSerializer writer = new XmlSerializer(typeof(List<XmlTable>));
+
+                var path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "//XmlTables.xml";
+                FileStream file = File.Create(path);
+
+                writer.Serialize(file, xmlTables);
+                file.Close();
+
+                // por objetos individuales
+                /*
+                XmlSerializer writer = new XmlSerializer(typeof(XmlTable));
+
+                foreach (XmlTable item in xmlTables)
                 {
-                    xs.Serialize(fs, this.PnlMap);
+
+                    var path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "//XmlTable_" + item.Id.ToString() + ".xml";
+                    FileStream file = File.Create(path);
+
+                    writer.Serialize(file, item);
                 }
+
+                // USING
+                using (FileStream fs = new FileStream("XmlTables.xml", FileMode.Create))
+                {
+                    writer.Serialize(fs, xmlTables);
+                }
+                */
 
                 this.Close();
             }

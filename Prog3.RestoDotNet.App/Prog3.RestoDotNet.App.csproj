@@ -88,6 +88,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XmlObjects\XmlPanel.cs" />
+    <Compile Include="XmlObjects\XmlTable.cs" />
     <EmbeddedResource Include="FormMapEdition.resx">
       <DependentUpon>FormMapEdition.cs</DependentUpon>
     </EmbeddedResource>

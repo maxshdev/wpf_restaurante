@@ -1,4 +1,5 @@
 ﻿using Prog3.RestoDotNet.Business.Services.Contracts;
+using Prog3.RestoDotNet.App.XmlObjects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,16 +33,37 @@ namespace Prog3.RestoDotNet.App
 
         private void BtnMapLoad_Click(object sender, EventArgs e)
         {
-            // AQUI DEBERIAMOS CARGAR EL MAPA EN MODO LECTURA. CREO QUE SERIA EN OTRO FORM
-            /*
-            XmlSerializer xs = new XmlSerializer(typeof(CustomerData));
-            using (FileStream fs = new FileStream("MapEdition.xml", FileMode.Open))
+
+            XmlSerializer reader = new XmlSerializer(typeof(List<XmlTable>));
+
+            var path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "//XmlTables.xml";
+
+            StreamReader file = new StreamReader(path);
+            var xmlTables = (List<XmlTable>)reader.Deserialize(file);
+
+            foreach (XmlTable item in xmlTables)
             {
-                // This will read the XML from the file and create the new instance
-                // of CustomerData
-                customer = xs.Deserialize(fs) as CustomerData;
+                PictureBox temp = new PictureBox();
+                //temp.Bottom = item.Bottom;
+                temp.Height = item.Height;
+                temp.Width = item.Width;
+                temp.Left = item.Left;
+                temp.Top = item.Top;
+                Point loc = new Point();
+                loc.X = item.X;
+                loc.Y = item.Y;
+                temp.Location = loc;
+
+                path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "//" + item.imageFile;
+                //path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "//table_13189358.jpg"; // TEST
+                temp.Image = Image.FromFile(path);
+
+                temp.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                this.PnlMapLoad.Controls.Add(temp);
             }
-            */
+
+            file.Close();
         }
     }
 }

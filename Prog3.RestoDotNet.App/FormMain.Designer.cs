@@ -30,11 +30,12 @@
         {
             this.btnMapEdit = new System.Windows.Forms.Button();
             this.btnMapLoad = new System.Windows.Forms.Button();
+            this.PnlMapLoad = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnMapEdit
             // 
-            this.btnMapEdit.Location = new System.Drawing.Point(373, 174);
+            this.btnMapEdit.Location = new System.Drawing.Point(102, 12);
             this.btnMapEdit.Name = "btnMapEdit";
             this.btnMapEdit.Size = new System.Drawing.Size(75, 23);
             this.btnMapEdit.TabIndex = 0;
@@ -44,7 +45,7 @@
             // 
             // btnMapLoad
             // 
-            this.btnMapLoad.Location = new System.Drawing.Point(369, 218);
+            this.btnMapLoad.Location = new System.Drawing.Point(12, 12);
             this.btnMapLoad.Name = "btnMapLoad";
             this.btnMapLoad.Size = new System.Drawing.Size(84, 23);
             this.btnMapLoad.TabIndex = 1;
@@ -52,11 +53,20 @@
             this.btnMapLoad.UseVisualStyleBackColor = true;
             this.btnMapLoad.Click += new System.EventHandler(this.BtnMapLoad_Click);
             // 
+            // PnlMapLoad
+            // 
+            this.PnlMapLoad.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.PnlMapLoad.Location = new System.Drawing.Point(12, 41);
+            this.PnlMapLoad.Name = "PnlMapLoad";
+            this.PnlMapLoad.Size = new System.Drawing.Size(892, 515);
+            this.PnlMapLoad.TabIndex = 2;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(919, 572);
+            this.Controls.Add(this.PnlMapLoad);
             this.Controls.Add(this.btnMapLoad);
             this.Controls.Add(this.btnMapEdit);
             this.Name = "FormMain";
@@ -69,5 +79,6 @@
 
         private System.Windows.Forms.Button btnMapEdit;
         private System.Windows.Forms.Button btnMapLoad;
+        private System.Windows.Forms.Panel PnlMapLoad;
     }
 }
