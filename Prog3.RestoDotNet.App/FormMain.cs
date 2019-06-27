@@ -60,10 +60,17 @@ namespace Prog3.RestoDotNet.App
 
                 temp.SizeMode = PictureBoxSizeMode.StretchImage;
 
+                temp.ContextMenuStrip = this.cMenuStripMapLoad;
+
                 this.PnlMapLoad.Controls.Add(temp);
             }
 
             file.Close();
+        }
+
+        private void VerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
