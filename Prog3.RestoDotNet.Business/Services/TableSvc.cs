@@ -49,8 +49,8 @@ namespace Prog3.RestoDotNet.Business.Services
             {
                 foreach (TableDto table in tablesDtos)
                 {
-                    
-                    await _uow.GetRepo<Table>().InsertAsync(table.BaseEntity);
+                    var entityReult = _mapper.MapToEntity(table);
+                    await _uow.GetRepo<Table>().InsertAsync(entityReult);
                 }
 
                 response.Data = await _uow.CommitAsync();

@@ -3,11 +3,13 @@ using System.Collections.Generic;
 
 namespace Pandora.NetStandard.Core.Mapper
 {
-    public interface IMapperCore<in TInputEntity, out TOutputEntity>
+    public interface IMapperCore<TInputEntity, TOutputDto>
     {
         void SetMapperConfiguration(IMapper pMapperConfig);
-        TOutputEntity MapEntity(TInputEntity pEntity);
-        IEnumerable<TOutputEntity> MapEntity(IEnumerable<TInputEntity> pEntities);
+        TOutputDto MapFromEntity(TInputEntity pEntity);
+        IEnumerable<TOutputDto> MapFromEntity(IEnumerable<TInputEntity> pEntities);
+        TInputEntity MapToEntity(TOutputDto pEntity);
+        IEnumerable<TInputEntity> MapToEntity(IEnumerable<TOutputDto> pEntities);
     }
     public interface IMapperCore
     {

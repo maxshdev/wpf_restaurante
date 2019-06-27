@@ -11,8 +11,15 @@ namespace Prog3.RestoDotNet.Business.Mappers
         {
             return new MapperConfiguration(c =>
             {
-                c.CreateMap<Table, TableDto>()
-                .ForMember(m => m.BaseEntity, o => o.MapFrom(s => s));
+                c.CreateMap<Table, TableDto>();
+            }).CreateMapper();
+        }
+
+        protected override IMapper CreateReverseMapConfiguration()
+        {
+            return new MapperConfiguration(c =>
+            {
+                c.CreateMap<TableDto, Table>();
             }).CreateMapper();
         }
     }

@@ -7,4 +7,5 @@ namespace Prog3.RestoDotNet.Model.Dtos
     {
         public Order BaseEntity { get; set; }
     }
+
 }

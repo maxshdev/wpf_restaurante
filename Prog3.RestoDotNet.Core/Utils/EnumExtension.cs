@@ -6,9 +6,9 @@ namespace Pandora.NetStandard.Core.Utils
 {
     public static class EnumExtension
     {
-        public static int GetId(this Enum en)
+        public static T GetId<T>(this Enum en) where T : struct
         {
-            return Convert.ToInt32(en);
+            return (T)Convert.ChangeType(en, typeof(T));
         }
 
         public static string GetDescription(this Enum en)

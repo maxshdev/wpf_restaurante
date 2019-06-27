@@ -1,5 +1,7 @@
 ﻿using Prog3.RestoDotNet.Business.Services.Contracts;
 using Prog3.RestoDotNet.Model.Dtos;
+using Prog3.RestoDotNet.Model.Enums;
+using Pandora.NetStandard.Core.Utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -14,6 +16,7 @@ namespace Prog3.RestoDotNet.App
     {
 
         MoveableTable moveableItem;
+        int cont = 0;
         private bool isPressedDown = false;
         Point initial;
 
@@ -101,17 +104,30 @@ namespace Prog3.RestoDotNet.App
 
         private MoveableTable CreateMoveableTable(PictureBox ctr)
         {
-            return new MoveableTable
+            cont++;
+
+            var mvtb = new MoveableTable
             {
                 Image = ctr.Image,
                 Location = ctr.Location,
                 Name = "temp",
                 Size = ctr.Size
             };
+
+            mvtb.BindedEntity = new TableDto
+                (
+                id: cont,
+                description: $"Mesa {cont}",
+                state: TableStateEnum.AVAILABLE,
+                shape: TableShapeEnum.RECTANGLE,
+                maxChairs: TableShapeEnum.RECTANGLE.GetId<byte>()
+                );
+
+            return mvtb;
         }
 
         private void FijarToolStripMenuItem_Click(object sender, EventArgs e)
-        {            
+        {
 
         }
 

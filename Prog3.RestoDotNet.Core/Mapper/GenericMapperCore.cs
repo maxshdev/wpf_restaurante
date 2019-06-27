@@ -1,9 +1,12 @@
 ﻿using AutoMapper;
+using Pandora.NetStandard.Core.Interfaces;
 using System.Collections.Generic;
 
 namespace Pandora.NetStandard.Core.Mapper
 {
-    public abstract class GenericMapperCore<TInputEntity, TOutputEntity> : IMapperCore<TInputEntity, TOutputEntity>
+    public abstract class GenericMapperCore<TInputEntity, TOutputDto>
+        : IMapperCore<TInputEntity, TOutputDto>
+        where TInputEntity : IEntity
     {
         protected IMapper MappingConfiguration { get; set; }
 
@@ -17,11 +20,19 @@ namespace Pandora.NetStandard.Core.Mapper
             return new MapperConfiguration(c =>
             {
                 //c.ForAllMaps((typeMap, mappingExpression) => mappingExpression.MaxDepth(2));
-                c.CreateMap<TInputEntity, TOutputEntity>().MaxDepth(2);
+                c.CreateMap<TInputEntity, TOutputDto>().MaxDepth(2);
             }).CreateMapper();
         }
 
         protected abstract IMapper CreateMapConfiguration();
+
+        protected virtual IMapper CreateReverseMapConfiguration()
+        {
+            return new MapperConfiguration(c =>
+            {
+                c.CreateMap<TOutputDto, TInputEntity>();
+            }).CreateMapper();
+        }
 
         public virtual void SetMapperConfiguration(IMapperConfigurationExpression configurationExpression)
         {
@@ -34,16 +45,28 @@ namespace Pandora.NetStandard.Core.Mapper
             MappingConfiguration = pMapperConfig;
         }
 
-        public virtual TOutputEntity MapEntity(TInputEntity entity)
+        public virtual TOutputDto MapFromEntity(TInputEntity entity)
         {
             if (entity == null) return default;
-            return MappingConfiguration.Map<TOutputEntity>(entity);
+            return MappingConfiguration.Map<TOutputDto>(entity);
         }
 
-        public virtual IEnumerable<TOutputEntity> MapEntity(IEnumerable<TInputEntity> entity)
+        public virtual IEnumerable<TOutputDto> MapFromEntity(IEnumerable<TInputEntity> entity)
         {
             if (entity == null) return null;
-            return MappingConfiguration.Map<IEnumerable<TOutputEntity>>(entity);
+            return MappingConfiguration.Map<IEnumerable<TOutputDto>>(entity);
+        }
+
+        public virtual TInputEntity MapToEntity(TOutputDto entity)
+        {
+            if (entity == null) return default;
+            return CreateReverseMapConfiguration().Map<TInputEntity>(entity);
+        }
+
+        public virtual IEnumerable<TInputEntity> MapToEntity(IEnumerable<TOutputDto> entity)
+        {
+            if (entity == null) return null;
+            return CreateReverseMapConfiguration().Map<IEnumerable<TInputEntity>>(entity);
         }
     }
 

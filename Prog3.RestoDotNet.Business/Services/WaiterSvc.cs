@@ -28,7 +28,7 @@ namespace Prog3.RestoDotNet.Business.Services
                 var entityResult = await _uow.GetRepo<Waiter>().InsertAsync(pDto.BaseEntity);
                 if (await _uow.CommitAsync())
                 {
-                    response.Data = _mapper.MapEntity(entityResult);
+                    response.Data = _mapper.MapFromEntity(entityResult);
                 }
                 else
                 {
@@ -100,7 +100,7 @@ namespace Prog3.RestoDotNet.Business.Services
             try
             {
                 var entityResult = await _uow.GetRepo<Waiter>().GetByIdAsync(pId);
-                response.Data = _mapper.MapEntity(entityResult);
+                response.Data = _mapper.MapFromEntity(entityResult);
             }
             catch (Exception ex)
             {
