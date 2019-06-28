@@ -82,8 +82,11 @@ namespace Prog3.RestoDotNet.App
 
             foreach (XmlTable item in xmlTables)
             {
-                MoveableObject temp = tableObjs.Any(t => t.MoveableTableId == item.Id) 
-                    ? new MoveableTable { ContextMenuStrip = cMenuStripMapLoad } : new MoveableObject();
+
+                MoveableObject temp = tableObjs.Any(t => t.MoveableTableId == item.Id)
+                    ? new MoveableTable { BindedEntity = tableObjs.First(t => t.MoveableTableId == item.Id),
+                        ContextMenuStrip = cMenuStripMapLoad } : new MoveableObject();
+
                 temp.Id = item.Id;
                 temp.Height = item.Height;
                 temp.Width = item.Width;

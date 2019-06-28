@@ -207,6 +207,7 @@
             // 
             // tBoxID
             // 
+            this.tBoxID.Enabled = false;
             this.tBoxID.Location = new System.Drawing.Point(6, 36);
             this.tBoxID.Name = "tBoxID";
             this.tBoxID.Size = new System.Drawing.Size(63, 20);

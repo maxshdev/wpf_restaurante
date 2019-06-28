@@ -2,13 +2,6 @@
 using Prog3.RestoDotNet.Model.Dtos;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Prog3.RestoDotNet.App
@@ -26,7 +19,7 @@ namespace Prog3.RestoDotNet.App
         public FormTableStatus(MoveableTable tableObj, IOrderSvc orderSvc)
         {
             InitializeComponent();
-            _currentOrder = new OrderDto();
+            _currentOrder = new OrderDto { Table = tableObj.BindedEntity };
             LoadStockMeals();
             LoadTableDetail();
             this.LoadImage(tableObj);
@@ -35,7 +28,10 @@ namespace Prog3.RestoDotNet.App
 
         private void LoadTableDetail()
         {
-            
+            tBoxID.Text = _currentOrder.Table.MoveableTableId.ToString();
+            tBoxDescription.Text = _currentOrder.Table.Caption;
+            tBoxChair.Text = _currentOrder.Table.MaxChairs.ToString();
+            cBoxState.ValueMember = _currentOrder.Table.State.ToString();
         }
 
         private void LoadStockMeals()
