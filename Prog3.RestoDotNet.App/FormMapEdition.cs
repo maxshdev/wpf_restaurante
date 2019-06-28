@@ -18,8 +18,7 @@ namespace Prog3.RestoDotNet.App
     public partial class FormMapEdition : Form
     {
 
-        MoveableTable moveableItem;
-        MoveableObject moveableObj;
+        MoveableObject currentObj;
         Guid currentMapTrackId;
         int cont = 0;
 
@@ -35,36 +34,23 @@ namespace Prog3.RestoDotNet.App
             _tableSvc = tableSvc;
         }
 
-        private void SetAsMoveable()
-        {
+        //private void SetAsMoveable()
+        //{
 
-            // WHERE SPECIFIC CONTROL IN "FORM"
-            // this.Controls.OfType<Control>().Where(ctr => ctr is Button).ToList().ForEach(ctr =>
-            // SIMPLE ALL CONTROLS IN "FORM"
-            // this.Controls.OfType<Control>().ToList().ForEach(ctr =>
-            // SIMPLE ALL CONTROLS IN CONTAINER CONTROL IN "FORM"
-            // this.groupBox1.Controls.OfType<Control>().ToList().ForEach(ctr =>
+        //    // WHERE SPECIFIC CONTROL IN "FORM"
+        //    // this.Controls.OfType<Control>().Where(ctr => ctr is Button).ToList().ForEach(ctr =>
+        //    // SIMPLE ALL CONTROLS IN "FORM"
+        //    // this.Controls.OfType<Control>().ToList().ForEach(ctr =>
+        //    // SIMPLE ALL CONTROLS IN CONTAINER CONTROL IN "FORM"
+        //    // this.groupBox1.Controls.OfType<Control>().ToList().ForEach(ctr =>
 
-            //this.PnlMap.Controls
-            //    .OfType<MoveableTable>()
-            //    //.Where(ctr => ctr is MoveableTable)
-            //    .ToList()
-            //    .ForEach(ctr =>
-            //        {
-            //            ctr.MouseDown += Ctr_MouseDown;
-            //            ctr.MouseUp += Ctr_MouseUp;
-            //            ctr.MouseMove += Ctr_MouseMove;
-            //        }
-            //    )
-            //;
-
-            if (moveableItem != null)
-            {
-                moveableItem.MouseDown += Ctr_MouseDown;
-                moveableItem.MouseUp += Ctr_MouseUp;
-                moveableItem.MouseMove += Ctr_MouseMove;
-            }
-        }
+        //    if (currentObj != null)
+        //    {
+        //        currentObj.MouseDown += Ctr_MouseDown;
+        //        currentObj.MouseUp += Ctr_MouseUp;
+        //        currentObj.MouseMove += Ctr_MouseMove;
+        //    }
+        //}
 
         private void Ctr_MouseMove(object sender, MouseEventArgs e)
         {
@@ -74,8 +60,6 @@ namespace Prog3.RestoDotNet.App
             {
                 ctr.Top += e.Y - initial.Y;
                 ctr.Left += e.X - initial.X;
-                // ctr.Left = e.X + ctr.Left - initial.X;
-                // ctr.Top = e.Y + ctr.Top - initial.Y;
             }
 
         }
@@ -91,101 +75,67 @@ namespace Prog3.RestoDotNet.App
             }
         }
 
-        private void SetAsMoveableObject()
-        {
-
-            if (moveableObj != null)
-            {
-                moveableObj.MouseDown += Ctr_MouseDown;
-                moveableObj.MouseUp += Ctr_MouseUp;
-                moveableObj.MouseMove += Ctr_MouseMove;
-            }
-        }
-
-        private void Object_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                moveableObj = CreateMoveableObject(sender as ReferenceObject);
-                moveableObj.Left = 100 + (100 * PnlMap.Controls.Count);//para crear en diferentes lugares
-                moveableObj.Top = 100 + (100 * PnlMap.Controls.Count);
-                moveableObj.Width = 90;
-                moveableObj.Height = 90;
-                moveableObj.SizeMode = PictureBoxSizeMode.StretchImage;
-
-                moveableObj.ContextMenuStrip = this.cmenuStripTable;
-
-                this.PnlMap.Controls.Add(moveableObj);
-                this.SetAsMoveableObject();
-                this.BtnSave.Enabled = PnlMap.Controls.Count > 0;
-            }
-        }
-
-        private MoveableObject CreateMoveableObject(ReferenceObject ctr)
-        {
-            cont++;
-
-            var mvto = new MoveableObject
-            {
-                Image = ctr.Image,
-                Location = ctr.Location,
-                Name = $"temp_{cont}",
-                Size = ctr.Size
-            };
-
-            mvto.BindedEntity = new ObjectDto
-                (
-                caption: $"Object {cont}",
-                mapTrackId: currentMapTrackId,
-                //state: TableStateEnum.AVAILABLE,
-                shape: ctr.Shape,
-                maxChairs: ctr.Shape.GetId<byte>()
-                );
-
-            return mvto;
-        }
 
         private void Table_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                moveableItem = CreateMoveableTable(sender as ReferenceTable);
-                moveableItem.Left = 100 + (100 * PnlMap.Controls.Count);//para crear en diferentes lugares
-                moveableItem.Top = 100 + (100 * PnlMap.Controls.Count);
-                moveableItem.Width = 90;
-                moveableItem.Height = 90;
-                moveableItem.SizeMode = PictureBoxSizeMode.StretchImage;
+                cont++;
+                currentObj = sender is ReferenceTable ? CreateMoveableTable(sender) : CreateMoveableObj(sender);
+                currentObj.Left = 100 + (10 * PnlMap.Controls.Count);//para crear en diferentes lugares
+                currentObj.Top = 100 + (10 * PnlMap.Controls.Count);
+                currentObj.Width = 90;
+                currentObj.Height = 90;
+                currentObj.SizeMode = PictureBoxSizeMode.StretchImage;
+                currentObj.ContextMenuStrip = this.cmenuStripTable;
 
-                moveableItem.ContextMenuStrip = this.cmenuStripTable;
+                currentObj.MouseDown += Ctr_MouseDown;
+                currentObj.MouseUp += Ctr_MouseUp;
+                currentObj.MouseMove += Ctr_MouseMove;
 
-                this.PnlMap.Controls.Add(moveableItem);
-                this.SetAsMoveable();
-                this.BtnSave.Enabled = PnlMap.Controls.Count > 0;
+                this.PnlMap.Controls.Add(currentObj);
+
+                this.BtnSave.Enabled = PnlMap.Controls.OfType<MoveableTable>().Count() > 0;
             }
         }
 
-        private MoveableTable CreateMoveableTable(ReferenceTable ctr)
+        private MoveableObject CreateMoveableObj(object obj)
         {
-            cont++;
+            var pctBx = obj as PictureBox;
 
-            var mvtb = new MoveableTable
+            return new MoveableObject
             {
-                Image = ctr.Image,
-                Location = ctr.Location,
+                Id = cont,
+                Image = pctBx.Image,
+                Location = pctBx.Location,
                 Name = $"temp_{cont}",
-                Size = ctr.Size
+                Size = pctBx.Size
+            };
+        }
+
+        private MoveableTable CreateMoveableTable(object obj)
+        {
+            var refTab = obj as ReferenceTable;
+
+            var movTb = new MoveableTable
+            {
+                Id = cont,
+                Image = refTab.Image,
+                Location = refTab.Location,
+                Name = $"temp_{cont}",
+                Size = refTab.Size
             };
 
-            mvtb.BindedEntity = new TableDto
+            movTb.BindedEntity = new TableDto
                 (
-                caption: $"Mesa {cont}",
+                caption: $"Object {cont}",
                 mapTrackId: currentMapTrackId,
                 state: TableStateEnum.AVAILABLE,
-                shape: ctr.Shape,
-                maxChairs: ctr.Shape.GetId<byte>()
+                shape: refTab.Shape,
+                maxChairs: refTab.Shape.GetId<byte>()
                 );
 
-            return mvtb;
+            return movTb;
         }
 
         private void FijarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -213,9 +163,7 @@ namespace Prog3.RestoDotNet.App
             var tableList = new List<TableDto>();
             var xmlTables = new List<XmlTable>();
 
-            List<Control> controlsPictureBox = this.PnlMap.Controls.OfType<MoveableTable>().Cast<Control>().ToList();
-
-            foreach (MoveableTable item in controlsPictureBox)
+            foreach (MoveableObject item in PnlMap.Controls.OfType<MoveableObject>())
             {
                 // obtengo los valores ui del pictureBox.
                 var bounds = item.Bounds;
@@ -230,14 +178,16 @@ namespace Prog3.RestoDotNet.App
                 xTable.Top = bounds.Top;
                 xTable.X = bounds.X;
                 xTable.Y = bounds.Y;
-                xTable.imageFile = $"table_{item.BindedEntity.Shape}.png";
+                xTable.imageFile = $"image_{item.Id}_{currentMapTrackId}.png";
 
                 var dir = Directory.CreateDirectory($@"{Environment.CurrentDirectory}/Imagenes");
                 var path = $@"{dir.FullName}/{xTable.imageFile}";
                 item.Image.Save(path, ImageFormat.Png);
 
                 xmlTables.Add(xTable);
-                tableList.Add(item.BindedEntity);
+
+                if(item is MoveableTable)
+                    tableList.Add(item.BindedEntity as TableDto);
             }
 
             var svcResp = await _tableSvc.SetInitialTableArrangementAsync(tableList);
@@ -258,7 +208,7 @@ namespace Prog3.RestoDotNet.App
                 XmlSerializer writer = new XmlSerializer(typeof(List<XmlTable>));
 
                 var dir = Directory.CreateDirectory($@"{Environment.CurrentDirectory}/Mapas");
-                var path = $@"{dir.FullName}/Mapa_{currentMapTrackId}.xml";
+                var path = $@"{dir.FullName}/Mapa_{DateTime.Now.ToString("dd-MM-yyyy HH.mm.ss")}.xml";
                 FileStream file = File.Create(path);
 
                 writer.Serialize(file, xmlTables);

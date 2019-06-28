@@ -11,14 +11,8 @@ namespace Prog3.RestoDotNet.App.Custom_Items
 {
     public class MoveableObject : PictureBox
     {
-        public ObjectDto BindedEntity { get; set; }
-        public Point CurrentPosition { get; set; }
-
-        
-        public override string ToString()
-        {
-            return $"{ BindedEntity?.Caption} { BindedEntity?.Shape}";
-        }
-        
+        public int Id { get; set; }
+        public virtual object BindedEntity { get; set; }
+        public Point CurrentPosition { get; set; }        
     }
 }

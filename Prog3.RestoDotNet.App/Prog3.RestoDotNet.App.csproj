@@ -71,9 +71,6 @@
     <Compile Include="Custom Items\MoveableObject.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Custom Items\ReferenceObject.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Custom Items\ReferenceTable.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -158,6 +155,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\woodfloor_tile.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\bar.png" />
+    <Content Include="Resources\billar.jpg" />
+    <Content Include="Resources\block.png" />
+    <Content Include="Resources\column_1.png" />
+    <Content Include="Resources\column_2.png" />
+    <Content Include="Resources\table_1.png" />
+    <Content Include="Resources\table_2.png" />
+    <Content Include="Resources\table_3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

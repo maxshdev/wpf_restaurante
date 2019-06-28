@@ -37,14 +37,21 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.MesaRedo = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
+            this.MesaCuad = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
+            this.MesaRec = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.WallHor = new System.Windows.Forms.PictureBox();
+            this.WallVer = new System.Windows.Forms.PictureBox();
+            this.WallCol = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.MissPool = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.MissBar = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.PnlMap = new System.Windows.Forms.Panel();
             this.PnlButtons = new System.Windows.Forms.Panel();
             this.BtnSave = new System.Windows.Forms.Button();
@@ -53,36 +60,29 @@
             this.cmenuStripTable = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.fijarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.MesaRedo = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
-            this.MesaCuad = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
-            this.MesaRec = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
             this.PnlLayout.SuspendLayout();
             this.PnlToolBox.SuspendLayout();
             this.TabControlToolBox.SuspendLayout();
             this.TabToolBoxTables.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabPage1.SuspendLayout();
-            this.PnlButtons.SuspendLayout();
-            this.cmenuStripTable.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MesaRedo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MesaCuad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MesaRec)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.WallHor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WallVer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WallCol)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MissPool)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MissBar)).BeginInit();
+            this.PnlButtons.SuspendLayout();
+            this.cmenuStripTable.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnlLayout
             // 
             this.PnlLayout.ColumnCount = 2;
-            this.PnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.72242F));
-            this.PnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.27758F));
+            this.PnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.39689F));
+            this.PnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.60311F));
             this.PnlLayout.Controls.Add(this.PnlToolBox, 0, 0);
             this.PnlLayout.Controls.Add(this.PnlMap, 1, 0);
             this.PnlLayout.Controls.Add(this.PnlButtons, 0, 1);
@@ -102,7 +102,7 @@
             this.PnlToolBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlToolBox.Location = new System.Drawing.Point(3, 3);
             this.PnlToolBox.Name = "PnlToolBox";
-            this.PnlToolBox.Size = new System.Drawing.Size(124, 515);
+            this.PnlToolBox.Size = new System.Drawing.Size(141, 515);
             this.PnlToolBox.TabIndex = 2;
             // 
             // TabControlToolBox
@@ -115,7 +115,7 @@
             this.TabControlToolBox.Location = new System.Drawing.Point(0, 0);
             this.TabControlToolBox.Name = "TabControlToolBox";
             this.TabControlToolBox.SelectedIndex = 0;
-            this.TabControlToolBox.Size = new System.Drawing.Size(124, 515);
+            this.TabControlToolBox.Size = new System.Drawing.Size(141, 515);
             this.TabControlToolBox.TabIndex = 2;
             // 
             // TabToolBoxTables
@@ -129,7 +129,7 @@
             this.TabToolBoxTables.Location = new System.Drawing.Point(4, 22);
             this.TabToolBoxTables.Name = "TabToolBoxTables";
             this.TabToolBoxTables.Padding = new System.Windows.Forms.Padding(3);
-            this.TabToolBoxTables.Size = new System.Drawing.Size(116, 489);
+            this.TabToolBoxTables.Size = new System.Drawing.Size(133, 489);
             this.TabToolBoxTables.TabIndex = 0;
             this.TabToolBoxTables.Text = "Mesas";
             this.TabToolBoxTables.UseVisualStyleBackColor = true;
@@ -160,208 +160,6 @@
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Rect (6)";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.pictureBox3);
-            this.tabPage2.Controls.Add(this.pictureBox2);
-            this.tabPage2.Controls.Add(this.pictureBox1);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(116, 489);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Paredes";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(29, 279);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(51, 50);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Object_MouseDown);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(29, 158);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(51, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Object_MouseDown);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(29, 56);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(51, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Object_MouseDown);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 263);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Vertical";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 142);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Horizontal";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 39);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Columna";
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.pictureBox5);
-            this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.pictureBox4);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(116, 489);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "Deco";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // PnlMap
-            // 
-            this.PnlMap.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.PnlMap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlMap.Location = new System.Drawing.Point(133, 3);
-            this.PnlMap.Name = "PnlMap";
-            this.PnlMap.Size = new System.Drawing.Size(892, 515);
-            this.PnlMap.TabIndex = 1;
-            // 
-            // PnlButtons
-            // 
-            this.PnlButtons.Controls.Add(this.BtnSave);
-            this.PnlButtons.Controls.Add(this.BtnCancel);
-            this.PnlButtons.Location = new System.Drawing.Point(3, 524);
-            this.PnlButtons.Name = "PnlButtons";
-            this.PnlButtons.Size = new System.Drawing.Size(124, 40);
-            this.PnlButtons.TabIndex = 3;
-            // 
-            // BtnSave
-            // 
-            this.BtnSave.Enabled = false;
-            this.BtnSave.Location = new System.Drawing.Point(67, 9);
-            this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(54, 23);
-            this.BtnSave.TabIndex = 5;
-            this.BtnSave.Text = "Guardar";
-            this.BtnSave.UseVisualStyleBackColor = true;
-            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
-            // 
-            // BtnCancel
-            // 
-            this.BtnCancel.Location = new System.Drawing.Point(6, 9);
-            this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(58, 23);
-            this.BtnCancel.TabIndex = 4;
-            this.BtnCancel.Text = "Cancelar";
-            this.BtnCancel.UseVisualStyleBackColor = true;
-            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
-            // 
-            // btnDraw
-            // 
-            this.btnDraw.Location = new System.Drawing.Point(133, 524);
-            this.btnDraw.Name = "btnDraw";
-            this.btnDraw.Size = new System.Drawing.Size(75, 23);
-            this.btnDraw.TabIndex = 4;
-            this.btnDraw.Text = "Draw";
-            this.btnDraw.UseVisualStyleBackColor = true;
-            this.btnDraw.Click += new System.EventHandler(this.BtnDraw_Click);
-            // 
-            // cmenuStripTable
-            // 
-            this.cmenuStripTable.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmenuStripTable.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fijarToolStripMenuItem,
-            this.eliminarToolStripMenuItem});
-            this.cmenuStripTable.Name = "cmenuStripTable";
-            this.cmenuStripTable.Size = new System.Drawing.Size(118, 48);
-            // 
-            // fijarToolStripMenuItem
-            // 
-            this.fijarToolStripMenuItem.Name = "fijarToolStripMenuItem";
-            this.fijarToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.fijarToolStripMenuItem.Text = "Fijar";
-            this.fijarToolStripMenuItem.Click += new System.EventHandler(this.FijarToolStripMenuItem_Click);
-            // 
-            // eliminarToolStripMenuItem
-            // 
-            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.eliminarToolStripMenuItem.Text = "Eliminar";
-            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.EliminarToolStripMenuItem_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 32);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "BarTender";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(10, 48);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(92, 81);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 1;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Object_MouseDown);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 153);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(28, 13);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Pool";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(13, 170);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(92, 81);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 3;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Object_MouseDown);
             // 
             // MesaRedo
             // 
@@ -399,6 +197,208 @@
             this.MesaRec.TabStop = false;
             this.MesaRec.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.WallHor);
+            this.tabPage2.Controls.Add(this.WallVer);
+            this.tabPage2.Controls.Add(this.WallCol);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(133, 489);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Paredes";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // WallHor
+            // 
+            this.WallHor.Image = ((System.Drawing.Image)(resources.GetObject("WallHor.Image")));
+            this.WallHor.Location = new System.Drawing.Point(40, 263);
+            this.WallHor.Name = "WallHor";
+            this.WallHor.Size = new System.Drawing.Size(51, 50);
+            this.WallHor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.WallHor.TabIndex = 5;
+            this.WallHor.TabStop = false;
+            this.WallHor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            // 
+            // WallVer
+            // 
+            this.WallVer.Image = ((System.Drawing.Image)(resources.GetObject("WallVer.Image")));
+            this.WallVer.Location = new System.Drawing.Point(40, 142);
+            this.WallVer.Name = "WallVer";
+            this.WallVer.Size = new System.Drawing.Size(51, 50);
+            this.WallVer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.WallVer.TabIndex = 4;
+            this.WallVer.TabStop = false;
+            this.WallVer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            // 
+            // WallCol
+            // 
+            this.WallCol.Image = ((System.Drawing.Image)(resources.GetObject("WallCol.Image")));
+            this.WallCol.Location = new System.Drawing.Point(40, 40);
+            this.WallCol.Name = "WallCol";
+            this.WallCol.Size = new System.Drawing.Size(51, 50);
+            this.WallCol.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.WallCol.TabIndex = 3;
+            this.WallCol.TabStop = false;
+            this.WallCol.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(37, 247);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(42, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Vertical";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(37, 126);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Horizontal";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(37, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Columna";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.MissPool);
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.MissBar);
+            this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(133, 489);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "Deco";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // MissPool
+            // 
+            this.MissPool.Image = ((System.Drawing.Image)(resources.GetObject("MissPool.Image")));
+            this.MissPool.Location = new System.Drawing.Point(21, 170);
+            this.MissPool.Name = "MissPool";
+            this.MissPool.Size = new System.Drawing.Size(92, 81);
+            this.MissPool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.MissPool.TabIndex = 3;
+            this.MissPool.TabStop = false;
+            this.MissPool.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(18, 153);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(28, 13);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Pool";
+            // 
+            // MissBar
+            // 
+            this.MissBar.Image = ((System.Drawing.Image)(resources.GetObject("MissBar.Image")));
+            this.MissBar.Location = new System.Drawing.Point(18, 48);
+            this.MissBar.Name = "MissBar";
+            this.MissBar.Size = new System.Drawing.Size(92, 81);
+            this.MissBar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.MissBar.TabIndex = 1;
+            this.MissBar.TabStop = false;
+            this.MissBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(15, 32);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "BarTender";
+            // 
+            // PnlMap
+            // 
+            this.PnlMap.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.PnlMap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlMap.Location = new System.Drawing.Point(150, 3);
+            this.PnlMap.Name = "PnlMap";
+            this.PnlMap.Size = new System.Drawing.Size(875, 515);
+            this.PnlMap.TabIndex = 1;
+            // 
+            // PnlButtons
+            // 
+            this.PnlButtons.Controls.Add(this.BtnSave);
+            this.PnlButtons.Controls.Add(this.BtnCancel);
+            this.PnlButtons.Location = new System.Drawing.Point(3, 524);
+            this.PnlButtons.Name = "PnlButtons";
+            this.PnlButtons.Size = new System.Drawing.Size(124, 40);
+            this.PnlButtons.TabIndex = 3;
+            // 
+            // BtnSave
+            // 
+            this.BtnSave.Enabled = false;
+            this.BtnSave.Location = new System.Drawing.Point(67, 9);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(54, 23);
+            this.BtnSave.TabIndex = 5;
+            this.BtnSave.Text = "Guardar";
+            this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            // 
+            // BtnCancel
+            // 
+            this.BtnCancel.Location = new System.Drawing.Point(6, 9);
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(58, 23);
+            this.BtnCancel.TabIndex = 4;
+            this.BtnCancel.Text = "Cancelar";
+            this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            // 
+            // btnDraw
+            // 
+            this.btnDraw.Location = new System.Drawing.Point(150, 524);
+            this.btnDraw.Name = "btnDraw";
+            this.btnDraw.Size = new System.Drawing.Size(75, 23);
+            this.btnDraw.TabIndex = 4;
+            this.btnDraw.Text = "Draw";
+            this.btnDraw.UseVisualStyleBackColor = true;
+            this.btnDraw.Click += new System.EventHandler(this.BtnDraw_Click);
+            // 
+            // cmenuStripTable
+            // 
+            this.cmenuStripTable.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmenuStripTable.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fijarToolStripMenuItem,
+            this.eliminarToolStripMenuItem});
+            this.cmenuStripTable.Name = "cmenuStripTable";
+            this.cmenuStripTable.Size = new System.Drawing.Size(118, 48);
+            // 
+            // fijarToolStripMenuItem
+            // 
+            this.fijarToolStripMenuItem.Name = "fijarToolStripMenuItem";
+            this.fijarToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.fijarToolStripMenuItem.Text = "Fijar";
+            this.fijarToolStripMenuItem.Click += new System.EventHandler(this.FijarToolStripMenuItem_Click);
+            // 
+            // eliminarToolStripMenuItem
+            // 
+            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.EliminarToolStripMenuItem_Click);
+            // 
             // FormMapEdition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,20 +412,20 @@
             this.TabControlToolBox.ResumeLayout(false);
             this.TabToolBoxTables.ResumeLayout(false);
             this.TabToolBoxTables.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.PnlButtons.ResumeLayout(false);
-            this.cmenuStripTable.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MesaRedo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MesaCuad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MesaRec)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.WallHor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WallVer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WallCol)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MissPool)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MissBar)).EndInit();
+            this.PnlButtons.ResumeLayout(false);
+            this.cmenuStripTable.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -449,17 +449,17 @@
         private System.Windows.Forms.ContextMenuStrip cmenuStripTable;
         private System.Windows.Forms.ToolStripMenuItem fijarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox WallHor;
+        private System.Windows.Forms.PictureBox WallVer;
+        private System.Windows.Forms.PictureBox WallCol;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button btnDraw;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox MissBar;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox MissPool;
         private System.Windows.Forms.Label label8;
     }
 }
