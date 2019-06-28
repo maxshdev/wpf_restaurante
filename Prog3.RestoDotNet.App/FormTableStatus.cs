@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,5 +17,38 @@ namespace Prog3.RestoDotNet.App
         {
             InitializeComponent();
         }
+        public FormTableStatus(Control sender)
+        {
+            InitializeComponent();
+            this.LoadImage((PictureBox)sender);
+        }
+
+
+        private void LoadImage(PictureBox temp)
+        {
+            var item = temp;
+
+            var dir = Directory.CreateDirectory($@"{Environment.CurrentDirectory}/Imagenes");
+            var imgPath = $@"{dir.FullName}/{item.imageFile}";
+            temp.Image = Image.FromFile(imgPath);
+        }
+
+        // DETALLES DEL PEDIDO - COMIDAS
+
+        private void BtnAddMeals_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnChangeMeal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnDeletedMeal_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

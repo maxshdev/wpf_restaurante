@@ -73,7 +73,17 @@ namespace Prog3.RestoDotNet.App
 
         private void VerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FormTableStatus().ShowDialog();
+            ToolStripItem item = (sender as ToolStripItem);
+            if (item != null)
+            {
+                ContextMenuStrip owner = item.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    Control temp = owner.SourceControl;
+                }
+            }
+
+            new FormTableStatus(temp).ShowDialog();
         }
     }
 }
