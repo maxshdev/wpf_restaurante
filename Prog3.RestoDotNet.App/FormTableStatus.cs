@@ -26,11 +26,7 @@ namespace Prog3.RestoDotNet.App
 
         private void LoadImage(PictureBox temp)
         {
-            var item = temp;
-
-            var dir = Directory.CreateDirectory($@"{Environment.CurrentDirectory}/Imagenes");
-            var imgPath = $@"{dir.FullName}/{item.imageFile}";
-            temp.Image = Image.FromFile(imgPath);
+            pBoxImageTable.Image = temp.Image;
         }
 
         // DETALLES DEL PEDIDO - COMIDAS
