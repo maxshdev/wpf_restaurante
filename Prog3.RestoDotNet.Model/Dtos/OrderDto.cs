@@ -7,6 +7,11 @@ namespace Prog3.RestoDotNet.Model.Dtos
 {
     public class OrderDto : IDto<Order>
     {
+        public OrderDto()
+        {
+            Meals = new List<MealDto>();
+        }
+
         public Order BaseEntity { get; set; }
 
         public int Id { get; set; }
@@ -14,7 +19,7 @@ namespace Prog3.RestoDotNet.Model.Dtos
         public DateTime? DateTo { get; set; }
         public string Obs { get; set; }
 
-        public virtual IEnumerable<Meal> Meals { get; set; }
+        public virtual List<MealDto> Meals { get; set; }
         public decimal TotalPrice { get; set; }
 
 

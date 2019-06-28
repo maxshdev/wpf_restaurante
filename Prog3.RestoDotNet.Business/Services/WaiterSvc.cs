@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Prog3.RestoDotNet.Business.Services
 {
-    public class WaiterSvc : BaseService<Waiter, WaiterDto>, IWaiterSvc
+    class WaiterSvc : BaseService<Waiter, WaiterDto>, IWaiterSvc
     {
         public WaiterSvc(IApplicationUow applicationUow)
             : base(applicationUow, new WaiterMapper())

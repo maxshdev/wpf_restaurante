@@ -106,7 +106,7 @@ namespace Prog3.RestoDotNet.App
                 }
             }
 
-            new FormTableStatus(temp).ShowDialog();
+            new FormTableStatus(temp, _orderSvc).ShowDialog();
         }
     }
 }

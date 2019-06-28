@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Prog3.RestoDotNet.Business.Services.Contracts;
+using Prog3.RestoDotNet.Model.Dtos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,14 +15,31 @@ namespace Prog3.RestoDotNet.App
 {
     public partial class FormTableStatus : Form
     {
+        private readonly IOrderSvc _orderSvc;
+        private IEnumerable<MealDto> _stockMeals;
+        private OrderDto _currentOrder;
+
         public FormTableStatus()
         {
             InitializeComponent();
         }
-        public FormTableStatus(Control sender)
+        public FormTableStatus(Control sender, IOrderSvc orderSvc)
         {
             InitializeComponent();
+            LoadStockMeals();
+            _currentOrder = new OrderDto();
             this.LoadImage((PictureBox)sender);
+            _orderSvc = orderSvc;
+        }
+
+        private void LoadStockMeals()
+        {
+            _stockMeals = new List<MealDto>
+            {
+                new MealDto(1, "Fideos", 65),
+                new MealDto(2, "Milanesas", 150),
+                new MealDto(3, "Pizza", 250),
+            };
         }
 
         private void LoadImage(PictureBox temp)
@@ -31,9 +50,9 @@ namespace Prog3.RestoDotNet.App
 
         // DETALLES DEL PEDIDO - COMIDAS
 
-        private void BtnAddMeals_Click(object sender, EventArgs e)
+        private async void BtnAddMeals_Click(object sender, EventArgs e)
         {
-
+            //_currentOrder.Meals.Add()
         }
 
         private void BtnChangeMeal_Click(object sender, EventArgs e)
