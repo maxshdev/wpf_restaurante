@@ -52,7 +52,6 @@
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Table.cs" />
     <Compile Include="Entities\Waiter.cs" />
-    <Compile Include="Enums\ObjectShapeEnum.cs" />
     <Compile Include="Enums\TableShapeEnum.cs" />
     <Compile Include="Enums\TableStateEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

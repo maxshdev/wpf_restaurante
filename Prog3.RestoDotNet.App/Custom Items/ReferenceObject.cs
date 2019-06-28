@@ -10,6 +10,6 @@ namespace Prog3.RestoDotNet.App.Custom_Items
 {
     public class ReferenceObject : PictureBox
     {
-        public ObjectShapeEnum Shape { get; set; }
+        public TableShapeEnum Shape { get; set; }
     }
 }
