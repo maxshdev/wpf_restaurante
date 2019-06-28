@@ -19,6 +19,7 @@ namespace Prog3.RestoDotNet.App
     {
 
         MoveableTable moveableItem;
+        MoveableObject moveableObj;
         Guid currentMapTrackId;
         int cont = 0;
 
@@ -32,7 +33,6 @@ namespace Prog3.RestoDotNet.App
             InitializeComponent();
             currentMapTrackId = Guid.NewGuid();//track id diferente por cda instancia de edicion
             _tableSvc = tableSvc;
-            this.DrawGrid();
         }
 
         private void SetAsMoveable()
@@ -89,6 +89,60 @@ namespace Prog3.RestoDotNet.App
                 isPressedDown = true;
                 initial = e.Location;
             }
+        }
+
+        private void SetAsMoveableObject()
+        {
+
+            if (moveableObj != null)
+            {
+                moveableObj.MouseDown += Ctr_MouseDown;
+                moveableObj.MouseUp += Ctr_MouseUp;
+                moveableObj.MouseMove += Ctr_MouseMove;
+            }
+        }
+
+        private void Object_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                moveableObj = CreateMoveableObject(sender as ReferenceObject);
+                moveableObj.Left = 100 + (100 * PnlMap.Controls.Count);//para crear en diferentes lugares
+                moveableObj.Top = 100 + (100 * PnlMap.Controls.Count);
+                moveableObj.Width = 90;
+                moveableObj.Height = 90;
+                moveableObj.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                moveableObj.ContextMenuStrip = this.cmenuStripTable;
+
+                this.PnlMap.Controls.Add(moveableObj);
+                this.SetAsMoveableObject();
+                this.BtnSave.Enabled = PnlMap.Controls.Count > 0;
+            }
+        }
+
+        private MoveableObject CreateMoveableObject(ReferenceObject ctr)
+        {
+            cont++;
+
+            var mvto = new MoveableObject
+            {
+                Image = ctr.Image,
+                Location = ctr.Location,
+                Name = $"temp_{cont}",
+                Size = ctr.Size
+            };
+
+            mvto.BindedEntity = new ObjectDto
+                (
+                caption: $"Object {cont}",
+                mapTrackId: currentMapTrackId,
+                //state: TableStateEnum.AVAILABLE,
+                shape: ctr.Shape,
+                maxChairs: ctr.Shape.GetId<byte>()
+                );
+
+            return mvto;
         }
 
         private void Table_MouseDown(object sender, MouseEventArgs e)
@@ -217,10 +271,6 @@ namespace Prog3.RestoDotNet.App
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void DrawGrid() {
-            
         }
 
         private void BtnDraw_Click(object sender, EventArgs e)

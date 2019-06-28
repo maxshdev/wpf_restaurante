@@ -68,6 +68,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Custom Items\MoveableObject.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom Items\ReferenceObject.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Custom Items\ReferenceTable.cs">
       <SubType>Component</SubType>
     </Compile>
