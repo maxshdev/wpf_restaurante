@@ -34,7 +34,10 @@ namespace Prog3.RestoDotNet.App
             openFile.Multiselect = false;
             openFile.Filter = "|*.xml";
             openFile.ShowHelp = false;
-            openFile.ShowDialog();
+
+            if (openFile.ShowDialog() != DialogResult.OK)
+                return;
+
             var path = openFile.FileName;
 
             XmlSerializer reader = new XmlSerializer(typeof(List<XmlTable>));

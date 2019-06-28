@@ -11,8 +11,7 @@ namespace Prog3.RestoDotNet.Business.Mappers
         {
             return new MapperConfiguration(c =>
             {
-                c.CreateMap<Order, OrderDto>()
-                .ForMember(m => m.BaseEntity, o => o.MapFrom(s => s));
+                c.CreateMap<Order, OrderDto>();
 
             }).CreateMapper();
         }
@@ -21,8 +20,8 @@ namespace Prog3.RestoDotNet.Business.Mappers
         {
             return new MapperConfiguration(c =>
             {
-                c.CreateMap<OrderDto, Order>()
-                .ForMember(m => m, o => o.MapFrom(s => s.BaseEntity));
+                c.CreateMap<OrderDto, Order>()                
+                .ForMember(m => m.TotalPrice, o => o.Ignore());
 
             }).CreateMapper();
         }

@@ -40,7 +40,7 @@ namespace Prog3.RestoDotNet.Business.Services
             }
             catch (Exception ex)
             {
-                HandleSVCException(ex);
+                HandleSVCException(response, ex);
             }
 
             return response;
