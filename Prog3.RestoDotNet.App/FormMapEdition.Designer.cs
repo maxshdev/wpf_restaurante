@@ -52,10 +52,14 @@
             this.PnlButtons = new System.Windows.Forms.Panel();
             this.BtnSave = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
+            this.btnDraw = new System.Windows.Forms.Button();
             this.cmenuStripTable = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.fijarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnDraw = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.PnlLayout.SuspendLayout();
             this.PnlToolBox.SuspendLayout();
             this.TabControlToolBox.SuspendLayout();
@@ -67,8 +71,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabPage1.SuspendLayout();
             this.PnlButtons.SuspendLayout();
             this.cmenuStripTable.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlLayout
@@ -121,7 +128,7 @@
             this.TabToolBoxTables.Controls.Add(this.MesaRec);
             this.TabToolBoxTables.Location = new System.Drawing.Point(4, 22);
             this.TabToolBoxTables.Name = "TabToolBoxTables";
-            this.TabToolBoxTables.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.TabToolBoxTables.Padding = new System.Windows.Forms.Padding(3);
             this.TabToolBoxTables.Size = new System.Drawing.Size(116, 489);
             this.TabToolBoxTables.TabIndex = 0;
             this.TabToolBoxTables.Text = "Mesas";
@@ -200,7 +207,7 @@
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(116, 489);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Paredes";
@@ -208,25 +215,31 @@
             // 
             // pictureBox3
             // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(29, 279);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(51, 50);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 5;
             this.pictureBox3.TabStop = false;
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(29, 158);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(51, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(29, 56);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(51, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
@@ -259,9 +272,13 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.pictureBox5);
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.pictureBox4);
+            this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(116, 489);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Deco";
@@ -306,6 +323,16 @@
             this.BtnCancel.UseVisualStyleBackColor = true;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
+            // btnDraw
+            // 
+            this.btnDraw.Location = new System.Drawing.Point(133, 524);
+            this.btnDraw.Name = "btnDraw";
+            this.btnDraw.Size = new System.Drawing.Size(75, 23);
+            this.btnDraw.TabIndex = 4;
+            this.btnDraw.Text = "Draw";
+            this.btnDraw.UseVisualStyleBackColor = true;
+            this.btnDraw.Click += new System.EventHandler(this.BtnDraw_Click);
+            // 
             // cmenuStripTable
             // 
             this.cmenuStripTable.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -329,15 +356,43 @@
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.EliminarToolStripMenuItem_Click);
             // 
-            // btnDraw
+            // label7
             // 
-            this.btnDraw.Location = new System.Drawing.Point(133, 524);
-            this.btnDraw.Name = "btnDraw";
-            this.btnDraw.Size = new System.Drawing.Size(75, 23);
-            this.btnDraw.TabIndex = 4;
-            this.btnDraw.Text = "Draw";
-            this.btnDraw.UseVisualStyleBackColor = true;
-            this.btnDraw.Click += new System.EventHandler(this.BtnDraw_Click);
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 32);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "BarTender";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(10, 48);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(92, 81);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 1;
+            this.pictureBox4.TabStop = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(10, 153);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(28, 13);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Pool";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(13, 170);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(92, 81);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 3;
+            this.pictureBox5.TabStop = false;
             // 
             // FormMapEdition
             // 
@@ -360,8 +415,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.PnlButtons.ResumeLayout(false);
             this.cmenuStripTable.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -393,6 +452,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button btnDraw;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label label8;
     }
 }
 
