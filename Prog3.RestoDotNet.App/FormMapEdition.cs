@@ -87,6 +87,7 @@ namespace Prog3.RestoDotNet.App
                 currentObj.Width = 90;
                 currentObj.Height = 90;
                 currentObj.SizeMode = PictureBoxSizeMode.StretchImage;
+                currentObj.BackColor = Color.Transparent;
                 currentObj.ContextMenuStrip = this.cmenuStripTable;
 
                 currentObj.MouseDown += Ctr_MouseDown;
