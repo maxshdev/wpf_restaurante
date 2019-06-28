@@ -23,13 +23,19 @@ namespace Prog3.RestoDotNet.App
         {
             InitializeComponent();
         }
-        public FormTableStatus(Control sender, IOrderSvc orderSvc)
+        public FormTableStatus(MoveableTable tableObj, IOrderSvc orderSvc)
         {
             InitializeComponent();
-            LoadStockMeals();
             _currentOrder = new OrderDto();
-            this.LoadImage((PictureBox)sender);
+            LoadStockMeals();
+            LoadTableDetail();
+            this.LoadImage(tableObj);
             _orderSvc = orderSvc;
+        }
+
+        private void LoadTableDetail()
+        {
+            
         }
 
         private void LoadStockMeals()

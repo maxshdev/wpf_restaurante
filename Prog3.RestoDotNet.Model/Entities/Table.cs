@@ -15,6 +15,8 @@ namespace Prog3.RestoDotNet.Model.Entities
         [MaxLength(50)]
         public string Caption { get; set; }
         [Required]
+        public int MoveableTableId { get; set; }
+        [Required]
         public Guid BoundedMapId { get; set; }
         public TableStateEnum State { get; set; }
         public TableShapeEnum Shape { get; set; }

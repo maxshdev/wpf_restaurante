@@ -7,12 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Prog3.RestoDotNet.App.Custom_Items
+namespace Prog3.RestoDotNet.App
 {
     public class MoveableObject : PictureBox
     {
         public int Id { get; set; }
         public virtual object BindedEntity { get; set; }
-        public Point CurrentPosition { get; set; }        
+        public Point CurrentPosition { get; set; }
     }
 }

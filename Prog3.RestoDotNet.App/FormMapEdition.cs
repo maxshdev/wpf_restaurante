@@ -80,7 +80,7 @@ namespace Prog3.RestoDotNet.App
         {
             if (e.Button == MouseButtons.Left)
             {
-                cont++;
+                cont++;//para identificar posteriormente cada item en el mapa
                 currentObj = sender is ReferenceTable ? CreateMoveableTable(sender) : CreateMoveableObj(sender);
                 currentObj.Left = 100 + (10 * PnlMap.Controls.Count);//para crear en diferentes lugares
                 currentObj.Top = 100 + (10 * PnlMap.Controls.Count);
@@ -129,6 +129,7 @@ namespace Prog3.RestoDotNet.App
             movTb.BindedEntity = new TableDto
                 (
                 caption: $"Table {cont}",
+                moveableTableId: cont,
                 mapTrackId: currentMapTrackId,
                 state: TableStateEnum.AVAILABLE,
                 shape: refTab.Shape,
@@ -170,7 +171,8 @@ namespace Prog3.RestoDotNet.App
                 // voy a crear un objeto tipo tabla para poder guardar
                 // las propiedades y serializarlo luego en un archivo xml.
                 XmlTable xTable = new XmlTable();
-                xTable.Id = item.GetHashCode();
+                xTable.Id = item.Id;
+                xTable.TackId = currentMapTrackId;
                 xTable.Bottom = bounds.Bottom;
                 xTable.Height = bounds.Height;
                 xTable.Width = bounds.Width;

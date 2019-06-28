@@ -7,9 +7,14 @@ namespace Prog3.RestoDotNet.Model.Dtos
 {
     public class TableDto : IDto<Table>
     {
-        public TableDto(string caption, Guid mapTrackId, TableStateEnum state, TableShapeEnum shape, byte maxChairs)
+        public TableDto()
+        {
+
+        }
+        public TableDto(string caption, int moveableTableId, Guid mapTrackId, TableStateEnum state, TableShapeEnum shape, byte maxChairs)
         {
             Caption = caption;
+            MoveableTableId = moveableTableId;
             BoundedMapId = mapTrackId;
             State = state;
             Shape = shape;
@@ -20,6 +25,7 @@ namespace Prog3.RestoDotNet.Model.Dtos
 
         public int Id { get; set; }
         public string Caption { get; set; }
+        public int MoveableTableId { get; set; }
         public Guid BoundedMapId { get; set; }
         public TableStateEnum State { get; set; }
         public TableShapeEnum Shape { get; set; }

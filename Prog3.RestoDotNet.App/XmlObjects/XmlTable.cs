@@ -9,6 +9,7 @@ namespace Prog3.RestoDotNet.App.XmlObjects
     public class XmlTable
     {
         public int Id { get; set; }
+        public Guid TackId { get; set; }
         public int Bottom { get; set; }
         public int Height { get; set; }
         public int Width { get; set; }

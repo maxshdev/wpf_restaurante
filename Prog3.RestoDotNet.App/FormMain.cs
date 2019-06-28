@@ -1,10 +1,12 @@
 ﻿using Prog3.RestoDotNet.App.XmlObjects;
 using Prog3.RestoDotNet.Business.Services.Contracts;
+using Prog3.RestoDotNet.Model.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
@@ -15,12 +17,20 @@ namespace Prog3.RestoDotNet.App
         private readonly IOrderSvc _orderSvc;
         private readonly ITableSvc _tableSvc;
         private OpenFileDialog openFile;
+        private List<TableDto> tableObjs;
 
         public FormMain(IOrderSvc orderSvc, ITableSvc tableSvc)
         {
             InitializeComponent();
             _orderSvc = orderSvc;
             _tableSvc = tableSvc;
+        }
+
+        private async Task GetRelatedTables(Guid trackId)
+        {
+            var svcResp = await _tableSvc.GetAllByTrackId(trackId);
+
+            tableObjs = svcResp.Data.ToList();
         }
 
         private void UpdateState(List<XmlTable> xmlTables)
@@ -49,7 +59,7 @@ namespace Prog3.RestoDotNet.App
             new FormMapEdition(_tableSvc).ShowDialog();
         }
 
-        private void BtnMapLoad_Click(object sender, EventArgs e)
+        private async void BtnMapLoad_Click(object sender, EventArgs e)
         {
             openFile = new OpenFileDialog();
             openFile.InitialDirectory = Directory.CreateDirectory($@"{Environment.CurrentDirectory}/Mapas").FullName;
@@ -67,10 +77,14 @@ namespace Prog3.RestoDotNet.App
             StreamReader file = new StreamReader(path);
             var xmlTables = (List<XmlTable>)reader.Deserialize(file);
 
+            //cargar mesas correspondientes al mapa
+            await GetRelatedTables(xmlTables.First().TackId);
+
             foreach (XmlTable item in xmlTables)
             {
-                PictureBox temp = new PictureBox();
-                //temp.Bottom = item.Bottom;
+                MoveableObject temp = tableObjs.Any(t => t.MoveableTableId == item.Id) 
+                    ? new MoveableTable { ContextMenuStrip = cMenuStripMapLoad } : new MoveableObject();
+                temp.Id = item.Id;
                 temp.Height = item.Height;
                 temp.Width = item.Width;
                 temp.Left = item.Left;
@@ -79,13 +93,11 @@ namespace Prog3.RestoDotNet.App
                 loc.X = item.X;
                 loc.Y = item.Y;
                 temp.Location = loc;
+                temp.SizeMode = PictureBoxSizeMode.StretchImage;
 
                 var dir = Directory.CreateDirectory($@"{Environment.CurrentDirectory}/Imagenes");
                 var imgPath = $@"{dir.FullName}/{item.imageFile}";
                 temp.Image = Image.FromFile(imgPath);
-
-                temp.SizeMode = PictureBoxSizeMode.StretchImage;
-                temp.ContextMenuStrip = this.cMenuStripMapLoad;
 
                 this.PnlMapLoad.Controls.Add(temp);
             }
@@ -95,18 +107,16 @@ namespace Prog3.RestoDotNet.App
 
         private void VerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Control temp = new Control();
             ToolStripItem item = (sender as ToolStripItem);
             if (item != null)
             {
                 ContextMenuStrip owner = item.Owner as ContextMenuStrip;
                 if (owner != null)
                 {
-                    temp = owner.SourceControl;
+                    new FormTableStatus((MoveableTable)owner.SourceControl, _orderSvc).ShowDialog();
                 }
             }
 
-            new FormTableStatus(temp, _orderSvc).ShowDialog();
         }
     }
 }

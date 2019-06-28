@@ -51,6 +51,23 @@ namespace Prog3.RestoDotNet.Business.Services
             throw new NotImplementedException();
         }
 
+        public async Task<BLListResponse<TableDto>> GetAllByTrackId(Guid trackId)
+        {
+            var response = new BLListResponse<TableDto>();
+
+            try
+            {
+                var entityResp = await _uow.GetEfRepository<Table>().AllAsync(t => t.BoundedMapId == trackId, null, null);
+                response.Data = _mapper.MapFromEntity(entityResp);
+            }
+            catch (Exception ex)
+            {
+                HandleSVCException(response, ex);
+            }
+
+            return response;
+        }
+
         public async Task<BLSingleResponse<TableDto>> GetByIdAsync(int pId)
         {
             //var a = await _uow.GetRepo<Table>().GetByIdAsync(pId);
