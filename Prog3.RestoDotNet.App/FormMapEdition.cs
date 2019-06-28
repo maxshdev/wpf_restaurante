@@ -128,7 +128,7 @@ namespace Prog3.RestoDotNet.App
 
             movTb.BindedEntity = new TableDto
                 (
-                caption: $"Object {cont}",
+                caption: $"Table {cont}",
                 mapTrackId: currentMapTrackId,
                 state: TableStateEnum.AVAILABLE,
                 shape: refTab.Shape,
@@ -187,7 +187,7 @@ namespace Prog3.RestoDotNet.App
                 xmlTables.Add(xTable);
 
                 if(item is MoveableTable)
-                    tableList.Add(item.BindedEntity as TableDto);
+                    tableList.Add(((MoveableTable)item).BindedEntity);
             }
 
             var svcResp = await _tableSvc.SetInitialTableArrangementAsync(tableList);

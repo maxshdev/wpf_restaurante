@@ -13,7 +13,7 @@ namespace Prog3.RestoDotNet.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201906261859181_initialMigration"; }
+            get { return "201906281717267_initialMigration"; }
         }
         
         string IMigrationMetadata.Source

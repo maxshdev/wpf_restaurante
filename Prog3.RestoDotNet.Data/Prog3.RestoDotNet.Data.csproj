@@ -51,13 +51,9 @@
     <Compile Include="Dals\ApplicationUow.cs" />
     <Compile Include="Dals\EfRepository.cs" />
     <Compile Include="Dals\RestoDbContext.cs" />
-    <Compile Include="Migrations\201906261859181_initialMigration.cs" />
-    <Compile Include="Migrations\201906261859181_initialMigration.Designer.cs">
-      <DependentUpon>201906261859181_initialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906271845281_tableIdentityOn.cs" />
-    <Compile Include="Migrations\201906271845281_tableIdentityOn.Designer.cs">
-      <DependentUpon>201906271845281_tableIdentityOn.cs</DependentUpon>
+    <Compile Include="Migrations\201906281717267_initialMigration.cs" />
+    <Compile Include="Migrations\201906281717267_initialMigration.Designer.cs">
+      <DependentUpon>201906281717267_initialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,11 +73,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906261859181_initialMigration.resx">
-      <DependentUpon>201906261859181_initialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906271845281_tableIdentityOn.resx">
-      <DependentUpon>201906271845281_tableIdentityOn.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906281717267_initialMigration.resx">
+      <DependentUpon>201906281717267_initialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
