@@ -107,6 +107,7 @@
             this.Controls.Add(this.PnlMapLoad);
             this.Controls.Add(this.btnMapLoad);
             this.Controls.Add(this.btnMapEdit);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.Text = "Resto DotNet";
             this.cMenuStripMapLoad.ResumeLayout(false);

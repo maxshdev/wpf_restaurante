@@ -97,6 +97,7 @@ namespace Prog3.RestoDotNet.App
                 loc.Y = item.Y;
                 temp.Location = loc;
                 temp.SizeMode = PictureBoxSizeMode.StretchImage;
+                temp.BackColor = Color.Transparent;
 
                 var dir = Directory.CreateDirectory($@"{Environment.CurrentDirectory}/Imagenes");
                 var imgPath = $@"{dir.FullName}/{item.imageFile}";
