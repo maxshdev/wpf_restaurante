@@ -37,7 +37,9 @@
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarPedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cMenuStripMapLoad.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnMapEdit
@@ -65,7 +67,7 @@
             this.PnlMapLoad.BackColor = System.Drawing.SystemColors.ControlLight;
             this.PnlMapLoad.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PnlMapLoad.BackgroundImage")));
             this.PnlMapLoad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PnlMapLoad.Location = new System.Drawing.Point(12, 41);
+            this.PnlMapLoad.Location = new System.Drawing.Point(12, 157);
             this.PnlMapLoad.Name = "PnlMapLoad";
             this.PnlMapLoad.Size = new System.Drawing.Size(892, 515);
             this.PnlMapLoad.TabIndex = 2;
@@ -99,11 +101,22 @@
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(13, 42);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(891, 109);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(919, 572);
+            this.ClientSize = new System.Drawing.Size(919, 684);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.PnlMapLoad);
             this.Controls.Add(this.btnMapLoad);
             this.Controls.Add(this.btnMapEdit);
@@ -111,6 +124,7 @@
             this.Name = "FormMain";
             this.Text = "Resto DotNet";
             this.cMenuStripMapLoad.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -124,5 +138,6 @@
         private System.Windows.Forms.ToolStripMenuItem verToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarPedidoToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
