@@ -48,7 +48,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pBoxImageTable = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnChangeMeal = new System.Windows.Forms.Button();
             this.btnDeletedMeal = new System.Windows.Forms.Button();
             this.btnAddMeals = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -234,7 +233,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btnChangeMeal);
             this.groupBox3.Controls.Add(this.btnDeletedMeal);
             this.groupBox3.Controls.Add(this.btnAddMeals);
             this.groupBox3.Controls.Add(this.dataGridView1);
@@ -244,16 +242,6 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Comidas:";
-            // 
-            // btnChangeMeal
-            // 
-            this.btnChangeMeal.Location = new System.Drawing.Point(370, 187);
-            this.btnChangeMeal.Name = "btnChangeMeal";
-            this.btnChangeMeal.Size = new System.Drawing.Size(75, 23);
-            this.btnChangeMeal.TabIndex = 3;
-            this.btnChangeMeal.Text = "Cambiar";
-            this.btnChangeMeal.UseVisualStyleBackColor = true;
-            this.btnChangeMeal.Click += new System.EventHandler(this.BtnChangeMeal_Click);
             // 
             // btnDeletedMeal
             // 
@@ -348,7 +336,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnAddMeals;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnChangeMeal;
         private System.Windows.Forms.Button btnDeletedMeal;
         private System.Windows.Forms.Button btnCloseTable;
         private System.Windows.Forms.Label label7;
