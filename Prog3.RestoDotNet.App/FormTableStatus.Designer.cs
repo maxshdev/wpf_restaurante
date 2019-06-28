@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cBoxState = new System.Windows.Forms.ComboBox();
+            this.tBoxClient = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.rTBoxNotes = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dTPickerReserved = new System.Windows.Forms.DateTimePicker();
@@ -48,6 +52,7 @@
             this.btnAddMeals = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnCloseTable = new System.Windows.Forms.Button();
+            this.btnSaveTable = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxImageTable)).BeginInit();
@@ -57,6 +62,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.cBoxState);
+            this.groupBox1.Controls.Add(this.tBoxClient);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.rTBoxNotes);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.dTPickerReserved);
@@ -74,6 +83,43 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Estado de Mesa";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(100, 98);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Estado:";
+            // 
+            // cBoxState
+            // 
+            this.cBoxState.FormattingEnabled = true;
+            this.cBoxState.Items.AddRange(new object[] {
+            "Libre",
+            "Ocupado",
+            "Reservado"});
+            this.cBoxState.Location = new System.Drawing.Point(103, 114);
+            this.cBoxState.Name = "cBoxState";
+            this.cBoxState.Size = new System.Drawing.Size(145, 21);
+            this.cBoxState.TabIndex = 13;
+            // 
+            // tBoxClient
+            // 
+            this.tBoxClient.Location = new System.Drawing.Point(103, 36);
+            this.tBoxClient.Name = "tBoxClient";
+            this.tBoxClient.Size = new System.Drawing.Size(145, 20);
+            this.tBoxClient.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(100, 20);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Mesero:";
             // 
             // rTBoxNotes
             // 
@@ -122,7 +168,7 @@
             // 
             this.tBoxChair.Location = new System.Drawing.Point(6, 114);
             this.tBoxChair.Name = "tBoxChair";
-            this.tBoxChair.Size = new System.Drawing.Size(214, 20);
+            this.tBoxChair.Size = new System.Drawing.Size(63, 20);
             this.tBoxChair.TabIndex = 5;
             // 
             // label3
@@ -138,7 +184,7 @@
             // 
             this.tBoxDescription.Location = new System.Drawing.Point(6, 75);
             this.tBoxDescription.Name = "tBoxDescription";
-            this.tBoxDescription.Size = new System.Drawing.Size(214, 20);
+            this.tBoxDescription.Size = new System.Drawing.Size(242, 20);
             this.tBoxDescription.TabIndex = 3;
             // 
             // label2
@@ -163,7 +209,7 @@
             // 
             this.tBoxID.Location = new System.Drawing.Point(6, 36);
             this.tBoxID.Name = "tBoxID";
-            this.tBoxID.Size = new System.Drawing.Size(214, 20);
+            this.tBoxID.Size = new System.Drawing.Size(63, 20);
             this.tBoxID.TabIndex = 0;
             // 
             // groupBox2
@@ -238,18 +284,33 @@
             // 
             // btnCloseTable
             // 
+            this.btnCloseTable.BackColor = System.Drawing.Color.Crimson;
+            this.btnCloseTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseTable.ForeColor = System.Drawing.SystemColors.Control;
             this.btnCloseTable.Location = new System.Drawing.Point(291, 536);
             this.btnCloseTable.Name = "btnCloseTable";
-            this.btnCloseTable.Size = new System.Drawing.Size(248, 23);
+            this.btnCloseTable.Size = new System.Drawing.Size(248, 27);
             this.btnCloseTable.TabIndex = 3;
             this.btnCloseTable.Text = "CERRAR PEDIDO";
-            this.btnCloseTable.UseVisualStyleBackColor = true;
+            this.btnCloseTable.UseVisualStyleBackColor = false;
+            // 
+            // btnSaveTable
+            // 
+            this.btnSaveTable.BackColor = System.Drawing.Color.LightGreen;
+            this.btnSaveTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveTable.Location = new System.Drawing.Point(13, 536);
+            this.btnSaveTable.Name = "btnSaveTable";
+            this.btnSaveTable.Size = new System.Drawing.Size(194, 27);
+            this.btnSaveTable.TabIndex = 4;
+            this.btnSaveTable.Text = "GUARDAR CAMBIOS";
+            this.btnSaveTable.UseVisualStyleBackColor = false;
             // 
             // FormTableStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(557, 565);
+            this.ClientSize = new System.Drawing.Size(557, 575);
+            this.Controls.Add(this.btnSaveTable);
             this.Controls.Add(this.btnCloseTable);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -288,5 +349,10 @@
         private System.Windows.Forms.Button btnChangeMeal;
         private System.Windows.Forms.Button btnDeletedMeal;
         private System.Windows.Forms.Button btnCloseTable;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cBoxState;
+        private System.Windows.Forms.TextBox tBoxClient;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnSaveTable;
     }
 }
