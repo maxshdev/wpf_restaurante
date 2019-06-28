@@ -23,10 +23,10 @@ namespace Prog3.RestoDotNet.App
             this.LoadImage((PictureBox)sender);
         }
 
-
         private void LoadImage(PictureBox temp)
         {
             pBoxImageTable.Image = temp.Image;
+            pBoxImageTable.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
         // DETALLES DEL PEDIDO - COMIDAS
