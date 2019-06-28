@@ -106,6 +106,7 @@ namespace Prog3.RestoDotNet.App
             }
 
             file.Close();
+            PnlMapLoad.Visible = PnlMapLoad.Controls.Count > 0;
         }
 
         private void VerToolStripMenuItem_Click(object sender, EventArgs e)

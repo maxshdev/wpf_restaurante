@@ -63,10 +63,13 @@
             // PnlMapLoad
             // 
             this.PnlMapLoad.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.PnlMapLoad.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PnlMapLoad.BackgroundImage")));
+            this.PnlMapLoad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PnlMapLoad.Location = new System.Drawing.Point(12, 41);
             this.PnlMapLoad.Name = "PnlMapLoad";
             this.PnlMapLoad.Size = new System.Drawing.Size(892, 515);
             this.PnlMapLoad.TabIndex = 2;
+            this.PnlMapLoad.Visible = false;
             // 
             // cMenuStripMapLoad
             // 
@@ -104,7 +107,6 @@
             this.Controls.Add(this.PnlMapLoad);
             this.Controls.Add(this.btnMapLoad);
             this.Controls.Add(this.btnMapEdit);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.Text = "Resto DotNet";
             this.cMenuStripMapLoad.ResumeLayout(false);

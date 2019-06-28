@@ -330,7 +330,6 @@
             // PnlMap
             // 
             this.PnlMap.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.PnlMap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PnlMap.BackgroundImage")));
             this.PnlMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PnlMap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlMap.Location = new System.Drawing.Point(151, 3);
