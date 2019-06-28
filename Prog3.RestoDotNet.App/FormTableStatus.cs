@@ -45,6 +45,7 @@ namespace Prog3.RestoDotNet.App
         private void LoadImage(PictureBox temp)
         {
             pBoxImageTable.Image = temp.Image;
+            pBoxImageTable.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
         // DETALLES DEL PEDIDO - COMIDAS

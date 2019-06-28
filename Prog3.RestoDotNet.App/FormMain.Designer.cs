@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.btnMapEdit = new System.Windows.Forms.Button();
             this.btnMapLoad = new System.Windows.Forms.Button();
             this.PnlMapLoad = new System.Windows.Forms.Panel();
             this.cMenuStripMapLoad = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarPedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cMenuStripMapLoad.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,17 +84,17 @@
             this.verToolStripMenuItem.Text = "Ver Estado";
             this.verToolStripMenuItem.Click += new System.EventHandler(this.VerToolStripMenuItem_Click);
             // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.salirToolStripMenuItem.Text = "Salir";
-            // 
             // cerrarPedidoToolStripMenuItem
             // 
             this.cerrarPedidoToolStripMenuItem.Name = "cerrarPedidoToolStripMenuItem";
             this.cerrarPedidoToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.cerrarPedidoToolStripMenuItem.Text = "Cerrar Pedido";
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
             // 
             // FormMain
             // 
@@ -103,6 +104,7 @@
             this.Controls.Add(this.PnlMapLoad);
             this.Controls.Add(this.btnMapLoad);
             this.Controls.Add(this.btnMapEdit);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.Text = "Resto DotNet";
             this.cMenuStripMapLoad.ResumeLayout(false);

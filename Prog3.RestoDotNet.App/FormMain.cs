@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
@@ -20,6 +21,27 @@ namespace Prog3.RestoDotNet.App
             InitializeComponent();
             _orderSvc = orderSvc;
             _tableSvc = tableSvc;
+        }
+
+        private void UpdateState(List<XmlTable> xmlTables)
+        {
+            foreach (PictureBox item in PnlMapLoad.Controls.OfType<PictureBox>())
+            {
+                int caseSwitch = 1;
+
+                switch (caseSwitch) // 
+                {
+                    case 1:
+                        item.BackColor = Color.Transparent; // color blanco
+                        break;
+                    case 2:
+                        item.BackColor = Color.Red;  // color rojo
+                        break;
+                    default:
+                        item.BackColor = Color.Yellow; // color amarillo
+                        break;
+                }
+            }
         }
 
         private void BtnMapEdit_Click(object sender, EventArgs e)
