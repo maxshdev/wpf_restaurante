@@ -37,9 +37,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.MesaRedo = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
-            this.MesaCuad = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
-            this.MesaRec = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.WallHor = new System.Windows.Forms.PictureBox();
             this.WallVer = new System.Windows.Forms.PictureBox();
@@ -60,13 +57,13 @@
             this.cmenuStripTable = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.fijarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MesaRedo = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
+            this.MesaCuad = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
+            this.MesaRec = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
             this.PnlLayout.SuspendLayout();
             this.PnlToolBox.SuspendLayout();
             this.TabControlToolBox.SuspendLayout();
             this.TabToolBoxTables.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MesaRedo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MesaCuad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MesaRec)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WallHor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WallVer)).BeginInit();
@@ -76,6 +73,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.MissBar)).BeginInit();
             this.PnlButtons.SuspendLayout();
             this.cmenuStripTable.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MesaRedo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MesaCuad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MesaRec)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlLayout
@@ -102,7 +102,7 @@
             this.PnlToolBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlToolBox.Location = new System.Drawing.Point(3, 3);
             this.PnlToolBox.Name = "PnlToolBox";
-            this.PnlToolBox.Size = new System.Drawing.Size(141, 515);
+            this.PnlToolBox.Size = new System.Drawing.Size(142, 515);
             this.PnlToolBox.TabIndex = 2;
             // 
             // TabControlToolBox
@@ -115,7 +115,7 @@
             this.TabControlToolBox.Location = new System.Drawing.Point(0, 0);
             this.TabControlToolBox.Name = "TabControlToolBox";
             this.TabControlToolBox.SelectedIndex = 0;
-            this.TabControlToolBox.Size = new System.Drawing.Size(141, 515);
+            this.TabControlToolBox.Size = new System.Drawing.Size(142, 515);
             this.TabControlToolBox.TabIndex = 2;
             // 
             // TabToolBoxTables
@@ -129,7 +129,7 @@
             this.TabToolBoxTables.Location = new System.Drawing.Point(4, 22);
             this.TabToolBoxTables.Name = "TabToolBoxTables";
             this.TabToolBoxTables.Padding = new System.Windows.Forms.Padding(3);
-            this.TabToolBoxTables.Size = new System.Drawing.Size(133, 489);
+            this.TabToolBoxTables.Size = new System.Drawing.Size(134, 489);
             this.TabToolBoxTables.TabIndex = 0;
             this.TabToolBoxTables.Text = "Mesas";
             this.TabToolBoxTables.UseVisualStyleBackColor = true;
@@ -161,42 +161,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Rect (6)";
             // 
-            // MesaRedo
-            // 
-            this.MesaRedo.Image = ((System.Drawing.Image)(resources.GetObject("MesaRedo.Image")));
-            this.MesaRedo.Location = new System.Drawing.Point(36, 332);
-            this.MesaRedo.Name = "MesaRedo";
-            this.MesaRedo.Shape = Prog3.RestoDotNet.Model.Enums.TableShapeEnum.CIRCLE;
-            this.MesaRedo.Size = new System.Drawing.Size(53, 50);
-            this.MesaRedo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.MesaRedo.TabIndex = 1;
-            this.MesaRedo.TabStop = false;
-            this.MesaRedo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
-            // 
-            // MesaCuad
-            // 
-            this.MesaCuad.Image = ((System.Drawing.Image)(resources.GetObject("MesaCuad.Image")));
-            this.MesaCuad.Location = new System.Drawing.Point(36, 210);
-            this.MesaCuad.Name = "MesaCuad";
-            this.MesaCuad.Shape = Prog3.RestoDotNet.Model.Enums.TableShapeEnum.SQUARE;
-            this.MesaCuad.Size = new System.Drawing.Size(53, 50);
-            this.MesaCuad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.MesaCuad.TabIndex = 1;
-            this.MesaCuad.TabStop = false;
-            this.MesaCuad.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
-            // 
-            // MesaRec
-            // 
-            this.MesaRec.Image = ((System.Drawing.Image)(resources.GetObject("MesaRec.Image")));
-            this.MesaRec.Location = new System.Drawing.Point(36, 61);
-            this.MesaRec.Name = "MesaRec";
-            this.MesaRec.Shape = Prog3.RestoDotNet.Model.Enums.TableShapeEnum.RECTANGLE;
-            this.MesaRec.Size = new System.Drawing.Size(53, 86);
-            this.MesaRec.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.MesaRec.TabIndex = 1;
-            this.MesaRec.TabStop = false;
-            this.MesaRec.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.WallHor);
@@ -208,7 +172,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(133, 489);
+            this.tabPage2.Size = new System.Drawing.Size(134, 489);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Paredes";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -282,7 +246,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(133, 489);
+            this.tabPage1.Size = new System.Drawing.Size(134, 489);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Deco";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -331,9 +295,9 @@
             // 
             this.PnlMap.BackColor = System.Drawing.SystemColors.ControlLight;
             this.PnlMap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlMap.Location = new System.Drawing.Point(150, 3);
+            this.PnlMap.Location = new System.Drawing.Point(151, 3);
             this.PnlMap.Name = "PnlMap";
-            this.PnlMap.Size = new System.Drawing.Size(875, 515);
+            this.PnlMap.Size = new System.Drawing.Size(874, 515);
             this.PnlMap.TabIndex = 1;
             // 
             // PnlButtons
@@ -368,7 +332,7 @@
             // 
             // btnDraw
             // 
-            this.btnDraw.Location = new System.Drawing.Point(150, 524);
+            this.btnDraw.Location = new System.Drawing.Point(151, 524);
             this.btnDraw.Name = "btnDraw";
             this.btnDraw.Size = new System.Drawing.Size(75, 23);
             this.btnDraw.TabIndex = 4;
@@ -399,12 +363,49 @@
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.EliminarToolStripMenuItem_Click);
             // 
+            // MesaRedo
+            // 
+            this.MesaRedo.Image = ((System.Drawing.Image)(resources.GetObject("MesaRedo.Image")));
+            this.MesaRedo.Location = new System.Drawing.Point(36, 332);
+            this.MesaRedo.Name = "MesaRedo";
+            this.MesaRedo.Shape = Prog3.RestoDotNet.Model.Enums.TableShapeEnum.CIRCLE;
+            this.MesaRedo.Size = new System.Drawing.Size(53, 50);
+            this.MesaRedo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.MesaRedo.TabIndex = 1;
+            this.MesaRedo.TabStop = false;
+            this.MesaRedo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            // 
+            // MesaCuad
+            // 
+            this.MesaCuad.Image = ((System.Drawing.Image)(resources.GetObject("MesaCuad.Image")));
+            this.MesaCuad.Location = new System.Drawing.Point(36, 210);
+            this.MesaCuad.Name = "MesaCuad";
+            this.MesaCuad.Shape = Prog3.RestoDotNet.Model.Enums.TableShapeEnum.SQUARE;
+            this.MesaCuad.Size = new System.Drawing.Size(53, 50);
+            this.MesaCuad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.MesaCuad.TabIndex = 1;
+            this.MesaCuad.TabStop = false;
+            this.MesaCuad.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            // 
+            // MesaRec
+            // 
+            this.MesaRec.Image = ((System.Drawing.Image)(resources.GetObject("MesaRec.Image")));
+            this.MesaRec.Location = new System.Drawing.Point(36, 61);
+            this.MesaRec.Name = "MesaRec";
+            this.MesaRec.Shape = Prog3.RestoDotNet.Model.Enums.TableShapeEnum.RECTANGLE;
+            this.MesaRec.Size = new System.Drawing.Size(53, 86);
+            this.MesaRec.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.MesaRec.TabIndex = 1;
+            this.MesaRec.TabStop = false;
+            this.MesaRec.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            // 
             // FormMapEdition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 568);
             this.Controls.Add(this.PnlLayout);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMapEdition";
             this.Text = "Editar Mapa";
             this.PnlLayout.ResumeLayout(false);
@@ -412,9 +413,6 @@
             this.TabControlToolBox.ResumeLayout(false);
             this.TabToolBoxTables.ResumeLayout(false);
             this.TabToolBoxTables.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MesaRedo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MesaCuad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MesaRec)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WallHor)).EndInit();
@@ -426,6 +424,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.MissBar)).EndInit();
             this.PnlButtons.ResumeLayout(false);
             this.cmenuStripTable.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MesaRedo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MesaCuad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MesaRec)).EndInit();
             this.ResumeLayout(false);
 
         }
