@@ -42,14 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dtos\ObjectDto.cs" />
     <Compile Include="Dtos\OrderDto.cs" />
     <Compile Include="Dtos\TableDto.cs" />
     <Compile Include="Dtos\WaiterDto.cs" />
     <Compile Include="Entities\Chair.cs" />
     <Compile Include="Entities\Meal.cs" />
+    <Compile Include="Entities\ObjectOther.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Table.cs" />
     <Compile Include="Entities\Waiter.cs" />
+    <Compile Include="Enums\ObjectShapeEnum.cs" />
     <Compile Include="Enums\TableShapeEnum.cs" />
     <Compile Include="Enums\TableStateEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
