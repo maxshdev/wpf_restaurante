@@ -9,5 +9,7 @@ namespace Prog3.RestoDotNet.Model.Dtos
     public class WaiterDto : IDto<Waiter>
     {
         public Waiter BaseEntity { get; set; }
+
+        public string Name { get; set; }
     }
 }

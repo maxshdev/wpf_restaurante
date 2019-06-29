@@ -33,7 +33,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cBoxState = new System.Windows.Forms.ComboBox();
-            this.tBoxClient = new System.Windows.Forms.TextBox();
+            this.tBoxMesero = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.rTBoxNotes = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -70,7 +70,7 @@
             // 
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.cBoxState);
-            this.groupBox1.Controls.Add(this.tBoxClient);
+            this.groupBox1.Controls.Add(this.tBoxMesero);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.rTBoxNotes);
             this.groupBox1.Controls.Add(this.label5);
@@ -104,6 +104,7 @@
             // 
             // cBoxState
             // 
+            this.cBoxState.Enabled = false;
             this.cBoxState.FormattingEnabled = true;
             this.cBoxState.Items.AddRange(new object[] {
             "Libre",
@@ -115,13 +116,13 @@
             this.cBoxState.Size = new System.Drawing.Size(192, 24);
             this.cBoxState.TabIndex = 13;
             // 
-            // tBoxClient
+            // tBoxMesero
             // 
-            this.tBoxClient.Location = new System.Drawing.Point(7, 139);
-            this.tBoxClient.Margin = new System.Windows.Forms.Padding(4);
-            this.tBoxClient.Name = "tBoxClient";
-            this.tBoxClient.Size = new System.Drawing.Size(399, 22);
-            this.tBoxClient.TabIndex = 12;
+            this.tBoxMesero.Location = new System.Drawing.Point(7, 139);
+            this.tBoxMesero.Margin = new System.Windows.Forms.Padding(4);
+            this.tBoxMesero.Name = "tBoxMesero";
+            this.tBoxMesero.Size = new System.Drawing.Size(399, 22);
+            this.tBoxMesero.TabIndex = 12;
             // 
             // label6
             // 
@@ -416,7 +417,7 @@
         private System.Windows.Forms.Button btnCloseTable;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cBoxState;
-        private System.Windows.Forms.TextBox tBoxClient;
+        private System.Windows.Forms.TextBox tBoxMesero;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnSaveTable;
         private System.Windows.Forms.Button BtnAgregar;

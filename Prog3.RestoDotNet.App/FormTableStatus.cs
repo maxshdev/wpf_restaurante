@@ -68,10 +68,16 @@ namespace Prog3.RestoDotNet.App
 
         private async void BtnSaveTable_Click(object sender, EventArgs e)
         {
-            var svcRes = _orderSvc.SaveOrderAsync(_currentOrder);
+            //var list = mealDtoBindingSource.List;
+            foreach (var item in mealDtoBindingSource.List)
+            {
+                _currentOrder.Meals.Add((MealDto)item);
+            }
 
-            
-           
+            _currentOrder.Waiter = new WaiterDto { Name = tBoxMesero.Text };
+
+            var svcRes = _orderSvc.SaveOrderAsync(_currentOrder);
+            this.Close();
         }
     }
 }
