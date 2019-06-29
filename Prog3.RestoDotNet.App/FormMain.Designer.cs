@@ -50,7 +50,6 @@
             // 
             this.PnlMapLoad.BackColor = System.Drawing.SystemColors.ControlLight;
             this.PnlMapLoad.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PnlMapLoad.BackgroundImage")));
-            this.PnlMapLoad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PnlMapLoad.Location = new System.Drawing.Point(12, 157);
             this.PnlMapLoad.Name = "PnlMapLoad";
             this.PnlMapLoad.Size = new System.Drawing.Size(892, 515);
