@@ -6,19 +6,16 @@ namespace Prog3.RestoDotNet.Business.States
 {
     public class TableAvailableState : TableStateManager
     {
-        public override Task<bool> AssigningAsync(OrderDto consumeDto)
+        public async override Task<bool> SaveAsync(OrderDto consumeDto)
         {
-            throw new NotImplementedException();
+            consumeDto.Table.State = Model.Enums.TableStateEnum.OCUPADO;
+            var resp = await _tableSvc.UpdateAsync(consumeDto.Table);
+            return resp.Data;
         }
 
-        public override Task<bool> ReleasingAsync(OrderDto consumeDto)
+        public override Task<bool> CloseAsync(OrderDto consumeDto)
         {
-            throw new NotImplementedException();
-        }
-
-        public override Task<bool> ReservingAsync(OrderDto consumeDto)
-        {
-            throw new NotImplementedException();
+            throw new StateManagerException("No se puede guardar una mesa ocupada.");
         }
     }
 }

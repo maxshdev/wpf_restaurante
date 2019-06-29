@@ -325,6 +325,7 @@
             this.btnSaveTable.TabIndex = 4;
             this.btnSaveTable.Text = "GUARDAR CAMBIOS";
             this.btnSaveTable.UseVisualStyleBackColor = false;
+            this.btnSaveTable.Click += new System.EventHandler(this.BtnSaveTable_Click);
             // 
             // CmbComidas
             // 

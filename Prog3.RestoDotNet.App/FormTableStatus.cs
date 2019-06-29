@@ -56,11 +56,6 @@ namespace Prog3.RestoDotNet.App
 
         // DETALLES DEL PEDIDO - COMIDAS
 
-        private async void BtnAddMeals_Click(object sender, EventArgs e)
-        {
-            //_currentOrder.Meals.Add()
-        }
-
         private void BtnDeletedMeal_Click(object sender, EventArgs e)
         {
             mealDtoBindingSource.RemoveCurrent();
@@ -69,6 +64,14 @@ namespace Prog3.RestoDotNet.App
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
             mealDtoBindingSource.Add(CmbComidas.SelectedItem);
+        }
+
+        private async void BtnSaveTable_Click(object sender, EventArgs e)
+        {
+            var svcRes = _orderSvc.SaveOrderAsync(_currentOrder);
+
+            
+           
         }
     }
 }

@@ -6,17 +6,12 @@ namespace Prog3.RestoDotNet.Business.States
 {
     public class TableOccupiedState : TableStateManager
     {
-        public override Task<bool> AssigningAsync(OrderDto consumeDto)
+        public override Task<bool> SaveAsync(OrderDto consumeDto)
         {
             throw new NotImplementedException();
         }
 
-        public override Task<bool> ReleasingAsync(OrderDto consumeDto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override Task<bool> ReservingAsync(OrderDto consumeDto)
+        public override Task<bool> CloseAsync(OrderDto consumeDto)
         {
             throw new NotImplementedException();
         }

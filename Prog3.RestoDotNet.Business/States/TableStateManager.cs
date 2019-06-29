@@ -3,6 +3,7 @@ using Pandora.NetStandard.Core.Utils;
 using System.Threading.Tasks;
 using Prog3.RestoDotNet.Model.Dtos;
 using Prog3.RestoDotNet.Model.Enums;
+using Prog3.RestoDotNet.Business.Services;
 
 namespace Prog3.RestoDotNet.Business.States
 {
@@ -10,11 +11,11 @@ namespace Prog3.RestoDotNet.Business.States
     {
         protected static ITableSvc _tableSvc;
 
-        public async static Task<TableStateManager> GetTableStateManagerAsync(OrderDto consumeDto)
+        public async static Task<TableStateManager> GetTableStateManagerAsync(ITableSvc tableSvc, OrderDto consumeDto)
         {
-            //var validState = (await WaiterStateSvc.GetLastValidStateAsync(WaiterId, subjectId)).Data;
+            _tableSvc = tableSvc;
 
-            switch (consumeDto?.BaseEntity.Table.State)
+            switch (consumeDto?.Table.State)
             {
                 case TableStateEnum.DISPONIBLE:
                     return new TableAvailableState();
@@ -27,9 +28,8 @@ namespace Prog3.RestoDotNet.Business.States
             }
         }
 
-        public abstract Task<bool> ReservingAsync(OrderDto consumeDto);
-        public abstract Task<bool> AssigningAsync(OrderDto consumeDto);
-        public abstract Task<bool> ReleasingAsync(OrderDto consumeDto);
+        public abstract Task<bool> CloseAsync(OrderDto consumeDto);
+        public abstract Task<bool> SaveAsync(OrderDto consumeDto);
 
         protected virtual bool StateManagerResponseHandler(BLResponse bLResponse)
         {

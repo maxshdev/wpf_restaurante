@@ -163,6 +163,12 @@
     <Content Include="Resources\column_1.png" />
     <Content Include="Resources\column_2.png" />
     <Content Include="Resources\table_1.png" />
+    <Content Include="Resources\table_1x2.png" />
+    <Content Include="Resources\table_1x2_block.png" />
+    <Content Include="Resources\table_1x2_reserved.png" />
+    <Content Include="Resources\table_1x4.png" />
+    <Content Include="Resources\table_1x4_block.png" />
+    <Content Include="Resources\table_1x4_reserved.png" />
     <Content Include="Resources\table_2.png" />
     <Content Include="Resources\table_3.png" />
   </ItemGroup>

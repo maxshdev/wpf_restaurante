@@ -1,6 +1,7 @@
 ﻿using Prog3.RestoDotNet.App.XmlObjects;
 using Prog3.RestoDotNet.Business.Services.Contracts;
 using Prog3.RestoDotNet.Model.Dtos;
+using Prog3.RestoDotNet.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -33,22 +34,24 @@ namespace Prog3.RestoDotNet.App
             tableObjs = svcResp.Data.ToList();
         }
 
-        private void UpdateState(List<XmlTable> xmlTables)
+        private void UpdateState()
         {
-            foreach (PictureBox item in PnlMapLoad.Controls.OfType<PictureBox>())
+            foreach (MoveableTable item in PnlMapLoad.Controls.OfType<MoveableTable>())
             {
-                int caseSwitch = 1;
 
-                switch (caseSwitch) // 
+                switch (item.BindedEntity.State) 
                 {
-                    case 1:
-                        item.BackColor = Color.Transparent; // color blanco
+                    case TableStateEnum.DISPONIBLE:
+                        item.BackColor = Color.Transparent;
                         break;
-                    case 2:
-                        item.BackColor = Color.Red;  // color rojo
+                    case TableStateEnum.OCUPADO:
+                        item.BackColor = Color.Red;  
+                        break;
+                    case TableStateEnum.RESERVADO:
+                        item.BackColor = Color.Yellow;  
                         break;
                     default:
-                        item.BackColor = Color.Yellow; // color amarillo
+                        item.BackColor = Color.Transparent; 
                         break;
                 }
             }
@@ -108,6 +111,8 @@ namespace Prog3.RestoDotNet.App
 
             file.Close();
             PnlMapLoad.Visible = PnlMapLoad.Controls.Count > 0;
+
+            UpdateState();
         }
 
         private void VerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -121,7 +126,7 @@ namespace Prog3.RestoDotNet.App
                     new FormTableStatus((MoveableTable)owner.SourceControl, _orderSvc).ShowDialog();
                 }
             }
-
+            UpdateState();
         }
     }
 }

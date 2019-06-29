@@ -7,6 +7,7 @@ namespace Prog3.RestoDotNet.Business.Services.Contracts
 {
     public interface IOrderSvc
     {
+        Task<BLSingleResponse<bool>> SaveOrderAsync(OrderDto consumeDto);
         Task<BLSingleResponse<int>> OpenAndGetOrderIdAsync(OrderDto consumeDto);
         Task<BLSingleResponse<decimal>> CloseOrderAndGetTotalPriceAsync(OrderDto consumeDto);
         Task<BLSingleResponse<int>> SetReservationAndGetOrderIdAsync(TableDto tableDto);

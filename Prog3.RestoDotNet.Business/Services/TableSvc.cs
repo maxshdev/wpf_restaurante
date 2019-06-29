@@ -96,9 +96,23 @@ namespace Prog3.RestoDotNet.Business.Services
             return response;
         }
 
-        public Task<BLSingleResponse<bool>> UpdateAsync(TableDto pDto)
+        public async Task<BLSingleResponse<bool>> UpdateAsync(TableDto pDto)
         {
-            throw new NotImplementedException();
+            var response = new BLSingleResponse<bool>();
+
+            try
+            {
+                var entity = _mapper.MapToEntity(pDto);
+                await _uow.GetEfRepository<Table>().UpdateAsync(entity);
+
+                response.Data = await _uow.CommitAsync();
+            }
+            catch (Exception ex)
+            {
+                HandleSVCException(response, ex);
+            }
+
+            return response;
         }
 
     }
