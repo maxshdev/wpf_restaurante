@@ -38,6 +38,8 @@ namespace Prog3.RestoDotNet.App
         {
             foreach (MoveableTable item in PnlMapLoad.Controls.OfType<MoveableTable>())
             {
+                string block = Properties.Resources.ResourceManager.GetString("table_1x2_block.png");
+                string reserved = Properties.Resources.ResourceManager.GetString("table_1x2_reserved.png");
 
                 switch (item.BindedEntity.State) 
                 {
@@ -45,10 +47,12 @@ namespace Prog3.RestoDotNet.App
                         item.BackColor = Color.Transparent;
                         break;
                     case TableStateEnum.OCUPADO:
-                        item.BackColor = Color.Red;  
+                        //item.Image = Image.FromFile(block);
+                        item.BackColor = Color.Red;
                         break;
                     case TableStateEnum.RESERVADO:
-                        item.BackColor = Color.Yellow;  
+                        //item.Image = Image.FromFile(reserved);
+                        item.BackColor = Color.Yellow;
                         break;
                     default:
                         item.BackColor = Color.Transparent; 
