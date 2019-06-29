@@ -97,7 +97,15 @@ namespace Prog3.RestoDotNet.App
                 this.PnlMap.Controls.Add(currentObj);
 
                 this.BtnSave.Enabled = PnlMap.Controls.OfType<MoveableTable>().Count() > 0;
+
+                ActualizarEstado();
             }
+        }
+
+        private void ActualizarEstado()
+        {
+            var mesas = PnlMap.Controls.OfType<MoveableTable>();
+            LblEstado.Text = $"Mesas: {mesas.Count()} Capacidad Total: {mesas.Sum(m => m.BindedEntity.MaxChairs)}";
         }
 
         private MoveableObject CreateMoveableObj(object obj)
@@ -129,10 +137,10 @@ namespace Prog3.RestoDotNet.App
 
             movTb.BindedEntity = new TableDto
                 (
-                caption: $"Table {cont}",
+                caption: $"Mesa {cont}",
                 moveableTableId: cont,
                 mapTrackId: currentMapTrackId,
-                state: TableStateEnum.AVAILABLE,
+                state: TableStateEnum.DISPONIBLE,
                 shape: refTab.Shape,
                 maxChairs: refTab.Shape.GetId<byte>()
                 );

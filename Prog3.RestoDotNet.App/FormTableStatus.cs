@@ -1,5 +1,6 @@
 ﻿using Prog3.RestoDotNet.Business.Services.Contracts;
 using Prog3.RestoDotNet.Model.Dtos;
+using Prog3.RestoDotNet.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -19,6 +20,7 @@ namespace Prog3.RestoDotNet.App
         public FormTableStatus(MoveableTable tableObj, IOrderSvc orderSvc)
         {
             InitializeComponent();
+            cBoxState.DataSource = Enum.GetValues(typeof(TableStateEnum));
             _currentOrder = new OrderDto { Table = tableObj.BindedEntity };
             LoadStockMeals();
             LoadTableDetail();
@@ -29,9 +31,9 @@ namespace Prog3.RestoDotNet.App
         private void LoadTableDetail()
         {
             tBoxID.Text = _currentOrder.Table.MoveableTableId.ToString();
-            tBoxDescription.Text = _currentOrder.Table.Caption;
             tBoxChair.Text = _currentOrder.Table.MaxChairs.ToString();
-            cBoxState.ValueMember = _currentOrder.Table.State.ToString();
+            tBoxDescription.Text = _currentOrder.Table.Caption;
+            cBoxState.SelectedItem = _currentOrder.Table.State;
         }
 
         private void LoadStockMeals()
@@ -42,6 +44,8 @@ namespace Prog3.RestoDotNet.App
                 new MealDto(2, "Milanesas", 150),
                 new MealDto(3, "Pizza", 250),
             };
+
+            CmbComidas.DataSource = _stockMeals;
         }
 
         private void LoadImage(PictureBox temp)
@@ -57,15 +61,14 @@ namespace Prog3.RestoDotNet.App
             //_currentOrder.Meals.Add()
         }
 
-        private void BtnChangeMeal_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void BtnDeletedMeal_Click(object sender, EventArgs e)
         {
-
+            mealDtoBindingSource.RemoveCurrent();
         }
 
+        private void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            mealDtoBindingSource.Add(CmbComidas.SelectedItem);
+        }
     }
 }

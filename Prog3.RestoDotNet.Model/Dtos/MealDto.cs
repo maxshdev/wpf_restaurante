@@ -20,5 +20,10 @@ namespace Prog3.RestoDotNet.Model.Dtos
         public decimal Price { get; set; }
 
         public virtual OrderDto Order { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Description} {Price.ToString("C")}";
+        }
     }
 }

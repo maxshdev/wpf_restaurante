@@ -16,11 +16,11 @@ namespace Prog3.RestoDotNet.Business.States
 
             switch (consumeDto?.BaseEntity.Table.State)
             {
-                case TableStateEnum.AVAILABLE:
+                case TableStateEnum.DISPONIBLE:
                     return new TableAvailableState();
-                case TableStateEnum.OCCUPIED:
+                case TableStateEnum.OCUPADO:
                     return new TableOccupiedState();
-                case TableStateEnum.RESERVED:
+                case TableStateEnum.RESERVADO:
                     return new TableReservedState();
                 default:
                     return new TableAvailableState();
