@@ -54,12 +54,21 @@ namespace Prog3.RestoDotNet.App
             }
         }
 
-        private void BtnMapEdit_Click(object sender, EventArgs e)
+        private void VerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FormMapEdition(_tableSvc).ShowDialog();
+            ToolStripItem item = (sender as ToolStripItem);
+            if (item != null)
+            {
+                ContextMenuStrip owner = item.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    new FormTableStatus((MoveableTable)owner.SourceControl, _orderSvc).ShowDialog();
+                }
+            }
+
         }
 
-        private async void BtnMapLoad_Click(object sender, EventArgs e)
+        private async void CargarMapaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFile = new OpenFileDialog();
             openFile.InitialDirectory = Directory.CreateDirectory($@"{Environment.CurrentDirectory}/Mapas").FullName;
@@ -84,8 +93,11 @@ namespace Prog3.RestoDotNet.App
             {
 
                 MoveableObject temp = tableObjs.Any(t => t.MoveableTableId == item.Id)
-                    ? new MoveableTable { BindedEntity = tableObjs.First(t => t.MoveableTableId == item.Id),
-                        ContextMenuStrip = cMenuStripMapLoad } : new MoveableObject();
+                    ? new MoveableTable
+                    {
+                        BindedEntity = tableObjs.First(t => t.MoveableTableId == item.Id),
+                        ContextMenuStrip = cMenuStripMapLoad
+                    } : new MoveableObject();
 
                 temp.Id = item.Id;
                 temp.Height = item.Height;
@@ -110,18 +122,19 @@ namespace Prog3.RestoDotNet.App
             PnlMapLoad.Visible = PnlMapLoad.Controls.Count > 0;
         }
 
-        private void VerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CrearMapaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ToolStripItem item = (sender as ToolStripItem);
-            if (item != null)
-            {
-                ContextMenuStrip owner = item.Owner as ContextMenuStrip;
-                if (owner != null)
-                {
-                    new FormTableStatus((MoveableTable)owner.SourceControl, _orderSvc).ShowDialog();
-                }
-            }
+            new FormMapEdition(_tableSvc).ShowDialog();
+        }
 
+        private void CerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Seguro que dese salir?", "Salir", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }
