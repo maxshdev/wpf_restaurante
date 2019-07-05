@@ -57,8 +57,8 @@ namespace Prog3.RestoDotNet.Business.Services
                 TableStateManager stateManager = await TableStateManager.GetTableStateManagerAsync(tableSvc, consumeDto);
                 if (await stateManager.SaveAsync(consumeDto))
                 {
-
-                    var resp = await _uow.GetEfRepository<Order>().InsertAsync(consumeDto.BaseEntity);
+                    var entity = _mapper.MapToEntity(consumeDto);
+                    var resp = await _uow.GetEfRepository<Order>().InsertAsync(entity);
                     await _uow.CommitAsync();
                 }
             }

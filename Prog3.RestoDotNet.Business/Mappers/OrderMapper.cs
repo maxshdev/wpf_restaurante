@@ -2,6 +2,7 @@
 using Pandora.NetStandard.Core.Mapper;
 using Prog3.RestoDotNet.Model.Dtos;
 using Prog3.RestoDotNet.Model.Entities;
+using System.Collections.Generic;
 
 namespace Prog3.RestoDotNet.Business.Mappers
 {
@@ -12,6 +13,9 @@ namespace Prog3.RestoDotNet.Business.Mappers
             return new MapperConfiguration(c =>
             {
                 c.CreateMap<Order, OrderDto>();
+                c.CreateMap<Waiter, WaiterDto>();
+                c.CreateMap<Meal, MealDto>();
+                c.CreateMap<Table, TableDto>();
 
             }).CreateMapper();
         }
@@ -21,7 +25,12 @@ namespace Prog3.RestoDotNet.Business.Mappers
             return new MapperConfiguration(c =>
             {
                 c.CreateMap<OrderDto, Order>()                
-                .ForMember(m => m.TotalPrice, o => o.Ignore());
+                .ForMember(m => m.TotalPrice, o => o.Ignore())
+                .ForMember(m => m.DateTo, o => o.Ignore());
+
+                c.CreateMap<WaiterDto, Waiter>();
+                c.CreateMap<MealDto, Meal>();
+                c.CreateMap<TableDto, Table>();
 
             }).CreateMapper();
         }
