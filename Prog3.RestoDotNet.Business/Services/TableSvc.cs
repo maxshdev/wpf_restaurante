@@ -26,7 +26,7 @@ namespace Prog3.RestoDotNet.Business.Services
 
             try
             {
-                await _uow.GetEfRepository<Table>().ExecuteQueryAsync("TRUNCATE TABLE [Resto].[Tables]"); 
+                await _uow.EFRepository<Table>().ExecuteQueryAsync("TRUNCATE TABLE [Resto].[Tables]"); 
             }
             catch (Exception ex)
             {
@@ -57,7 +57,7 @@ namespace Prog3.RestoDotNet.Business.Services
 
             try
             {
-                var entityResp = await _uow.GetEfRepository<Table>().AllAsync(t => t.BoundedMapId == trackId, null, null);
+                var entityResp = await _uow.EFRepository<Table>().AllAsync(t => t.BoundedMapId == trackId, null, null);
                 response.Data = _mapper.MapFromEntity(entityResp);
             }
             catch (Exception ex)
@@ -83,7 +83,7 @@ namespace Prog3.RestoDotNet.Business.Services
                 foreach (TableDto table in tablesDtos)
                 {
                     var entityReult = _mapper.MapToEntity(table);
-                    await _uow.GetEfRepository<Table>().InsertAsync(entityReult);
+                    await _uow.EFRepository<Table>().InsertAsync(entityReult);
                 }
 
                 response.Data = await _uow.CommitAsync();
@@ -103,7 +103,7 @@ namespace Prog3.RestoDotNet.Business.Services
             try
             {
                 var entity = _mapper.MapToEntity(pDto);
-                await _uow.GetEfRepository<Table>().UpdateAsync(entity);
+                await _uow.EFRepository<Table>().UpdateAsync(entity);
 
                 response.Data = await _uow.CommitAsync();
             }

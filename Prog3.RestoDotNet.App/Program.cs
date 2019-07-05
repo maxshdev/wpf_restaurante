@@ -41,6 +41,7 @@ namespace Prog3.RestoDotNet.App
             container.RegisterType<IApplicationUow, ApplicationUow>();
             container.RegisterType<ITableSvc, TableSvc>();
             container.RegisterType<IOrderSvc, OrderSvc>();
+            container.RegisterType<IWaiterSvc, WaiterSvc>();
         }
     }
 }

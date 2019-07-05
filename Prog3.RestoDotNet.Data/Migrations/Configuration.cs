@@ -1,9 +1,8 @@
 namespace Prog3.RestoDotNet.Data.Migrations
 {
-    using System;
-    using System.Data.Entity;
+    using Prog3.RestoDotNet.Model.Entities;
+    using System.Collections.Generic;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Prog3.RestoDotNet.Data.Dals.RestoDbContext>
     {
@@ -18,6 +17,16 @@ namespace Prog3.RestoDotNet.Data.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+
+
+            context.Waiters.AddOrUpdate(w => w.Id,
+                new Waiter { Name = "Juan Perez Mesero" },
+                new Waiter { Name = "Jhon Travolta Mesero" },
+                new Waiter { Name = "Peteco Carabajal Mesero" }
+                );
+
+
+            base.Seed(context);
         }
     }
 }

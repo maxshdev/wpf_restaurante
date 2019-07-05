@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Prog3.RestoDotNet.Business.Services
 {
-    class WaiterSvc : BaseService<Waiter, WaiterDto>, IWaiterSvc
+    public class WaiterSvc : BaseService<Waiter, WaiterDto>, IWaiterSvc
     {
         public WaiterSvc(IApplicationUow applicationUow)
             : base(applicationUow, new WaiterMapper())
@@ -25,7 +25,7 @@ namespace Prog3.RestoDotNet.Business.Services
 
             try
             {
-                var entityResult = await _uow.GetEfRepository<Waiter>().InsertAsync(pDto.BaseEntity);
+                var entityResult = await _uow.EFRepository<Waiter>().InsertAsync(pDto.BaseEntity);
                 if (await _uow.CommitAsync())
                 {
                     response.Data = _mapper.MapFromEntity(entityResult);
@@ -48,42 +48,14 @@ namespace Prog3.RestoDotNet.Business.Services
             throw new NotImplementedException();
         }
 
-        public Task<BLListResponse<WaiterDto>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<BLListResponse<WaiterDto>> GetWaitersAttendsBySubjectId(int pSubjectId)
+        public async Task<BLListResponse<WaiterDto>> GetAllAsync()
         {
             var response = new BLListResponse<WaiterDto>();
 
             try
             {
-                
-            }
-            catch (Exception ex)
-            {
-                HandleSVCException(response, ex);
-            }
-
-            return response;
-        }
-
-        public async Task<BLSingleResponse<bool>> SaveWaiterExams(WaiterDto pWaiter)
-        {
-            var response = new BLSingleResponse<bool>();
-
-            try
-            {
-                await _uow.GetEfRepository<Waiter>().UpdateAsync(pWaiter.BaseEntity);
-                if (await _uow.CommitAsync())
-                {
-                    response.Data = true;
-                }
-                else
-                {
-                    HandleSVCException(response, "This action couldn't be performed.");
-                }
+                var entityResult = await _uow.EFRepository<Waiter>().AllAsync(null, null, null);
+                response.Data = _mapper.MapFromEntity(entityResult);
             }
             catch (Exception ex)
             {
@@ -99,7 +71,7 @@ namespace Prog3.RestoDotNet.Business.Services
 
             try
             {
-                var entityResult = await _uow.GetEfRepository<Waiter>().GetByIdAsync(pId);
+                var entityResult = await _uow.EFRepository<Waiter>().GetByIdAsync(pId);
                 response.Data = _mapper.MapFromEntity(entityResult);
             }
             catch (Exception ex)
@@ -113,22 +85,6 @@ namespace Prog3.RestoDotNet.Business.Services
         public Task<BLSingleResponse<bool>> UpdateAsync(WaiterDto pDto)
         {
             throw new NotImplementedException();
-        }
-
-        public async Task<BLListResponse<WaiterDto>> GetWaitersExamsBySubjectId(int pSubjectId)
-        {
-            var response = new BLListResponse<WaiterDto>();
-
-            try
-            {
-                
-            }
-            catch (Exception ex)
-            {
-                HandleSVCException(response, ex);
-            }
-
-            return response;
         }
     }
 }

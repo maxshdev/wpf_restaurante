@@ -1,31 +1,32 @@
-﻿using Prog3.RestoDotNet.Business.Services.Contracts;
+﻿using Prog3.RestoDotNet.Business.Services;
+using Prog3.RestoDotNet.Business.Services.Contracts;
 using Prog3.RestoDotNet.Model.Dtos;
 using Prog3.RestoDotNet.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Unity;
 
 namespace Prog3.RestoDotNet.App
 {
     public partial class FormTableStatus : Form
     {
         private readonly IOrderSvc _orderSvc;
+        private readonly IWaiterSvc _waiterSvc;
         private IEnumerable<MealDto> _stockMeals;
         private OrderDto _currentOrder;
 
-        public FormTableStatus()
+        public FormTableStatus(MoveableTable tableObj, IOrderSvc orderSvc, IWaiterSvc waiterSvc)
         {
             InitializeComponent();
-        }
-        public FormTableStatus(MoveableTable tableObj, IOrderSvc orderSvc)
-        {
-            InitializeComponent();
-            cBoxState.DataSource = Enum.GetValues(typeof(TableStateEnum));
+            
+            _orderSvc = orderSvc;
+            _waiterSvc = waiterSvc;
             _currentOrder = new OrderDto { Table = tableObj.BindedEntity };
             LoadStockMeals();
             LoadTableDetail();
+            LoadAvailableWaiters();
             this.LoadImage(tableObj);
-            _orderSvc = orderSvc;
         }
 
         private void LoadTableDetail()
@@ -33,6 +34,7 @@ namespace Prog3.RestoDotNet.App
             tBoxID.Text = _currentOrder.Table.MoveableTableId.ToString();
             tBoxChair.Text = _currentOrder.Table.MaxChairs.ToString();
             tBoxDescription.Text = _currentOrder.Table.Caption;
+            cBoxState.DataSource = Enum.GetValues(typeof(TableStateEnum));
             cBoxState.SelectedItem = _currentOrder.Table.State;
         }
 
@@ -46,8 +48,25 @@ namespace Prog3.RestoDotNet.App
             };
 
             CmbComidas.DataSource = _stockMeals;
+            CmbComidas.SelectedItem = null;
+            CmbComidas.SelectedText = "--Elija u agregue una comida--";
         }
 
+        private async void LoadAvailableWaiters()
+        {
+            var svcResp = await _waiterSvc.GetAllAsync();
+
+            if (svcResp.HasError)
+            {
+                MessageBox.Show(string.Join(",", svcResp.Errors));
+                return;
+            }
+
+            CmbMesero.DataSource = svcResp.Data;
+            CmbMesero.SelectedItem = null;
+            CmbMesero.SelectedText = "--Asigne un mesero--";
+
+        }
         private void LoadImage(PictureBox temp)
         {
             pBoxImageTable.Image = temp.Image;
@@ -58,26 +77,52 @@ namespace Prog3.RestoDotNet.App
 
         private void BtnDeletedMeal_Click(object sender, EventArgs e)
         {
+            if (mealDtoBindingSource.Current == null)
+                return;
+
             mealDtoBindingSource.RemoveCurrent();
+
+            EnableAcceptButtonIfCan();
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
+            if (CmbComidas.SelectedItem == null)
+                return;
+
             mealDtoBindingSource.Add(CmbComidas.SelectedItem);
+            CmbComidas.SelectedItem = null;
+            CmbComidas.SelectedText = "--Elija y agregue una comida--";
+
+            EnableAcceptButtonIfCan();
         }
 
         private async void BtnSaveTable_Click(object sender, EventArgs e)
         {
             //var list = mealDtoBindingSource.List;
-            foreach (var item in mealDtoBindingSource.List)
+            foreach (MealDto item in mealDtoBindingSource.List)
             {
-                _currentOrder.Meals.Add((MealDto)item);
+                _currentOrder.Meals.Add(item);
             }
 
-            _currentOrder.Waiter = new WaiterDto { Name = tBoxMesero.Text };
+            _currentOrder.Waiter = CmbMesero.SelectedItem as WaiterDto;
+            _currentOrder.DateFrom = DateTime.Now;
+
 
             var svcRes = _orderSvc.SaveOrderAsync(_currentOrder);
             this.Close();
+        }
+
+        private void EnableAcceptButtonIfCan()
+        {
+            btnSaveTableState.Enabled = !string.IsNullOrEmpty(tBoxDescription.Text) 
+                && mealDtoBindingSource.Count > 0
+                && CmbMesero.SelectedItem != null;
+        }
+
+        private void CmbMesero_SelectedValueChanged(object sender, EventArgs e)
+        {
+            EnableAcceptButtonIfCan();
         }
     }
 }

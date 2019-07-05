@@ -35,7 +35,7 @@ namespace Prog3.RestoDotNet.Business.Services
                 TableStateManager stateManager = await TableStateManager.GetTableStateManagerAsync(tableSvc, consumeDto);
                 if (await stateManager.SaveAsync(consumeDto))
                 {
-                    var resp = await _uow.GetEfRepository<Order>().InsertAsync(consumeDto.BaseEntity);
+                    var resp = await _uow.EFRepository<Order>().InsertAsync(consumeDto.BaseEntity);
                     await _uow.CommitAsync();
                     response.Data = resp.Id;
                 }
@@ -54,12 +54,20 @@ namespace Prog3.RestoDotNet.Business.Services
 
             try
             {
-                TableStateManager stateManager = await TableStateManager.GetTableStateManagerAsync(tableSvc, consumeDto);
-                if (await stateManager.SaveAsync(consumeDto))
+                var entity = _mapper.MapToEntity(consumeDto);
+
+                //foreach (Meal meal in entity.Meals)
+                //{
+                //    var svcMeal = await _uow.EFRepository<Meal>().InsertAsync(meal);
+
+                //}
+
+                var resp = await _uow.EFRepository<Order>().InsertAsync(entity);
+
+                if (await _uow.CommitAsync())
                 {
-                    var entity = _mapper.MapToEntity(consumeDto);
-                    var resp = await _uow.GetEfRepository<Order>().InsertAsync(entity);
-                    await _uow.CommitAsync();
+                    TableStateManager stateManager = await TableStateManager.GetTableStateManagerAsync(tableSvc, consumeDto);
+                    response.Data = await stateManager.SaveAsync(consumeDto);
                 }
             }
             catch (Exception ex)

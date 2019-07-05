@@ -34,7 +34,7 @@ namespace Prog3.RestoDotNet.Data.Dals
         }
 
 
-        public IEfRepository<T> GetEfRepository<T>() where T : class
+        public IEfRepository<T> EFRepository<T>() where T : class
         {
             return GetRepository<IEfRepository<T>>(ctx =>
             {

@@ -10,28 +10,34 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using Unity;
 
 namespace Prog3.RestoDotNet.App
 {
     public partial class FormMain : Form
     {
+        private readonly IUnityContainer _container;
         private readonly IOrderSvc _orderSvc;
         private readonly ITableSvc _tableSvc;
         private OpenFileDialog openFile;
         private List<TableDto> tableObjs;
 
-        public FormMain(IOrderSvc orderSvc, ITableSvc tableSvc)
+        public FormMain(IUnityContainer container)
         {
             InitializeComponent();
-            _orderSvc = orderSvc;
-            _tableSvc = tableSvc;
+            _orderSvc = container.Resolve<IOrderSvc>();
+            _tableSvc = container.Resolve<ITableSvc>();
+            _container = container;
         }
 
         private async Task GetRelatedTables(Guid trackId)
         {
             var svcResp = await _tableSvc.GetAllByTrackId(trackId);
 
-            tableObjs = svcResp.Data.ToList();
+            if (svcResp.HasError)
+                MessageBox.Show(string.Join(",", svcResp.Errors));
+            else
+                tableObjs = svcResp.Data.ToList();
         }
 
         private void UpdateState()
@@ -41,7 +47,7 @@ namespace Prog3.RestoDotNet.App
                 string block = Properties.Resources.ResourceManager.GetString("table_1x2_block.png");
                 string reserved = Properties.Resources.ResourceManager.GetString("table_1x2_reserved.png");
 
-                switch (item.BindedEntity.State) 
+                switch (item.BindedEntity.State)
                 {
                     case TableStateEnum.DISPONIBLE:
                         item.BackColor = Color.Transparent;
@@ -55,7 +61,7 @@ namespace Prog3.RestoDotNet.App
                         item.BackColor = Color.Yellow;
                         break;
                     default:
-                        item.BackColor = Color.Transparent; 
+                        item.BackColor = Color.Transparent;
                         break;
                 }
             }
@@ -69,7 +75,8 @@ namespace Prog3.RestoDotNet.App
                 ContextMenuStrip owner = item.Owner as ContextMenuStrip;
                 if (owner != null)
                 {
-                    new FormTableStatus((MoveableTable)owner.SourceControl, _orderSvc).ShowDialog();
+                    _container.RegisterInstance((MoveableTable)owner.SourceControl);
+                    _container.Resolve<FormTableStatus>().ShowDialog();
                 }
             }
 
@@ -122,6 +129,8 @@ namespace Prog3.RestoDotNet.App
                 var imgPath = $@"{dir.FullName}/{item.imageFile}";
                 temp.Image = Image.FromFile(imgPath);
 
+                temp.DoubleClick += Table_OnDoubleClick;
+
                 this.PnlMapLoad.Controls.Add(temp);
             }
 
@@ -131,9 +140,15 @@ namespace Prog3.RestoDotNet.App
             UpdateState();
         }
 
+        private void Table_OnDoubleClick(object sender, EventArgs e)
+        {
+            _container.RegisterInstance((MoveableTable)sender);
+            _container.Resolve<FormTableStatus>().ShowDialog();
+        }
+
         private void CrearMapaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FormMapEdition(_tableSvc).ShowDialog();
+            _container.Resolve<FormMapEdition>().ShowDialog();
         }
 
         private void CerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)

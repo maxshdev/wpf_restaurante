@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Prog3.RestoDotNet.Business.Services.Contracts
 {
-    interface IWaiterSvc : IBasicCrudOperations<WaiterDto>
+    public interface IWaiterSvc : IBasicCrudOperations<WaiterDto>
     {
 
     }
