@@ -54,7 +54,8 @@ namespace Prog3.RestoDotNet.Business.Services
 
             try
             {
-                var entity = await _uow.EFRepository<Order>().FindAsync(o => o.Table.Id == tableDto.Id, x => x.Table);//TODO
+                var entity = await _uow.EFRepository<Order>().FindAsync(o => o.Table.Id == tableDto.Id, x => x.Table); //TODO: fix include issue
+                entity.Meals = await _uow.EFRepository<Meal>().AllAsync(m => m.OrderId == entity.Id, null, null); 
                 response.Data = _mapper.MapFromEntity(entity);
             }
             catch (Exception ex)
