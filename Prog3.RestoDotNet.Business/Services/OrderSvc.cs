@@ -73,15 +73,16 @@ namespace Prog3.RestoDotNet.Business.Services
             try
             {
                 var entity = _mapper.MapToEntity(consumeDto);
-
-                foreach (Meal meal in entity.Meals)
-                {
-                    var svcMeal = await _uow.EFRepository<Meal>().InsertAsync(meal);
-                }
-
                 entity.Table = null;
                 entity.Waiter = null;
                 var resp = await _uow.EFRepository<Order>().InsertAsync(entity);
+
+                //foreach (Meal meal in entity.Meals)
+                //{
+                //    meal.Id = default;
+                //    meal.OrderId = entity.Id;
+                //    var svcMeal = await _uow.EFRepository<Meal>().InsertAsync(meal);
+                //}
 
                 if (await _uow.CommitAsync())
                 {

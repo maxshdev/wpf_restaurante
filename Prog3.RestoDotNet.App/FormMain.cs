@@ -134,7 +134,6 @@ namespace Prog3.RestoDotNet.App
                     UpdateTableImages();
                 }
             }
-
         }
 
         private void CargarMapaToolStripMenuItem_Click(object sender, EventArgs e)

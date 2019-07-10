@@ -1,13 +1,10 @@
-﻿using Pandora.NetStandard.Core.Utils;
-using Prog3.RestoDotNet.Business.Services.Contracts;
-using Prog3.RestoDotNet.Core.Utils;
+﻿using Prog3.RestoDotNet.Business.Services.Contracts;
 using Prog3.RestoDotNet.Model.Dtos;
 using Prog3.RestoDotNet.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Prog3.RestoDotNet.App
@@ -49,13 +46,13 @@ namespace Prog3.RestoDotNet.App
                 }
                 _currentOrder = svcResp.Data;
                 CmbMesero.SelectedValue = _currentOrder.Waiter.Id;
+                mealDtoBindingSource.DataSource = _currentOrder.Meals;
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    row.DefaultCellStyle = new DataGridViewCellStyle() { SelectionBackColor = Color.Transparent, SelectionForeColor = Color.Black, BackColor = Color.LightGray };
+                }
             }
 
-            mealDtoBindingSource.DataSource = _currentOrder.Meals;
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                row.DefaultCellStyle = new DataGridViewCellStyle() { SelectionBackColor = Color.Transparent, SelectionForeColor = Color.Black, BackColor = Color.LightGray };
-            }
             tBoxID.Text = _currentOrder.Table.MoveableTableId.ToString();
             tBoxChair.Text = _currentOrder.Table.MaxChairs.ToString();
             tBoxDescription.Text = _currentOrder.Table.Caption;
