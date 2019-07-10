@@ -17,7 +17,7 @@ namespace Prog3.RestoDotNet.Model.Entities
         public string Obs { get; set; }
 
         public virtual IEnumerable<Meal> Meals { get; set; }
-        public decimal TotalPrice { get { return Meals.Sum(m => m.Price); } }
+        public decimal TotalPrice { get { return Meals != null ? Meals.Sum(m => m.Price) : 0; } }
 
 
         public int TableId { get; set; }

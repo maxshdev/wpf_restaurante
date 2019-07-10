@@ -1,11 +1,12 @@
-﻿using Prog3.RestoDotNet.Business.Services;
+﻿using Pandora.NetStandard.Core.Utils;
 using Prog3.RestoDotNet.Business.Services.Contracts;
+using Prog3.RestoDotNet.Core.Utils;
 using Prog3.RestoDotNet.Model.Dtos;
 using Prog3.RestoDotNet.Model.Enums;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using Unity;
 
 namespace Prog3.RestoDotNet.App
 {
@@ -19,23 +20,42 @@ namespace Prog3.RestoDotNet.App
         public FormTableStatus(MoveableTable tableObj, IOrderSvc orderSvc, IWaiterSvc waiterSvc)
         {
             InitializeComponent();
-            
+
             _orderSvc = orderSvc;
             _waiterSvc = waiterSvc;
             _currentOrder = new OrderDto { Table = tableObj.BindedEntity };
             LoadStockMeals();
-            LoadTableDetail();
             LoadAvailableWaiters();
-            this.LoadImage(tableObj);
+            LoadTableDetail();
+            LoadImage(tableObj);
         }
 
-        private void LoadTableDetail()
+        private async void LoadTableDetail()
         {
+            if (_currentOrder.Table.State == TableStateEnum.OCUPADO)
+            {
+                GpbReserva.Enabled = false;
+                rTBoxNotes.Enabled = false;
+                tBoxDescription.Enabled = false;
+                CmbMesero.Enabled = false;
+
+                var svcResp = await _orderSvc.RetrieveCurrentOpenOrderAsync(_currentOrder.Table);
+                if (svcResp.HasError)
+                {
+                    MessageBox.Show(string.Join(",", svcResp.Errors));
+                    return;
+                }
+                _currentOrder = svcResp.Data;
+                CmbMesero.SelectedValue = _currentOrder.Waiter.Id;
+            }   
+
             tBoxID.Text = _currentOrder.Table.MoveableTableId.ToString();
             tBoxChair.Text = _currentOrder.Table.MaxChairs.ToString();
             tBoxDescription.Text = _currentOrder.Table.Caption;
             cBoxState.DataSource = Enum.GetValues(typeof(TableStateEnum));
             cBoxState.SelectedItem = _currentOrder.Table.State;
+            rTBoxNotes.Text = _currentOrder.Obs;
+
         }
 
         private void LoadStockMeals()
@@ -49,7 +69,7 @@ namespace Prog3.RestoDotNet.App
 
             CmbComidas.DataSource = _stockMeals;
             CmbComidas.SelectedItem = null;
-            CmbComidas.SelectedText = "--Elija u agregue una comida--";
+            CmbComidas.SelectedText = "--Elija y agregue una comida--";
         }
 
         private async void LoadAvailableWaiters()
@@ -62,7 +82,7 @@ namespace Prog3.RestoDotNet.App
                 return;
             }
 
-            CmbMesero.DataSource = svcResp.Data;
+            waiterDtoBindingSource.DataSource = svcResp.Data;
             CmbMesero.SelectedItem = null;
             CmbMesero.SelectedText = "--Asigne un mesero--";
 
@@ -106,16 +126,17 @@ namespace Prog3.RestoDotNet.App
             }
 
             _currentOrder.Waiter = CmbMesero.SelectedItem as WaiterDto;
+            _currentOrder.Obs = rTBoxNotes.Text;
             _currentOrder.DateFrom = DateTime.Now;
 
-
             var svcRes = _orderSvc.SaveOrderAsync(_currentOrder);
+
             this.Close();
         }
 
         private void EnableAcceptButtonIfCan()
         {
-            btnSaveTableState.Enabled = !string.IsNullOrEmpty(tBoxDescription.Text) 
+            btnSaveTableState.Enabled = !string.IsNullOrEmpty(tBoxDescription.Text)
                 && mealDtoBindingSource.Count > 0
                 && CmbMesero.SelectedItem != null;
         }

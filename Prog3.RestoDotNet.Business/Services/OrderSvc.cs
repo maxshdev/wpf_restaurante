@@ -48,6 +48,23 @@ namespace Prog3.RestoDotNet.Business.Services
             return response;
         }
 
+        public async Task<BLSingleResponse<OrderDto>> RetrieveCurrentOpenOrderAsync(TableDto tableDto)
+        {
+            var response = new BLSingleResponse<OrderDto>();
+
+            try
+            {
+                var entity = await _uow.EFRepository<Order>().FindAsync(o => o.Table.Id == tableDto.Id, x => x.Table);//TODO
+                response.Data = _mapper.MapFromEntity(entity);
+            }
+            catch (Exception ex)
+            {
+                HandleSVCException(response, ex);
+            }
+
+            return response;
+        }
+
         public async Task<BLSingleResponse<bool>> SaveOrderAsync(OrderDto consumeDto)
         {
             var response = new BLSingleResponse<bool>();
@@ -56,12 +73,13 @@ namespace Prog3.RestoDotNet.Business.Services
             {
                 var entity = _mapper.MapToEntity(consumeDto);
 
-                //foreach (Meal meal in entity.Meals)
-                //{
-                //    var svcMeal = await _uow.EFRepository<Meal>().InsertAsync(meal);
+                foreach (Meal meal in entity.Meals)
+                {
+                    var svcMeal = await _uow.EFRepository<Meal>().InsertAsync(meal);
+                }
 
-                //}
-
+                entity.Table = null;
+                entity.Waiter = null;
                 var resp = await _uow.EFRepository<Order>().InsertAsync(entity);
 
                 if (await _uow.CommitAsync())

@@ -24,9 +24,7 @@ namespace Prog3.RestoDotNet.Business.Mappers
         {
             return new MapperConfiguration(c =>
             {
-                c.CreateMap<OrderDto, Order>()                
-                .ForMember(m => m.TotalPrice, o => o.Ignore())
-                .ForMember(m => m.DateTo, o => o.Ignore());
+                c.CreateMap<OrderDto, Order>();
 
                 c.CreateMap<WaiterDto, Waiter>();
                 c.CreateMap<MealDto, Meal>();

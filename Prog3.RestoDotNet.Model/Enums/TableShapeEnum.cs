@@ -6,8 +6,8 @@ namespace Prog3.RestoDotNet.Model.Enums
 {
     public enum TableShapeEnum
     {
-        RECTANGLE = 6,
         SQUARE = 2,
-        CIRCLE = 4
+        RECTANGLE = 4,
+        CIRCLE = 6
     }
 }

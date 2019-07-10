@@ -119,6 +119,7 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Prog3.RestoDotNet.Model.Dtos.MealDto.datasource" />
+    <None Include="Properties\DataSources\Prog3.RestoDotNet.Model.Dtos.WaiterDto.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -163,13 +164,13 @@
     <Content Include="Resources\column_1.png" />
     <Content Include="Resources\column_2.png" />
     <Content Include="Resources\table_1.png" />
-    <Content Include="Resources\table_1x2.png" />
-    <Content Include="Resources\table_1x2_block.png" />
-    <Content Include="Resources\table_1x2_reserved.png" />
-    <Content Include="Resources\table_1x4.png" />
-    <Content Include="Resources\table_1x4_block.png" />
-    <Content Include="Resources\table_1x4_reserved.png" />
-    <Content Include="Resources\table_2.png" />
+    <Content Include="Resources\table_x2_1.png" />
+    <Content Include="Resources\table_x2_2.png" />
+    <Content Include="Resources\table_x2_3.png" />
+    <Content Include="Resources\table_x4_1.png" />
+    <Content Include="Resources\table_x4_2.png" />
+    <Content Include="Resources\table_x4_3.png" />
+    <Content Include="Resources\table_x2.png" />
     <Content Include="Resources\table_3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

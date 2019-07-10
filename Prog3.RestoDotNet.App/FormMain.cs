@@ -1,5 +1,6 @@
 ﻿using Prog3.RestoDotNet.App.XmlObjects;
 using Prog3.RestoDotNet.Business.Services.Contracts;
+using Prog3.RestoDotNet.Core.Utils;
 using Prog3.RestoDotNet.Model.Dtos;
 using Prog3.RestoDotNet.Model.Enums;
 using System;
@@ -21,6 +22,8 @@ namespace Prog3.RestoDotNet.App
         private readonly ITableSvc _tableSvc;
         private OpenFileDialog openFile;
         private List<TableDto> tableObjs;
+        private Guid currentTrackId;
+        private string currentXmlMapPath;
 
         public FormMain(IUnityContainer container)
         {
@@ -30,7 +33,7 @@ namespace Prog3.RestoDotNet.App
             _container = container;
         }
 
-        private async Task GetRelatedTables(Guid trackId)
+        private async Task RetrieveRelatedTables(Guid trackId)
         {
             var svcResp = await _tableSvc.GetAllByTrackId(trackId);
 
@@ -40,72 +43,50 @@ namespace Prog3.RestoDotNet.App
                 tableObjs = svcResp.Data.ToList();
         }
 
-        private void UpdateState()
+        private void UpdateTableImages()
         {
             foreach (MoveableTable item in PnlMapLoad.Controls.OfType<MoveableTable>())
             {
-                string block = Properties.Resources.ResourceManager.GetString("table_1x2_block.png");
-                string reserved = Properties.Resources.ResourceManager.GetString("table_1x2_reserved.png");
 
-                switch (item.BindedEntity.State)
+                if (item.BindedEntity.State == TableStateEnum.DISPONIBLE && item.BindedEntity.Shape == TableShapeEnum.SQUARE)
                 {
-                    case TableStateEnum.DISPONIBLE:
-                        item.BackColor = Color.Transparent;
-                        break;
-                    case TableStateEnum.OCUPADO:
-                        //item.Image = Image.FromFile(block);
-                        item.BackColor = Color.Red;
-                        break;
-                    case TableStateEnum.RESERVADO:
-                        //item.Image = Image.FromFile(reserved);
-                        item.BackColor = Color.Yellow;
-                        break;
-                    default:
-                        item.BackColor = Color.Transparent;
-                        break;
+                    item.Image =  Properties.Resources.table_x2_1;
+                }
+                else if (item.BindedEntity.State == TableStateEnum.DISPONIBLE && item.BindedEntity.Shape == TableShapeEnum.RECTANGLE)
+                {
+                    item.Image = Properties.Resources.table_x4_1;
+                }
+                else if (item.BindedEntity.State == TableStateEnum.OCUPADO && item.BindedEntity.Shape == TableShapeEnum.SQUARE)
+                {
+                    item.Image = Properties.Resources.table_x2_2;
+                }
+                else if (item.BindedEntity.State == TableStateEnum.OCUPADO && item.BindedEntity.Shape == TableShapeEnum.RECTANGLE)
+                {
+                    item.Image = Properties.Resources.table_x4_2;
+                }
+                else if (item.BindedEntity.State == TableStateEnum.RESERVADO && item.BindedEntity.Shape == TableShapeEnum.SQUARE)
+                {
+                    item.Image = Properties.Resources.table_x2_3;
+                }
+                else if (item.BindedEntity.State == TableStateEnum.RESERVADO && item.BindedEntity.Shape == TableShapeEnum.RECTANGLE)
+                {
+                    item.Image = Properties.Resources.table_x4_3;
                 }
             }
         }
 
-        private void VerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LoadXmlMap(string xmlMapPath)
         {
-            ToolStripItem item = (sender as ToolStripItem);
-            if (item != null)
-            {
-                ContextMenuStrip owner = item.Owner as ContextMenuStrip;
-                if (owner != null)
-                {
-                    _container.RegisterInstance((MoveableTable)owner.SourceControl);
-                    _container.Resolve<FormTableStatus>().ShowDialog();
-                }
-            }
-
-        }
-
-        private async void CargarMapaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openFile = new OpenFileDialog();
-            openFile.InitialDirectory = Directory.CreateDirectory($@"{Environment.CurrentDirectory}/Mapas").FullName;
-            openFile.Multiselect = false;
-            openFile.Filter = "|*.xml";
-            openFile.ShowHelp = false;
-
-            if (openFile.ShowDialog() != DialogResult.OK)
-                return;
-
-            var path = openFile.FileName;
-
             XmlSerializer reader = new XmlSerializer(typeof(List<XmlTable>));
-
-            StreamReader file = new StreamReader(path);
+            StreamReader file = new StreamReader(xmlMapPath);
             var xmlTables = (List<XmlTable>)reader.Deserialize(file);
 
             //cargar mesas correspondientes al mapa
-            await GetRelatedTables(xmlTables.First().TackId);
+            currentTrackId = xmlTables.First().TackId;
+            AsyncHelper.RunSync(() => RetrieveRelatedTables(currentTrackId));
 
             foreach (XmlTable item in xmlTables)
             {
-
                 MoveableObject temp = tableObjs.Any(t => t.MoveableTableId == item.Id)
                     ? new MoveableTable
                     {
@@ -129,21 +110,55 @@ namespace Prog3.RestoDotNet.App
                 var imgPath = $@"{dir.FullName}/{item.imageFile}";
                 temp.Image = Image.FromFile(imgPath);
 
-                temp.DoubleClick += Table_OnDoubleClick;
+                if (temp is MoveableTable)
+                    temp.DoubleClick += Table_OnDoubleClick;
 
-                this.PnlMapLoad.Controls.Add(temp);
+                PnlMapLoad.Controls.Add(temp);
             }
 
             file.Close();
             PnlMapLoad.Visible = PnlMapLoad.Controls.Count > 0;
+        }
 
-            UpdateState();
+        private void VerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripItem item = (sender as ToolStripItem);
+            if (item != null)
+            {
+                ContextMenuStrip owner = item.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    _container.RegisterInstance((MoveableTable)owner.SourceControl);
+                    _container.Resolve<FormTableStatus>().ShowDialog();
+                    LoadXmlMap(currentXmlMapPath);
+                    UpdateTableImages();
+                }
+            }
+
+        }
+
+        private void CargarMapaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFile = new OpenFileDialog();
+            openFile.InitialDirectory = Directory.CreateDirectory($@"{Environment.CurrentDirectory}/Mapas").FullName;
+            openFile.Multiselect = false;
+            openFile.Filter = "|*.xml";
+            openFile.ShowHelp = false;
+
+            if (openFile.ShowDialog() != DialogResult.OK)
+                return;
+
+            currentXmlMapPath = openFile.FileName;
+            LoadXmlMap(currentXmlMapPath);
+            UpdateTableImages();
         }
 
         private void Table_OnDoubleClick(object sender, EventArgs e)
         {
             _container.RegisterInstance((MoveableTable)sender);
             _container.Resolve<FormTableStatus>().ShowDialog();
+            LoadXmlMap(currentXmlMapPath);
+            UpdateTableImages();
         }
 
         private void CrearMapaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -159,7 +174,7 @@ namespace Prog3.RestoDotNet.App
             {
                 this.Close();
             }
-            UpdateState();
+            UpdateTableImages();
         }
     }
 }

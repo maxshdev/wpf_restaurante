@@ -32,20 +32,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTableStatus));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.CmbMesero = new System.Windows.Forms.ComboBox();
+            this.waiterDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.cBoxState = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.rTBoxNotes = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dTPickerReserved = new System.Windows.Forms.DateTimePicker();
-            this.cBoxReserved = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.tBoxChair = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tBoxDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tBoxID = new System.Windows.Forms.TextBox();
+            this.dTPickerReserved = new System.Windows.Forms.DateTimePicker();
+            this.cBoxReserved = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pBoxImageTable = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -53,17 +54,20 @@
             this.btnDeletedMeal = new System.Windows.Forms.Button();
             this.CmbComidas = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnCloseTable = new System.Windows.Forms.Button();
-            this.btnSaveTableState = new System.Windows.Forms.Button();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mealDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnCloseTable = new System.Windows.Forms.Button();
+            this.btnSaveTableState = new System.Windows.Forms.Button();
+            this.GpbReserva = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.waiterDtoBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxImageTable)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mealDtoBindingSource)).BeginInit();
+            this.GpbReserva.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -71,12 +75,10 @@
             this.groupBox1.Controls.Add(this.CmbMesero);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.cBoxState);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.rTBoxNotes);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.dTPickerReserved);
-            this.groupBox1.Controls.Add(this.cBoxReserved);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.tBoxChair);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.tBoxDescription);
@@ -85,19 +87,26 @@
             this.groupBox1.Controls.Add(this.tBoxID);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(325, 294);
+            this.groupBox1.Size = new System.Drawing.Size(325, 253);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Estado de Mesa";
             // 
             // CmbMesero
             // 
+            this.CmbMesero.DataSource = this.waiterDtoBindingSource;
+            this.CmbMesero.DisplayMember = "Name";
             this.CmbMesero.FormattingEnabled = true;
             this.CmbMesero.Location = new System.Drawing.Point(6, 113);
             this.CmbMesero.Name = "CmbMesero";
             this.CmbMesero.Size = new System.Drawing.Size(300, 21);
             this.CmbMesero.TabIndex = 15;
+            this.CmbMesero.ValueMember = "Id";
             this.CmbMesero.SelectedValueChanged += new System.EventHandler(this.CmbMesero_SelectedValueChanged);
+            // 
+            // waiterDtoBindingSource
+            // 
+            this.waiterDtoBindingSource.DataSource = typeof(Prog3.RestoDotNet.Model.Dtos.WaiterDto);
             // 
             // label7
             // 
@@ -121,6 +130,15 @@
             this.cBoxState.Size = new System.Drawing.Size(145, 21);
             this.cBoxState.TabIndex = 13;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 144);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Notas:";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -132,9 +150,9 @@
             // 
             // rTBoxNotes
             // 
-            this.rTBoxNotes.Location = new System.Drawing.Point(6, 201);
+            this.rTBoxNotes.Location = new System.Drawing.Point(6, 160);
             this.rTBoxNotes.Name = "rTBoxNotes";
-            this.rTBoxNotes.Size = new System.Drawing.Size(313, 87);
+            this.rTBoxNotes.Size = new System.Drawing.Size(299, 78);
             this.rTBoxNotes.TabIndex = 10;
             this.rTBoxNotes.Text = "";
             // 
@@ -146,32 +164,6 @@
             this.label5.Size = new System.Drawing.Size(38, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Notas:";
-            // 
-            // dTPickerReserved
-            // 
-            this.dTPickerReserved.Location = new System.Drawing.Point(106, 151);
-            this.dTPickerReserved.Name = "dTPickerReserved";
-            this.dTPickerReserved.Size = new System.Drawing.Size(200, 20);
-            this.dTPickerReserved.TabIndex = 8;
-            // 
-            // cBoxReserved
-            // 
-            this.cBoxReserved.AutoSize = true;
-            this.cBoxReserved.Location = new System.Drawing.Point(6, 154);
-            this.cBoxReserved.Name = "cBoxReserved";
-            this.cBoxReserved.Size = new System.Drawing.Size(60, 17);
-            this.cBoxReserved.TabIndex = 7;
-            this.cBoxReserved.Text = "Si / No";
-            this.cBoxReserved.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 137);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Reservado:";
             // 
             // tBoxChair
             // 
@@ -222,6 +214,24 @@
             this.tBoxID.Name = "tBoxID";
             this.tBoxID.Size = new System.Drawing.Size(63, 20);
             this.tBoxID.TabIndex = 0;
+            // 
+            // dTPickerReserved
+            // 
+            this.dTPickerReserved.Location = new System.Drawing.Point(284, 10);
+            this.dTPickerReserved.Name = "dTPickerReserved";
+            this.dTPickerReserved.Size = new System.Drawing.Size(236, 20);
+            this.dTPickerReserved.TabIndex = 8;
+            // 
+            // cBoxReserved
+            // 
+            this.cBoxReserved.AutoSize = true;
+            this.cBoxReserved.Location = new System.Drawing.Point(9, 12);
+            this.cBoxReserved.Name = "cBoxReserved";
+            this.cBoxReserved.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cBoxReserved.Size = new System.Drawing.Size(98, 17);
+            this.cBoxReserved.TabIndex = 7;
+            this.cBoxReserved.Text = "Reservar Mesa";
+            this.cBoxReserved.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -278,10 +288,6 @@
             // CmbComidas
             // 
             this.CmbComidas.FormattingEnabled = true;
-            this.CmbComidas.Items.AddRange(new object[] {
-            "Libre",
-            "Ocupado",
-            "Reservado"});
             this.CmbComidas.Location = new System.Drawing.Point(6, 187);
             this.CmbComidas.Name = "CmbComidas";
             this.CmbComidas.Size = new System.Drawing.Size(266, 21);
@@ -301,6 +307,24 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(520, 161);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            // 
+            // mealDtoBindingSource
+            // 
+            this.mealDtoBindingSource.DataSource = typeof(Prog3.RestoDotNet.Model.Dtos.MealDto);
             // 
             // btnCloseTable
             // 
@@ -327,29 +351,22 @@
             this.btnSaveTableState.UseVisualStyleBackColor = false;
             this.btnSaveTableState.Click += new System.EventHandler(this.BtnSaveTable_Click);
             // 
-            // descriptionDataGridViewTextBoxColumn
+            // GpbReserva
             // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            // 
-            // mealDtoBindingSource
-            // 
-            this.mealDtoBindingSource.DataSource = typeof(Prog3.RestoDotNet.Model.Dtos.MealDto);
+            this.GpbReserva.Controls.Add(this.dTPickerReserved);
+            this.GpbReserva.Controls.Add(this.cBoxReserved);
+            this.GpbReserva.Location = new System.Drawing.Point(13, 272);
+            this.GpbReserva.Name = "GpbReserva";
+            this.GpbReserva.Size = new System.Drawing.Size(526, 35);
+            this.GpbReserva.TabIndex = 5;
+            this.GpbReserva.TabStop = false;
             // 
             // FormTableStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(557, 575);
+            this.Controls.Add(this.GpbReserva);
             this.Controls.Add(this.btnSaveTableState);
             this.Controls.Add(this.btnCloseTable);
             this.Controls.Add(this.groupBox3);
@@ -360,11 +377,14 @@
             this.Text = "Seguimiento de Mesa";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.waiterDtoBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pBoxImageTable)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mealDtoBindingSource)).EndInit();
+            this.GpbReserva.ResumeLayout(false);
+            this.GpbReserva.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -376,7 +396,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dTPickerReserved;
         private System.Windows.Forms.CheckBox cBoxReserved;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tBoxChair;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tBoxDescription;
@@ -399,5 +418,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource mealDtoBindingSource;
         private System.Windows.Forms.ComboBox CmbMesero;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox GpbReserva;
+        private System.Windows.Forms.BindingSource waiterDtoBindingSource;
     }
 }

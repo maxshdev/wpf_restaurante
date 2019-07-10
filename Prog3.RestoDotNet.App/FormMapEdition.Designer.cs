@@ -36,8 +36,6 @@
             this.TabToolBoxTables = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.MesaRedo = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
-            this.MesaCuad = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.WallHor = new System.Windows.Forms.PictureBox();
             this.WallVer = new System.Windows.Forms.PictureBox();
@@ -57,12 +55,12 @@
             this.cmenuStripTable = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.fijarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MesaRedo = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
+            this.MesaCuad = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
             this.PnlLayout.SuspendLayout();
             this.PnlToolBox.SuspendLayout();
             this.TabControlToolBox.SuspendLayout();
             this.TabToolBoxTables.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MesaRedo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MesaCuad)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WallHor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WallVer)).BeginInit();
@@ -74,6 +72,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.MissBar)).BeginInit();
             this.PnlButtons.SuspendLayout();
             this.cmenuStripTable.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MesaRedo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MesaCuad)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlLayout
@@ -147,30 +147,6 @@
             this.label2.Size = new System.Drawing.Size(18, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "x2";
-            // 
-            // MesaRedo
-            // 
-            this.MesaRedo.Image = ((System.Drawing.Image)(resources.GetObject("MesaRedo.Image")));
-            this.MesaRedo.Location = new System.Drawing.Point(36, 258);
-            this.MesaRedo.Name = "MesaRedo";
-            this.MesaRedo.Shape = Prog3.RestoDotNet.Model.Enums.TableShapeEnum.CIRCLE;
-            this.MesaRedo.Size = new System.Drawing.Size(60, 60);
-            this.MesaRedo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.MesaRedo.TabIndex = 1;
-            this.MesaRedo.TabStop = false;
-            this.MesaRedo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
-            // 
-            // MesaCuad
-            // 
-            this.MesaCuad.Image = ((System.Drawing.Image)(resources.GetObject("MesaCuad.Image")));
-            this.MesaCuad.Location = new System.Drawing.Point(36, 161);
-            this.MesaCuad.Name = "MesaCuad";
-            this.MesaCuad.Shape = Prog3.RestoDotNet.Model.Enums.TableShapeEnum.SQUARE;
-            this.MesaCuad.Size = new System.Drawing.Size(60, 60);
-            this.MesaCuad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.MesaCuad.TabIndex = 1;
-            this.MesaCuad.TabStop = false;
-            this.MesaCuad.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
             // 
             // tabPage2
             // 
@@ -371,6 +347,30 @@
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.EliminarToolStripMenuItem_Click);
             // 
+            // MesaRedo
+            // 
+            this.MesaRedo.Image = ((System.Drawing.Image)(resources.GetObject("MesaRedo.Image")));
+            this.MesaRedo.Location = new System.Drawing.Point(36, 258);
+            this.MesaRedo.Name = "MesaRedo";
+            this.MesaRedo.Shape = Prog3.RestoDotNet.Model.Enums.TableShapeEnum.RECTANGLE;
+            this.MesaRedo.Size = new System.Drawing.Size(60, 60);
+            this.MesaRedo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.MesaRedo.TabIndex = 1;
+            this.MesaRedo.TabStop = false;
+            this.MesaRedo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            // 
+            // MesaCuad
+            // 
+            this.MesaCuad.Image = ((System.Drawing.Image)(resources.GetObject("MesaCuad.Image")));
+            this.MesaCuad.Location = new System.Drawing.Point(36, 161);
+            this.MesaCuad.Name = "MesaCuad";
+            this.MesaCuad.Shape = Prog3.RestoDotNet.Model.Enums.TableShapeEnum.SQUARE;
+            this.MesaCuad.Size = new System.Drawing.Size(60, 60);
+            this.MesaCuad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.MesaCuad.TabIndex = 1;
+            this.MesaCuad.TabStop = false;
+            this.MesaCuad.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            // 
             // FormMapEdition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -385,8 +385,6 @@
             this.TabControlToolBox.ResumeLayout(false);
             this.TabToolBoxTables.ResumeLayout(false);
             this.TabToolBoxTables.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MesaRedo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MesaCuad)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WallHor)).EndInit();
@@ -399,6 +397,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.MissBar)).EndInit();
             this.PnlButtons.ResumeLayout(false);
             this.cmenuStripTable.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MesaRedo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MesaCuad)).EndInit();
             this.ResumeLayout(false);
 
         }

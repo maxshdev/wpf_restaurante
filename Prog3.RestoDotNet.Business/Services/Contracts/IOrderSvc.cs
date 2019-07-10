@@ -11,5 +11,6 @@ namespace Prog3.RestoDotNet.Business.Services.Contracts
         Task<BLSingleResponse<int>> OpenAndGetOrderIdAsync(OrderDto consumeDto);
         Task<BLSingleResponse<decimal>> CloseOrderAndGetTotalPriceAsync(OrderDto consumeDto);
         Task<BLSingleResponse<int>> SetReservationAndGetOrderIdAsync(TableDto tableDto);
+        Task<BLSingleResponse<OrderDto>> RetrieveCurrentOpenOrderAsync(TableDto tableDto);
     }
 }
