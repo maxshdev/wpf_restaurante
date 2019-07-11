@@ -221,7 +221,7 @@
             this.WallHor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.WallHor.TabIndex = 5;
             this.WallHor.TabStop = false;
-            this.WallHor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            this.WallHor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown_wall);
             // 
             // WallVer
             // 
@@ -232,7 +232,7 @@
             this.WallVer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.WallVer.TabIndex = 4;
             this.WallVer.TabStop = false;
-            this.WallVer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            this.WallVer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown_wall);
             // 
             // label6
             // 

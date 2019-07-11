@@ -154,6 +154,32 @@ namespace Prog3.RestoDotNet.App
             }
         }
 
+        private void Table_MouseDown_wall(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                cont++;//para identificar posteriormente cada item en el mapa
+                currentObj = sender is ReferenceTable ? CreateMoveableTable(sender) : CreateMoveableObj(sender);
+                currentObj.Left = 100 + (10 * PnlMap.Controls.Count);//para crear en diferentes lugares
+                currentObj.Top = 100 + (10 * PnlMap.Controls.Count);
+                currentObj.Width = 110;
+                currentObj.Height = 100;
+                currentObj.SizeMode = PictureBoxSizeMode.StretchImage;
+                currentObj.BackColor = Color.Transparent;
+                currentObj.ContextMenuStrip = this.cmenuStripTable;
+
+                currentObj.MouseDown += Ctr_MouseDown;
+                currentObj.MouseUp += Ctr_MouseUp;
+                currentObj.MouseMove += Ctr_MouseMove;
+
+                this.PnlMap.Controls.Add(currentObj);
+
+                this.BtnSave.Enabled = PnlMap.Controls.OfType<MoveableTable>().Count() > 0;
+
+                ActualizarEstado();
+            }
+        }
+
         private void ActualizarEstado()
         {
             var mesas = PnlMap.Controls.OfType<MoveableTable>();
