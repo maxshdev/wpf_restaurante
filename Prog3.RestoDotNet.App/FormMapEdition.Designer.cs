@@ -49,7 +49,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.MissPool = new System.Windows.Forms.PictureBox();
             this.MissBar = new System.Windows.Forms.PictureBox();
             this.PnlMap = new System.Windows.Forms.Panel();
             this.PnlButtons = new System.Windows.Forms.Panel();
@@ -73,7 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MissPool)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MissBar)).BeginInit();
             this.PnlButtons.SuspendLayout();
             this.cmenuStripTable.SuspendLayout();
@@ -257,7 +255,6 @@
             this.tabPage1.Controls.Add(this.pictureBox3);
             this.tabPage1.Controls.Add(this.pictureBox2);
             this.tabPage1.Controls.Add(this.pictureBox1);
-            this.tabPage1.Controls.Add(this.MissPool);
             this.tabPage1.Controls.Add(this.MissBar);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -281,40 +278,29 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(18, 265);
+            this.pictureBox2.Location = new System.Drawing.Point(18, 252);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(92, 81);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            this.pictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown_cash);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(18, 179);
+            this.pictureBox1.Location = new System.Drawing.Point(18, 155);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(92, 81);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
-            // 
-            // MissPool
-            // 
-            this.MissPool.Image = ((System.Drawing.Image)(resources.GetObject("MissPool.Image")));
-            this.MissPool.Location = new System.Drawing.Point(18, 94);
-            this.MissPool.Name = "MissPool";
-            this.MissPool.Size = new System.Drawing.Size(92, 81);
-            this.MissPool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.MissPool.TabIndex = 3;
-            this.MissPool.TabStop = false;
-            this.MissPool.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown_bar);
             // 
             // MissBar
             // 
             this.MissBar.Image = ((System.Drawing.Image)(resources.GetObject("MissBar.Image")));
-            this.MissBar.Location = new System.Drawing.Point(18, 8);
+            this.MissBar.Location = new System.Drawing.Point(18, 55);
             this.MissBar.Name = "MissBar";
             this.MissBar.Size = new System.Drawing.Size(92, 81);
             this.MissBar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -423,7 +409,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MissPool)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MissBar)).EndInit();
             this.PnlButtons.ResumeLayout(false);
             this.cmenuStripTable.ResumeLayout(false);
@@ -454,7 +439,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.PictureBox MissBar;
-        private System.Windows.Forms.PictureBox MissPool;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
