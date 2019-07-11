@@ -34,6 +34,7 @@
             this.PnlToolBox = new System.Windows.Forms.Panel();
             this.TabControlToolBox = new System.Windows.Forms.TabControl();
             this.TabToolBoxTables = new System.Windows.Forms.TabPage();
+            this.MesaRed = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,11 +59,11 @@
             this.cmenuStripTable = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.fijarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MesaRed = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
             this.PnlLayout.SuspendLayout();
             this.PnlToolBox.SuspendLayout();
             this.TabControlToolBox.SuspendLayout();
             this.TabToolBoxTables.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MesaRed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MesaRect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MesaCuad)).BeginInit();
             this.tabPage2.SuspendLayout();
@@ -76,7 +77,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MissBar)).BeginInit();
             this.PnlButtons.SuspendLayout();
             this.cmenuStripTable.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MesaRed)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlLayout
@@ -135,6 +135,18 @@
             this.TabToolBoxTables.Text = "Mesas";
             this.TabToolBoxTables.UseVisualStyleBackColor = true;
             // 
+            // MesaRed
+            // 
+            this.MesaRed.Image = ((System.Drawing.Image)(resources.GetObject("MesaRed.Image")));
+            this.MesaRed.Location = new System.Drawing.Point(36, 75);
+            this.MesaRed.Name = "MesaRed";
+            this.MesaRed.Shape = Prog3.RestoDotNet.Model.Enums.TableShapeEnum.CIRCLE;
+            this.MesaRed.Size = new System.Drawing.Size(60, 60);
+            this.MesaRed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.MesaRed.TabIndex = 5;
+            this.MesaRed.TabStop = false;
+            this.MesaRed.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -172,7 +184,7 @@
             this.MesaRect.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.MesaRect.TabIndex = 1;
             this.MesaRect.TabStop = false;
-            this.MesaRect.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            this.MesaRect.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown_x4);
             // 
             // MesaCuad
             // 
@@ -184,7 +196,7 @@
             this.MesaCuad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.MesaCuad.TabIndex = 1;
             this.MesaCuad.TabStop = false;
-            this.MesaCuad.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            this.MesaCuad.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown_x2);
             // 
             // tabPage2
             // 
@@ -313,6 +325,7 @@
             // PnlMap
             // 
             this.PnlMap.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.PnlMap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PnlMap.BackgroundImage")));
             this.PnlMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PnlMap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlMap.Location = new System.Drawing.Point(151, 3);
@@ -385,18 +398,6 @@
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.EliminarToolStripMenuItem_Click);
             // 
-            // MesaRed
-            // 
-            this.MesaRed.Image = ((System.Drawing.Image)(resources.GetObject("MesaRed.Image")));
-            this.MesaRed.Location = new System.Drawing.Point(36, 75);
-            this.MesaRed.Name = "MesaRed";
-            this.MesaRed.Shape = Prog3.RestoDotNet.Model.Enums.TableShapeEnum.CIRCLE;
-            this.MesaRed.Size = new System.Drawing.Size(60, 60);
-            this.MesaRed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.MesaRed.TabIndex = 5;
-            this.MesaRed.TabStop = false;
-            this.MesaRed.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
-            // 
             // FormMapEdition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -411,6 +412,7 @@
             this.TabControlToolBox.ResumeLayout(false);
             this.TabToolBoxTables.ResumeLayout(false);
             this.TabToolBoxTables.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MesaRed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MesaRect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MesaCuad)).EndInit();
             this.tabPage2.ResumeLayout(false);
@@ -425,7 +427,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MissBar)).EndInit();
             this.PnlButtons.ResumeLayout(false);
             this.cmenuStripTable.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.MesaRed)).EndInit();
             this.ResumeLayout(false);
 
         }
