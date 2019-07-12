@@ -34,22 +34,22 @@
             this.PnlToolBox = new System.Windows.Forms.Panel();
             this.TabControlToolBox = new System.Windows.Forms.TabControl();
             this.TabToolBoxTables = new System.Windows.Forms.TabPage();
-            this.MesaRed = new ReferenceTable();
+            this.MesaRed = new Prog3.RestoDotNet.App.ReferenceTable();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.MesaRect = new ReferenceTable();
-            this.MesaCuad = new ReferenceTable();
+            this.MesaRect = new Prog3.RestoDotNet.App.ReferenceTable();
+            this.MesaCuad = new Prog3.RestoDotNet.App.ReferenceTable();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.WallHor = new ReferenceObject();
-            this.WallVer = new ReferenceObject();
+            this.WallHor = new Prog3.RestoDotNet.App.ReferenceObject();
+            this.WallVer = new Prog3.RestoDotNet.App.ReferenceObject();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.MissTV = new ReferenceObject();
-            this.MissCash = new ReferenceObject();
-            this.MissBar = new ReferenceObject();
-            this.MissMenu = new ReferenceObject();
+            this.MissTV = new Prog3.RestoDotNet.App.ReferenceObject();
+            this.MissCash = new Prog3.RestoDotNet.App.ReferenceObject();
+            this.MissBar = new Prog3.RestoDotNet.App.ReferenceObject();
+            this.MissMenu = new Prog3.RestoDotNet.App.ReferenceObject();
             this.PnlMap = new System.Windows.Forms.Panel();
             this.PnlButtons = new System.Windows.Forms.Panel();
             this.BtnSave = new System.Windows.Forms.Button();
@@ -82,16 +82,15 @@
             this.PnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.39689F));
             this.PnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.60311F));
             this.PnlLayout.Controls.Add(this.PnlToolBox, 0, 0);
-            this.PnlLayout.Controls.Add(this.PnlMap, 1, 0);
             this.PnlLayout.Controls.Add(this.PnlButtons, 0, 1);
             this.PnlLayout.Controls.Add(this.LblEstado, 1, 1);
-            this.PnlLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlLayout.Controls.Add(this.PnlMap, 1, 0);
             this.PnlLayout.Location = new System.Drawing.Point(0, 0);
             this.PnlLayout.Name = "PnlLayout";
             this.PnlLayout.RowCount = 2;
             this.PnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.84862F));
             this.PnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.151382F));
-            this.PnlLayout.Size = new System.Drawing.Size(1028, 568);
+            this.PnlLayout.Size = new System.Drawing.Size(1423, 715);
             this.PnlLayout.TabIndex = 1;
             // 
             // PnlToolBox
@@ -100,7 +99,7 @@
             this.PnlToolBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlToolBox.Location = new System.Drawing.Point(3, 3);
             this.PnlToolBox.Name = "PnlToolBox";
-            this.PnlToolBox.Size = new System.Drawing.Size(142, 515);
+            this.PnlToolBox.Size = new System.Drawing.Size(198, 650);
             this.PnlToolBox.TabIndex = 2;
             // 
             // TabControlToolBox
@@ -113,7 +112,7 @@
             this.TabControlToolBox.Location = new System.Drawing.Point(0, 0);
             this.TabControlToolBox.Name = "TabControlToolBox";
             this.TabControlToolBox.SelectedIndex = 0;
-            this.TabControlToolBox.Size = new System.Drawing.Size(142, 515);
+            this.TabControlToolBox.Size = new System.Drawing.Size(198, 650);
             this.TabControlToolBox.TabIndex = 2;
             // 
             // TabToolBoxTables
@@ -127,7 +126,7 @@
             this.TabToolBoxTables.Location = new System.Drawing.Point(4, 22);
             this.TabToolBoxTables.Name = "TabToolBoxTables";
             this.TabToolBoxTables.Padding = new System.Windows.Forms.Padding(3);
-            this.TabToolBoxTables.Size = new System.Drawing.Size(134, 489);
+            this.TabToolBoxTables.Size = new System.Drawing.Size(190, 624);
             this.TabToolBoxTables.TabIndex = 0;
             this.TabToolBoxTables.Text = "Mesas";
             this.TabToolBoxTables.UseVisualStyleBackColor = true;
@@ -207,7 +206,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(134, 489);
+            this.tabPage2.Size = new System.Drawing.Size(160, 768);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Paredes";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -263,7 +262,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(134, 489);
+            this.tabPage1.Size = new System.Drawing.Size(160, 768);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Deco";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -321,19 +320,18 @@
             this.PnlMap.BackColor = System.Drawing.SystemColors.ControlLight;
             this.PnlMap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PnlMap.BackgroundImage")));
             this.PnlMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PnlMap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlMap.Location = new System.Drawing.Point(151, 3);
+            this.PnlMap.Location = new System.Drawing.Point(207, 3);
             this.PnlMap.Name = "PnlMap";
-            this.PnlMap.Size = new System.Drawing.Size(874, 515);
+            this.PnlMap.Size = new System.Drawing.Size(1210, 649);
             this.PnlMap.TabIndex = 1;
             // 
             // PnlButtons
             // 
             this.PnlButtons.Controls.Add(this.BtnSave);
             this.PnlButtons.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlButtons.Location = new System.Drawing.Point(3, 524);
+            this.PnlButtons.Location = new System.Drawing.Point(3, 659);
             this.PnlButtons.Name = "PnlButtons";
-            this.PnlButtons.Size = new System.Drawing.Size(142, 41);
+            this.PnlButtons.Size = new System.Drawing.Size(198, 53);
             this.PnlButtons.TabIndex = 3;
             // 
             // BtnSave
@@ -353,10 +351,10 @@
             // 
             this.LblEstado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEstado.Location = new System.Drawing.Point(150, 521);
+            this.LblEstado.Location = new System.Drawing.Point(206, 656);
             this.LblEstado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LblEstado.Name = "LblEstado";
-            this.LblEstado.Size = new System.Drawing.Size(876, 47);
+            this.LblEstado.Size = new System.Drawing.Size(1215, 59);
             this.LblEstado.TabIndex = 4;
             this.LblEstado.Text = "Agregue mesas presionando sobre ellas!";
             this.LblEstado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -388,7 +386,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 568);
+            this.ClientSize = new System.Drawing.Size(1427, 721);
             this.Controls.Add(this.PnlLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
