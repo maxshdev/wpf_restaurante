@@ -10,6 +10,7 @@ using Prog3.RestoDotNet.Business.Services;
 using Prog3.RestoDotNet.Business.Services.Contracts;
 using Prog3.RestoDotNet.Data.Dals;
 using Unity;
+using Unity.Lifetime;
 
 namespace Prog3.RestoDotNet.App
 {
@@ -31,9 +32,7 @@ namespace Prog3.RestoDotNet.App
         private static void RegisterContainers()
         {
             // Create the container as usual.
-            if (container == null)
-                container = new UnityContainer();
-
+            container = new UnityContainer();
 
             // Register your types, for instance:
             //container.RegisterSingleton<IMapperCore, GenericMapperCore>();

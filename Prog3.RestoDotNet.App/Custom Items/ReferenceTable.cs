@@ -1,6 +1,6 @@
 ﻿using Prog3.RestoDotNet.Model.Enums;
 
-namespace Prog3.RestoDotNet.App.Custom_Items
+namespace Prog3.RestoDotNet.App
 {
     public class ReferenceTable : ReferenceObject
     {

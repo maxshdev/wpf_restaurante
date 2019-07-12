@@ -12,9 +12,11 @@ namespace Prog3.RestoDotNet.Business.States
             return Task.Run(() => { return true; });
         }
 
-        public override Task<bool> CloseAsync(OrderDto consumeDto)
+        public async override Task<bool> CloseAsync(OrderDto consumeDto)
         {
-            throw new NotImplementedException();
+            consumeDto.Table.State = Model.Enums.TableStateEnum.DISPONIBLE;
+            var resp = await _tableSvc.UpdateAsync(consumeDto.Table);
+            return resp.Data;
         }
     }
 }

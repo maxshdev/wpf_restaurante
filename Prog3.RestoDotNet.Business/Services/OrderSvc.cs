@@ -22,9 +22,29 @@ namespace Prog3.RestoDotNet.Business.Services
             this.tableSvc = tableSvc;
         }
 
-        public Task<BLSingleResponse<decimal>> CloseOrderAndGetTotalPriceAsync(OrderDto consumeDto)
+        public async Task<BLSingleResponse<decimal>> CloseOrderAndGetTotalPriceAsync(OrderDto consumeDto)
         {
-            throw new NotImplementedException();
+            var response = new BLSingleResponse<decimal>();
+
+            try
+            {
+                var entity = await _uow.EFRepository<Order>().GetByIdAsync(consumeDto.Id);
+                entity.DateTo = DateTime.Now;
+                await _uow.EFRepository<Order>().UpdateAsync(entity);
+
+                if (await _uow.CommitAsync())
+                {
+                    TableStateManager stateManager = TableStateManager.GetTableStateManager(tableSvc, consumeDto);
+                    await stateManager.CloseAsync(consumeDto);
+                    response.Data = entity.TotalPrice;
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleSVCException(response, ex);
+            }
+
+            return response;
         }
 
         public async Task<BLSingleResponse<int>> OpenAndGetOrderIdAsync(OrderDto consumeDto)
@@ -55,7 +75,7 @@ namespace Prog3.RestoDotNet.Business.Services
 
             try
             {
-                var entity = await _uow.EFRepository<Order>().FindAsync(o => o.Table.Id == tableDto.Id, x => x.Table); //TODO: fix include issue
+                var entity = await _uow.EFRepository<Order>().FindAsync(o => o.Table.Id == tableDto.Id && !o.DateTo.HasValue, x => x.Table); //TODO: fix include issue
                 entity.Meals = await _uow.EFRepository<Meal>().AllAsync(m => m.OrderId == entity.Id, null, null);
                 response.Data = _mapper.MapFromEntity(entity);
             }

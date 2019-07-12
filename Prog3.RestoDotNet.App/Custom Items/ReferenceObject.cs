@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace Prog3.RestoDotNet.App.Custom_Items
+namespace Prog3.RestoDotNet.App
 {
     public class ReferenceObject : PictureBox
     {

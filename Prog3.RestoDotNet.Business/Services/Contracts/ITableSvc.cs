@@ -11,6 +11,6 @@ namespace Prog3.RestoDotNet.Business.Services.Contracts
     {
         Task<BLSingleResponse<bool>> SetInitialTableArrangementAsync(IEnumerable<TableDto> tablesDtos);
         Task<BLResponse> CleanTableForInitialUsageAsync();
-        Task<BLListResponse<TableDto>> GetAllByTrackId(Guid trackId);
+        BLListResponse<TableDto> GetAllByTrackId(Guid trackId);
     }
 }

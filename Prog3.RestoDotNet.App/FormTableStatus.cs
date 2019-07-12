@@ -37,6 +37,7 @@ namespace Prog3.RestoDotNet.App
                 rTBoxNotes.Enabled = false;
                 tBoxDescription.Enabled = false;
                 CmbMesero.Enabled = false;
+                btnCloseTable.Enabled = true;
 
                 var svcResp = await _orderSvc.RetrieveCurrentOpenOrderAsync(_currentOrder.Table);
                 if (svcResp.HasError)
@@ -49,7 +50,12 @@ namespace Prog3.RestoDotNet.App
                 mealDtoBindingSource.DataSource = _currentOrder.Meals;
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
-                    row.DefaultCellStyle = new DataGridViewCellStyle() { SelectionBackColor = Color.Transparent, SelectionForeColor = Color.Black, BackColor = Color.LightGray };
+                    row.DefaultCellStyle = new DataGridViewCellStyle()
+                    {
+                        SelectionBackColor = Color.Transparent,
+                        SelectionForeColor = Color.Black,
+                        BackColor = Color.LightGray
+                    };
                 }
             }
 
@@ -59,7 +65,6 @@ namespace Prog3.RestoDotNet.App
             cBoxState.DataSource = Enum.GetValues(typeof(TableStateEnum));
             cBoxState.SelectedItem = _currentOrder.Table.State;
             rTBoxNotes.Text = _currentOrder.Obs;
-
         }
 
         private void LoadStockMeals()
@@ -91,15 +96,20 @@ namespace Prog3.RestoDotNet.App
             waiterDtoBindingSource.DataSource = svcResp.Data;
             CmbMesero.SelectedItem = null;
             CmbMesero.SelectedText = "--Asigne un mesero--";
-
         }
+
         private void LoadImage(PictureBox temp)
         {
             pBoxImageTable.Image = temp.Image;
             pBoxImageTable.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
-        // DETALLES DEL PEDIDO - COMIDAS
+        private void EnableAcceptButtonIfCan()
+        {
+            btnSaveTableState.Enabled = !string.IsNullOrEmpty(tBoxDescription.Text)
+                && mealDtoBindingSource.List.Cast<MealDto>().Count(m => m.Id < 0) > 0 //if has at least 1 food added
+                && CmbMesero.SelectedItem != null;
+        }
 
         private void BtnDeletedMeal_Click(object sender, EventArgs e)
         {
@@ -113,7 +123,6 @@ namespace Prog3.RestoDotNet.App
                 mealDtoBindingSource.RemoveCurrent();
                 EnableAcceptButtonIfCan();
             }
-
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
@@ -130,11 +139,7 @@ namespace Prog3.RestoDotNet.App
 
         private async void BtnSaveTable_Click(object sender, EventArgs e)
         {
-            //foreach (MealDto item in mealDtoBindingSource.List)
-            //{
-            //    _currentOrder.Meals.Add(item);
-            //}
-
+            _currentOrder.Meals = mealDtoBindingSource.List.Cast<MealDto>().ToList();
             _currentOrder.Waiter = CmbMesero.SelectedItem as WaiterDto;
             _currentOrder.Table.Caption = tBoxDescription.Text;
             _currentOrder.Obs = rTBoxNotes.Text;
@@ -148,14 +153,7 @@ namespace Prog3.RestoDotNet.App
                 return;
             }
 
-            this.Close();
-        }
-
-        private void EnableAcceptButtonIfCan()
-        {
-            btnSaveTableState.Enabled = !string.IsNullOrEmpty(tBoxDescription.Text)
-                && mealDtoBindingSource.List.Cast<MealDto>().Count(m => m.Id < 0) > 0 //if has at least 1 food added
-                && CmbMesero.SelectedItem != null;
+            Close();
         }
 
         private void CmbMesero_SelectedValueChanged(object sender, EventArgs e)
@@ -166,6 +164,22 @@ namespace Prog3.RestoDotNet.App
         private void CBoxReserved_CheckedChanged(object sender, EventArgs e)
         {
             dTPickerReserved.Enabled = ((CheckBox)sender).Checked;
+        }
+
+        private async void BtnCloseTable_Click(object sender, EventArgs e)
+        {
+            var svcRes = await _orderSvc.CloseOrderAndGetTotalPriceAsync(_currentOrder);
+
+            if (svcRes.HasError)
+            {
+                MessageBox.Show(string.Join(",", svcRes.Errors));
+                return;
+            }
+
+            //TODO: hacer algo para mostrar el precio que trae svcRes.Data
+            MessageBox.Show($"El total consumido es: {svcRes.Data.ToString("C")}");
+
+            Close();
         }
     }
 }

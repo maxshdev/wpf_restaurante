@@ -34,22 +34,22 @@
             this.PnlToolBox = new System.Windows.Forms.Panel();
             this.TabControlToolBox = new System.Windows.Forms.TabControl();
             this.TabToolBoxTables = new System.Windows.Forms.TabPage();
-            this.MesaRed = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
+            this.MesaRed = new ReferenceTable();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.MesaRect = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
-            this.MesaCuad = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
+            this.MesaRect = new ReferenceTable();
+            this.MesaCuad = new ReferenceTable();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.WallHor = new Prog3.RestoDotNet.App.Custom_Items.ReferenceObject();
-            this.WallVer = new Prog3.RestoDotNet.App.Custom_Items.ReferenceObject();
+            this.WallHor = new ReferenceObject();
+            this.WallVer = new ReferenceObject();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.MissTV = new Prog3.RestoDotNet.App.Custom_Items.ReferenceObject();
-            this.MissCash = new Prog3.RestoDotNet.App.Custom_Items.ReferenceObject();
-            this.MissBar = new Prog3.RestoDotNet.App.Custom_Items.ReferenceObject();
-            this.MissMenu = new Prog3.RestoDotNet.App.Custom_Items.ReferenceObject();
+            this.MissTV = new ReferenceObject();
+            this.MissCash = new ReferenceObject();
+            this.MissBar = new ReferenceObject();
+            this.MissMenu = new ReferenceObject();
             this.PnlMap = new System.Windows.Forms.Panel();
             this.PnlButtons = new System.Windows.Forms.Panel();
             this.BtnSave = new System.Windows.Forms.Button();
@@ -419,8 +419,8 @@
         }
 
         #endregion
-        private Prog3.RestoDotNet.App.Custom_Items.ReferenceTable MesaRect;
-        private Prog3.RestoDotNet.App.Custom_Items.ReferenceTable MesaCuad;
+        private ReferenceTable MesaRect;
+        private ReferenceTable MesaCuad;
         private System.Windows.Forms.TableLayoutPanel PnlLayout;
         private System.Windows.Forms.Panel PnlToolBox;
         private System.Windows.Forms.TabControl TabControlToolBox;
@@ -434,18 +434,18 @@
         private System.Windows.Forms.ContextMenuStrip cmenuStripTable;
         private System.Windows.Forms.ToolStripMenuItem fijarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
-        private Prog3.RestoDotNet.App.Custom_Items.ReferenceObject WallHor;
-        private Prog3.RestoDotNet.App.Custom_Items.ReferenceObject WallVer;
+        private ReferenceObject WallHor;
+        private ReferenceObject WallVer;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TabPage tabPage1;
-        private Prog3.RestoDotNet.App.Custom_Items.ReferenceObject MissMenu;
-        private Prog3.RestoDotNet.App.Custom_Items.ReferenceObject MissTV;
-        private Prog3.RestoDotNet.App.Custom_Items.ReferenceObject MissCash;
-        private Prog3.RestoDotNet.App.Custom_Items.ReferenceObject MissBar;
+        private ReferenceObject MissMenu;
+        private ReferenceObject MissTV;
+        private ReferenceObject MissCash;
+        private ReferenceObject MissBar;
         private System.Windows.Forms.Label LblEstado;
         private System.Windows.Forms.Label label1;
-        private Custom_Items.ReferenceTable MesaRed;
+        private ReferenceTable MesaRed;
     }
 }
 

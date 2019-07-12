@@ -60,6 +60,7 @@
             this.btnCloseTable = new System.Windows.Forms.Button();
             this.btnSaveTableState = new System.Windows.Forms.Button();
             this.GpbReserva = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.waiterDtoBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -192,7 +193,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 59);
+            this.label2.Location = new System.Drawing.Point(6, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 2;
@@ -201,7 +202,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 20);
+            this.label1.Location = new System.Drawing.Point(6, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(21, 13);
             this.label1.TabIndex = 1;
@@ -218,15 +219,15 @@
             // dTPickerReserved
             // 
             this.dTPickerReserved.Enabled = false;
-            this.dTPickerReserved.Location = new System.Drawing.Point(284, 10);
+            this.dTPickerReserved.Location = new System.Drawing.Point(305, 10);
             this.dTPickerReserved.Name = "dTPickerReserved";
-            this.dTPickerReserved.Size = new System.Drawing.Size(236, 20);
+            this.dTPickerReserved.Size = new System.Drawing.Size(220, 20);
             this.dTPickerReserved.TabIndex = 8;
             // 
             // cBoxReserved
             // 
             this.cBoxReserved.AutoSize = true;
-            this.cBoxReserved.Location = new System.Drawing.Point(9, 12);
+            this.cBoxReserved.Location = new System.Drawing.Point(5, 12);
             this.cBoxReserved.Name = "cBoxReserved";
             this.cBoxReserved.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cBoxReserved.Size = new System.Drawing.Size(98, 17);
@@ -269,7 +270,7 @@
             // 
             // BtnAgregar
             // 
-            this.BtnAgregar.Location = new System.Drawing.Point(370, 187);
+            this.BtnAgregar.Location = new System.Drawing.Point(370, 186);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(75, 23);
             this.BtnAgregar.TabIndex = 2;
@@ -279,7 +280,7 @@
             // 
             // btnDeletedMeal
             // 
-            this.btnDeletedMeal.Location = new System.Drawing.Point(451, 187);
+            this.btnDeletedMeal.Location = new System.Drawing.Point(451, 186);
             this.btnDeletedMeal.Name = "btnDeletedMeal";
             this.btnDeletedMeal.Size = new System.Drawing.Size(75, 23);
             this.btnDeletedMeal.TabIndex = 2;
@@ -301,6 +302,7 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.LightGray;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.descriptionDataGridViewTextBoxColumn,
@@ -337,6 +339,7 @@
             // btnCloseTable
             // 
             this.btnCloseTable.BackColor = System.Drawing.Color.Crimson;
+            this.btnCloseTable.Enabled = false;
             this.btnCloseTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseTable.ForeColor = System.Drawing.SystemColors.Control;
             this.btnCloseTable.Location = new System.Drawing.Point(297, 536);
@@ -345,6 +348,7 @@
             this.btnCloseTable.TabIndex = 3;
             this.btnCloseTable.Text = "CERRAR PEDIDO";
             this.btnCloseTable.UseVisualStyleBackColor = false;
+            this.btnCloseTable.Click += new System.EventHandler(this.BtnCloseTable_Click);
             // 
             // btnSaveTableState
             // 
@@ -363,11 +367,21 @@
             // 
             this.GpbReserva.Controls.Add(this.dTPickerReserved);
             this.GpbReserva.Controls.Add(this.cBoxReserved);
+            this.GpbReserva.Controls.Add(this.label8);
             this.GpbReserva.Location = new System.Drawing.Point(13, 272);
             this.GpbReserva.Name = "GpbReserva";
-            this.GpbReserva.Size = new System.Drawing.Size(526, 35);
+            this.GpbReserva.Size = new System.Drawing.Size(532, 35);
             this.GpbReserva.TabIndex = 5;
             this.GpbReserva.TabStop = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(261, 13);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(38, 13);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Hasta:";
             // 
             // FormTableStatus
             // 
@@ -433,5 +447,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox GpbReserva;
         private System.Windows.Forms.BindingSource waiterDtoBindingSource;
+        private System.Windows.Forms.Label label8;
     }
 }

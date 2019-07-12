@@ -36,14 +36,14 @@
             this.cerrarPedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarMapaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearMapaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cMenuStripMapLoad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnlMapLoad
@@ -54,7 +54,7 @@
             this.PnlMapLoad.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlMapLoad.Location = new System.Drawing.Point(0, 222);
             this.PnlMapLoad.Name = "PnlMapLoad";
-            this.PnlMapLoad.Size = new System.Drawing.Size(1210, 551);
+            this.PnlMapLoad.Size = new System.Drawing.Size(1210, 649);
             this.PnlMapLoad.TabIndex = 2;
             this.PnlMapLoad.Visible = false;
             // 
@@ -98,16 +98,17 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.BackColor = System.Drawing.Color.Transparent;
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inicioToolStripMenuItem,
             this.cerrarSesiónToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(919, 24);
-            this.menuStrip1.TabIndex = 4;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(1210, 24);
+            this.menuStrip.TabIndex = 4;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // inicioToolStripMenuItem
             // 
@@ -121,14 +122,14 @@
             // cargarMapaToolStripMenuItem
             // 
             this.cargarMapaToolStripMenuItem.Name = "cargarMapaToolStripMenuItem";
-            this.cargarMapaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cargarMapaToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.cargarMapaToolStripMenuItem.Text = "Cargar Mapa";
             this.cargarMapaToolStripMenuItem.Click += new System.EventHandler(this.CargarMapaToolStripMenuItem_Click);
             // 
             // crearMapaToolStripMenuItem
             // 
             this.crearMapaToolStripMenuItem.Name = "crearMapaToolStripMenuItem";
-            this.crearMapaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.crearMapaToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.crearMapaToolStripMenuItem.Text = "Crear Mapa";
             this.crearMapaToolStripMenuItem.Click += new System.EventHandler(this.CrearMapaToolStripMenuItem_Click);
             // 
@@ -143,21 +144,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1210, 773);
+            this.ClientSize = new System.Drawing.Size(1210, 871);
             this.ControlBox = false;
             this.Controls.Add(this.PnlMapLoad);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menuStrip;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Resto DotNet";
             this.cMenuStripMapLoad.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,7 +172,7 @@
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarPedidoToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cargarMapaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem crearMapaToolStripMenuItem;

@@ -32,9 +32,9 @@ namespace Prog3.RestoDotNet.App
             _container = container;
         }
 
-        private async Task RetrieveRelatedTables(Guid trackId)
+        private void RetrieveRelatedTables(Guid trackId)
         {
-            var svcResp = await _tableSvc.GetAllByTrackId(trackId);
+            var svcResp = _tableSvc.GetAllByTrackId(trackId);
 
             if (svcResp.HasError)
                 MessageBox.Show(string.Join(",", svcResp.Errors));
@@ -94,7 +94,7 @@ namespace Prog3.RestoDotNet.App
 
             //cargar mesas correspondientes al mapa
             currentTrackId = xmlTables.First().TackId;
-            AsyncHelper.RunSync(() => RetrieveRelatedTables(currentTrackId));
+            RetrieveRelatedTables(currentTrackId);
 
             foreach (XmlTable item in xmlTables)
             {

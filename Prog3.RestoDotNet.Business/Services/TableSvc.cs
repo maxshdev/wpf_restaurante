@@ -4,10 +4,12 @@ using Pandora.NetStandard.Core.Mapper;
 using Pandora.NetStandard.Core.Utils;
 using Prog3.RestoDotNet.Business.Mappers;
 using Prog3.RestoDotNet.Business.Services.Contracts;
+using Prog3.RestoDotNet.Core.Utils;
 using Prog3.RestoDotNet.Model.Dtos;
 using Prog3.RestoDotNet.Model.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -51,13 +53,17 @@ namespace Prog3.RestoDotNet.Business.Services
             throw new NotImplementedException();
         }
 
-        public async Task<BLListResponse<TableDto>> GetAllByTrackId(Guid trackId)
+        public BLListResponse<TableDto> GetAllByTrackId(Guid trackId)
         {
             var response = new BLListResponse<TableDto>();
 
             try
             {
-                var entityResp = await _uow.EFRepository<Table>().AllAsync(t => t.BoundedMapId == trackId, null, null);
+                var entityResp = AsyncHelper.RunSync(() =>
+                {
+                    return _uow.EFRepository<Table>().AllAsync(t => t.BoundedMapId == trackId, null, null);
+                });
+
                 response.Data = _mapper.MapFromEntity(entityResp);
             }
             catch (Exception ex)
