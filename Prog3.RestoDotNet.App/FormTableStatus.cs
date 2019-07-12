@@ -176,9 +176,8 @@ namespace Prog3.RestoDotNet.App
                 return;
             }
 
-            FormStatusSale status = new FormStatusSale();
+            FormStatusSale status = new FormStatusSale(svcRes.Data.ToString("C"));
             status.Show();
-            MessageBox.Show($"El total consumido es: {svcRes.Data.ToString("C")}");
 
             Close();
         }

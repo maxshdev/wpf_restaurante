@@ -13,13 +13,11 @@ namespace Prog3.RestoDotNet.App
     public partial class FormStatusSale : Form
     {
 
-        public double price = 0;
-
-        public FormStatusSale()
+        public FormStatusSale(String price)
         {
             InitializeComponent();
 
-            this.lbl_importe.Text = price.ToString();
+            this.lbl_importe.Text = price;
         }
 
         private void FormStatusSale_Load(object sender, EventArgs e)
