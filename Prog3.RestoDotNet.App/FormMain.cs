@@ -23,7 +23,6 @@ namespace Prog3.RestoDotNet.App
         private OpenFileDialog openFile;
         private List<TableDto> tableObjs;
         private Guid currentTrackId;
-        private string currentXmlMapPath;
 
         public FormMain(IUnityContainer container)
         {
@@ -130,7 +129,7 @@ namespace Prog3.RestoDotNet.App
                 {
                     _container.RegisterInstance((MoveableTable)owner.SourceControl);
                     _container.Resolve<FormTableStatus>().ShowDialog();
-                    LoadXmlMap(currentXmlMapPath);
+                    LoadXmlMap(openFile.FileName);
                     UpdateTableImages();
                 }
             }
@@ -138,6 +137,14 @@ namespace Prog3.RestoDotNet.App
 
         private void CargarMapaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if ( PnlMapLoad.Controls.Count > 0)
+            {
+                PnlMapLoad.Controls.Clear();
+                tableObjs = null;
+                openFile = null;
+                currentTrackId = Guid.Empty;
+            }
+
             openFile = new OpenFileDialog();
             openFile.InitialDirectory = Directory.CreateDirectory($@"{Environment.CurrentDirectory}/Mapas").FullName;
             openFile.Multiselect = false;
@@ -147,8 +154,7 @@ namespace Prog3.RestoDotNet.App
             if (openFile.ShowDialog() != DialogResult.OK)
                 return;
 
-            currentXmlMapPath = openFile.FileName;
-            LoadXmlMap(currentXmlMapPath);
+            LoadXmlMap(openFile.FileName);
             UpdateTableImages();
         }
 
@@ -156,7 +162,7 @@ namespace Prog3.RestoDotNet.App
         {
             _container.RegisterInstance((MoveableTable)sender);
             _container.Resolve<FormTableStatus>().ShowDialog();
-            LoadXmlMap(currentXmlMapPath);
+            LoadXmlMap(openFile.FileName);
             UpdateTableImages();
         }
 
