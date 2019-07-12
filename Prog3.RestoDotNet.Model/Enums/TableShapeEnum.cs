@@ -8,6 +8,6 @@ namespace Prog3.RestoDotNet.Model.Enums
     {
         SQUARE = 2,
         RECTANGLE = 4,
-        CIRCLE = 6
+        CIRCLE = 1
     }
 }
