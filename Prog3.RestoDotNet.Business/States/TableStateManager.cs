@@ -11,7 +11,7 @@ namespace Prog3.RestoDotNet.Business.States
     {
         protected static ITableSvc _tableSvc;
 
-        public async static Task<TableStateManager> GetTableStateManagerAsync(ITableSvc tableSvc, OrderDto consumeDto)
+        public static TableStateManager GetTableStateManager(ITableSvc tableSvc, OrderDto consumeDto)
         {
             _tableSvc = tableSvc;
 

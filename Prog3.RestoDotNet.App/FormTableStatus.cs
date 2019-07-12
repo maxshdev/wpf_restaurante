@@ -69,6 +69,8 @@ namespace Prog3.RestoDotNet.App
                 new MealDto(-1, "Fideos", 65),
                 new MealDto(-2, "Milanesas", 150),
                 new MealDto(-3, "Pizza", 250),
+                new MealDto(-4, "Ravioles", 130),
+                new MealDto(-5, "Parrillada", 400)
             };
 
             CmbComidas.DataSource = _stockMeals;
@@ -128,7 +130,6 @@ namespace Prog3.RestoDotNet.App
 
         private async void BtnSaveTable_Click(object sender, EventArgs e)
         {
-            //var list = mealDtoBindingSource.List;
             foreach (MealDto item in mealDtoBindingSource.List)
             {
                 _currentOrder.Meals.Add(item);
@@ -138,7 +139,7 @@ namespace Prog3.RestoDotNet.App
             _currentOrder.Obs = rTBoxNotes.Text;
             _currentOrder.DateFrom = DateTime.Now;
 
-            var svcRes = _orderSvc.SaveOrderAsync(_currentOrder);
+            var svcRes = await _orderSvc.SaveOrderAsync(_currentOrder);
 
             this.Close();
         }
@@ -153,6 +154,11 @@ namespace Prog3.RestoDotNet.App
         private void CmbMesero_SelectedValueChanged(object sender, EventArgs e)
         {
             EnableAcceptButtonIfCan();
+        }
+
+        private void CBoxReserved_CheckedChanged(object sender, EventArgs e)
+        {
+            dTPickerReserved.Enabled = ((RadioButton)sender).Checked;
         }
     }
 }
