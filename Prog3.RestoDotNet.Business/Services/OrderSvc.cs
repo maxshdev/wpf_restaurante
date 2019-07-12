@@ -32,7 +32,7 @@ namespace Prog3.RestoDotNet.Business.Services
 
             try
             {
-                TableStateManager stateManager = await TableStateManager.GetTableStateManagerAsync(tableSvc, consumeDto);
+                TableStateManager stateManager = TableStateManager.GetTableStateManager(tableSvc, consumeDto);
                 if (await stateManager.SaveAsync(consumeDto))
                 {
                     var resp = await _uow.EFRepository<Order>().InsertAsync(consumeDto.BaseEntity);
@@ -77,16 +77,15 @@ namespace Prog3.RestoDotNet.Business.Services
                 entity.Waiter = null;
                 var resp = await _uow.EFRepository<Order>().InsertAsync(entity);
 
-                //foreach (Meal meal in entity.Meals)
-                //{
-                //    meal.Id = default;
-                //    meal.OrderId = entity.Id;
-                //    var svcMeal = await _uow.EFRepository<Meal>().InsertAsync(meal);
-                //}
+                foreach (Meal meal in entity.Meals)
+                {
+                    meal.Id = default;
+                    var svcMeal = await _uow.EFRepository<Meal>().InsertAsync(meal);
+                }
 
                 if (await _uow.CommitAsync())
                 {
-                    TableStateManager stateManager = await TableStateManager.GetTableStateManagerAsync(tableSvc, consumeDto);
+                    TableStateManager stateManager = TableStateManager.GetTableStateManager(tableSvc, consumeDto);
                     response.Data = await stateManager.SaveAsync(consumeDto);
                 }
             }
