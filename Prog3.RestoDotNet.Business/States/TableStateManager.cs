@@ -1,13 +1,12 @@
-﻿using Prog3.RestoDotNet.Business.Services.Contracts;
-using Pandora.NetStandard.Core.Utils;
-using System.Threading.Tasks;
+﻿using Pandora.NetStandard.Core.Utils;
+using Prog3.RestoDotNet.Business.Services.Contracts;
 using Prog3.RestoDotNet.Model.Dtos;
 using Prog3.RestoDotNet.Model.Enums;
-using Prog3.RestoDotNet.Business.Services;
+using System.Threading.Tasks;
 
 namespace Prog3.RestoDotNet.Business.States
 {
-    public abstract class TableStateManager 
+    public abstract class TableStateManager
     {
         protected static ITableSvc _tableSvc;
 

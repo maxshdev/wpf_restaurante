@@ -7,6 +7,7 @@ using Prog3.RestoDotNet.Business.States;
 using Prog3.RestoDotNet.Model.Dtos;
 using Prog3.RestoDotNet.Model.Entities;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Prog3.RestoDotNet.Business.Services
@@ -55,7 +56,7 @@ namespace Prog3.RestoDotNet.Business.Services
             try
             {
                 var entity = await _uow.EFRepository<Order>().FindAsync(o => o.Table.Id == tableDto.Id, x => x.Table); //TODO: fix include issue
-                entity.Meals = await _uow.EFRepository<Meal>().AllAsync(m => m.OrderId == entity.Id, null, null); 
+                entity.Meals = await _uow.EFRepository<Meal>().AllAsync(m => m.OrderId == entity.Id, null, null);
                 response.Data = _mapper.MapFromEntity(entity);
             }
             catch (Exception ex)
@@ -73,13 +74,17 @@ namespace Prog3.RestoDotNet.Business.Services
             try
             {
                 var entity = _mapper.MapToEntity(consumeDto);
-                entity.Table = null;
-                entity.Waiter = null;
-                var resp = await _uow.EFRepository<Order>().InsertAsync(entity);
+                if (consumeDto.Table.State == Model.Enums.TableStateEnum.DISPONIBLE)
+                {
+                    entity.Table = null;
+                    entity.Waiter = null;
+                    var resp = await _uow.EFRepository<Order>().InsertAsync(entity);
+                }
 
-                foreach (Meal meal in entity.Meals)
+                foreach (Meal meal in entity.Meals.Where(m => m.Id < 0))//por cada comida nueva agregada
                 {
                     meal.Id = default;
+                    meal.OrderId = entity.Id > 0 ? entity.Id : 0;
                     var svcMeal = await _uow.EFRepository<Meal>().InsertAsync(meal);
                 }
 

@@ -85,11 +85,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.tBoxID);
-            this.groupBox1.Location = new System.Drawing.Point(17, 16);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(433, 311);
+            this.groupBox1.Size = new System.Drawing.Size(325, 253);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Estado de Mesa";
@@ -99,10 +97,9 @@
             this.CmbMesero.DataSource = this.waiterDtoBindingSource;
             this.CmbMesero.DisplayMember = "Name";
             this.CmbMesero.FormattingEnabled = true;
-            this.CmbMesero.Location = new System.Drawing.Point(8, 139);
-            this.CmbMesero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CmbMesero.Location = new System.Drawing.Point(6, 113);
             this.CmbMesero.Name = "CmbMesero";
-            this.CmbMesero.Size = new System.Drawing.Size(399, 24);
+            this.CmbMesero.Size = new System.Drawing.Size(300, 21);
             this.CmbMesero.TabIndex = 15;
             this.CmbMesero.ValueMember = "Id";
             this.CmbMesero.SelectedValueChanged += new System.EventHandler(this.CmbMesero_SelectedValueChanged);
@@ -114,10 +111,9 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(211, 73);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(158, 59);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 17);
+            this.label7.Size = new System.Drawing.Size(43, 13);
             this.label7.TabIndex = 14;
             this.label7.Text = "Estado:";
             // 
@@ -129,124 +125,111 @@
             "Libre",
             "Ocupado",
             "Reservado"});
-            this.cBoxState.Location = new System.Drawing.Point(213, 92);
-            this.cBoxState.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cBoxState.Location = new System.Drawing.Point(160, 75);
             this.cBoxState.Name = "cBoxState";
-            this.cBoxState.Size = new System.Drawing.Size(192, 24);
+            this.cBoxState.Size = new System.Drawing.Size(145, 21);
             this.cBoxState.TabIndex = 13;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 177);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(6, 144);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 17);
+            this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 11;
             this.label4.Text = "Notas:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 118);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(6, 96);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 17);
+            this.label6.Size = new System.Drawing.Size(45, 13);
             this.label6.TabIndex = 11;
             this.label6.Text = "Mesero:";
             // 
             // rTBoxNotes
             // 
-            this.rTBoxNotes.Location = new System.Drawing.Point(8, 197);
-            this.rTBoxNotes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rTBoxNotes.Location = new System.Drawing.Point(6, 160);
             this.rTBoxNotes.Name = "rTBoxNotes";
-            this.rTBoxNotes.Size = new System.Drawing.Size(397, 95);
+            this.rTBoxNotes.Size = new System.Drawing.Size(299, 78);
             this.rTBoxNotes.TabIndex = 10;
             this.rTBoxNotes.Text = "";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 228);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(3, 185);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 17);
+            this.label5.Size = new System.Drawing.Size(38, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Notas:";
             // 
             // tBoxChair
             // 
             this.tBoxChair.Enabled = false;
-            this.tBoxChair.Location = new System.Drawing.Point(213, 44);
-            this.tBoxChair.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tBoxChair.Location = new System.Drawing.Point(160, 36);
             this.tBoxChair.Name = "tBoxChair";
-            this.tBoxChair.Size = new System.Drawing.Size(83, 22);
+            this.tBoxChair.Size = new System.Drawing.Size(63, 20);
             this.tBoxChair.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(211, 25);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(158, 20);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 17);
+            this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Sillas:";
             // 
             // tBoxDescription
             // 
-            this.tBoxDescription.Location = new System.Drawing.Point(8, 92);
-            this.tBoxDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tBoxDescription.Location = new System.Drawing.Point(6, 75);
             this.tBoxDescription.Name = "tBoxDescription";
-            this.tBoxDescription.Size = new System.Drawing.Size(184, 22);
+            this.tBoxDescription.Size = new System.Drawing.Size(139, 20);
             this.tBoxDescription.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 73);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(3, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 17);
+            this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Detalle:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 25);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(3, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 17);
+            this.label1.Size = new System.Drawing.Size(21, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "ID:";
             // 
             // tBoxID
             // 
             this.tBoxID.Enabled = false;
-            this.tBoxID.Location = new System.Drawing.Point(8, 44);
-            this.tBoxID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tBoxID.Location = new System.Drawing.Point(6, 36);
             this.tBoxID.Name = "tBoxID";
-            this.tBoxID.Size = new System.Drawing.Size(83, 22);
+            this.tBoxID.Size = new System.Drawing.Size(63, 20);
             this.tBoxID.TabIndex = 0;
             // 
             // dTPickerReserved
             // 
             this.dTPickerReserved.Enabled = false;
-            this.dTPickerReserved.Location = new System.Drawing.Point(379, 12);
-            this.dTPickerReserved.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dTPickerReserved.Location = new System.Drawing.Point(284, 10);
             this.dTPickerReserved.Name = "dTPickerReserved";
-            this.dTPickerReserved.Size = new System.Drawing.Size(313, 22);
+            this.dTPickerReserved.Size = new System.Drawing.Size(236, 20);
             this.dTPickerReserved.TabIndex = 8;
             // 
             // cBoxReserved
             // 
             this.cBoxReserved.AutoSize = true;
-            this.cBoxReserved.Location = new System.Drawing.Point(12, 15);
-            this.cBoxReserved.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cBoxReserved.Location = new System.Drawing.Point(9, 12);
             this.cBoxReserved.Name = "cBoxReserved";
             this.cBoxReserved.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cBoxReserved.Size = new System.Drawing.Size(126, 21);
+            this.cBoxReserved.Size = new System.Drawing.Size(98, 17);
             this.cBoxReserved.TabIndex = 7;
             this.cBoxReserved.Text = "Reservar Mesa";
             this.cBoxReserved.UseVisualStyleBackColor = true;
@@ -255,11 +238,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.pBoxImageTable);
-            this.groupBox2.Location = new System.Drawing.Point(459, 16);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Location = new System.Drawing.Point(344, 13);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(268, 207);
+            this.groupBox2.Size = new System.Drawing.Size(201, 168);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Gráfico";
@@ -267,10 +248,9 @@
             // pBoxImageTable
             // 
             this.pBoxImageTable.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.pBoxImageTable.Location = new System.Drawing.Point(9, 25);
-            this.pBoxImageTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pBoxImageTable.Location = new System.Drawing.Point(7, 20);
             this.pBoxImageTable.Name = "pBoxImageTable";
-            this.pBoxImageTable.Size = new System.Drawing.Size(251, 175);
+            this.pBoxImageTable.Size = new System.Drawing.Size(188, 142);
             this.pBoxImageTable.TabIndex = 0;
             this.pBoxImageTable.TabStop = false;
             // 
@@ -280,21 +260,18 @@
             this.groupBox3.Controls.Add(this.btnDeletedMeal);
             this.groupBox3.Controls.Add(this.CmbComidas);
             this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Location = new System.Drawing.Point(17, 386);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Location = new System.Drawing.Point(13, 314);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox3.Size = new System.Drawing.Size(709, 265);
+            this.groupBox3.Size = new System.Drawing.Size(532, 215);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Comidas:";
             // 
             // BtnAgregar
             // 
-            this.BtnAgregar.Location = new System.Drawing.Point(493, 230);
-            this.BtnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnAgregar.Location = new System.Drawing.Point(370, 187);
             this.BtnAgregar.Name = "BtnAgregar";
-            this.BtnAgregar.Size = new System.Drawing.Size(100, 28);
+            this.BtnAgregar.Size = new System.Drawing.Size(75, 23);
             this.BtnAgregar.TabIndex = 2;
             this.BtnAgregar.Text = "Agregar";
             this.BtnAgregar.UseVisualStyleBackColor = true;
@@ -302,10 +279,9 @@
             // 
             // btnDeletedMeal
             // 
-            this.btnDeletedMeal.Location = new System.Drawing.Point(601, 230);
-            this.btnDeletedMeal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeletedMeal.Location = new System.Drawing.Point(451, 187);
             this.btnDeletedMeal.Name = "btnDeletedMeal";
-            this.btnDeletedMeal.Size = new System.Drawing.Size(100, 28);
+            this.btnDeletedMeal.Size = new System.Drawing.Size(75, 23);
             this.btnDeletedMeal.TabIndex = 2;
             this.btnDeletedMeal.Text = "Borrar";
             this.btnDeletedMeal.UseVisualStyleBackColor = true;
@@ -314,10 +290,9 @@
             // CmbComidas
             // 
             this.CmbComidas.FormattingEnabled = true;
-            this.CmbComidas.Location = new System.Drawing.Point(8, 230);
-            this.CmbComidas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CmbComidas.Location = new System.Drawing.Point(6, 187);
             this.CmbComidas.Name = "CmbComidas";
-            this.CmbComidas.Size = new System.Drawing.Size(353, 24);
+            this.CmbComidas.Size = new System.Drawing.Size(266, 21);
             this.CmbComidas.TabIndex = 13;
             // 
             // dataGridView1
@@ -331,13 +306,12 @@
             this.descriptionDataGridViewTextBoxColumn,
             this.priceDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.mealDtoBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 23);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(693, 198);
+            this.dataGridView1.Size = new System.Drawing.Size(520, 161);
             this.dataGridView1.TabIndex = 0;
             // 
             // descriptionDataGridViewTextBoxColumn
@@ -365,10 +339,9 @@
             this.btnCloseTable.BackColor = System.Drawing.Color.Crimson;
             this.btnCloseTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseTable.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCloseTable.Location = new System.Drawing.Point(396, 660);
-            this.btnCloseTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCloseTable.Location = new System.Drawing.Point(297, 536);
             this.btnCloseTable.Name = "btnCloseTable";
-            this.btnCloseTable.Size = new System.Drawing.Size(331, 33);
+            this.btnCloseTable.Size = new System.Drawing.Size(248, 27);
             this.btnCloseTable.TabIndex = 3;
             this.btnCloseTable.Text = "CERRAR PEDIDO";
             this.btnCloseTable.UseVisualStyleBackColor = false;
@@ -378,10 +351,9 @@
             this.btnSaveTableState.BackColor = System.Drawing.Color.LightGreen;
             this.btnSaveTableState.Enabled = false;
             this.btnSaveTableState.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveTableState.Location = new System.Drawing.Point(16, 660);
-            this.btnSaveTableState.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSaveTableState.Location = new System.Drawing.Point(12, 536);
             this.btnSaveTableState.Name = "btnSaveTableState";
-            this.btnSaveTableState.Size = new System.Drawing.Size(363, 33);
+            this.btnSaveTableState.Size = new System.Drawing.Size(272, 27);
             this.btnSaveTableState.TabIndex = 4;
             this.btnSaveTableState.Text = "GUARDAR CAMBIOS";
             this.btnSaveTableState.UseVisualStyleBackColor = false;
@@ -391,28 +363,29 @@
             // 
             this.GpbReserva.Controls.Add(this.dTPickerReserved);
             this.GpbReserva.Controls.Add(this.cBoxReserved);
-            this.GpbReserva.Location = new System.Drawing.Point(17, 335);
-            this.GpbReserva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GpbReserva.Location = new System.Drawing.Point(13, 272);
             this.GpbReserva.Name = "GpbReserva";
-            this.GpbReserva.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.GpbReserva.Size = new System.Drawing.Size(701, 43);
+            this.GpbReserva.Size = new System.Drawing.Size(526, 35);
             this.GpbReserva.TabIndex = 5;
             this.GpbReserva.TabStop = false;
             // 
             // FormTableStatus
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(743, 708);
+            this.ClientSize = new System.Drawing.Size(557, 575);
             this.Controls.Add(this.GpbReserva);
             this.Controls.Add(this.btnSaveTableState);
             this.Controls.Add(this.btnCloseTable);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormTableStatus";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Seguimiento de Mesa";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

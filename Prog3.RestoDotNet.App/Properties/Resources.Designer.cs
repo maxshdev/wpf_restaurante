@@ -63,6 +63,36 @@ namespace Prog3.RestoDotNet.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap table_x1_1 {
+            get {
+                object obj = ResourceManager.GetObject("table_x1_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap table_x1_2 {
+            get {
+                object obj = ResourceManager.GetObject("table_x1_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap table_x1_3 {
+            get {
+                object obj = ResourceManager.GetObject("table_x1_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap table_x2_1 {
             get {
                 object obj = ResourceManager.GetObject("table_x2_1", resourceCulture);
@@ -116,26 +146,6 @@ namespace Prog3.RestoDotNet.App.Properties {
         internal static System.Drawing.Bitmap table_x4_3 {
             get {
                 object obj = ResourceManager.GetObject("table_x4_3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap woodfloor {
-            get {
-                object obj = ResourceManager.GetObject("woodfloor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap woodfloor_tile {
-            get {
-                object obj = ResourceManager.GetObject("woodfloor_tile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

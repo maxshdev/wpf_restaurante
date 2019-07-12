@@ -12,10 +12,10 @@ namespace Prog3.RestoDotNet.App
 {
     public class MoveableTable : MoveableObject
     {
-        public new TableDto BindedEntity { get; set; }
+        public new TableDto BoundedEntity { get; set; }
         public override string ToString()
         {
-            return $"{ BindedEntity?.Caption} { BindedEntity?.Shape}";
+            return $"{ BoundedEntity?.Caption} { BoundedEntity?.Shape}";
         }
     }
 }

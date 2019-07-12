@@ -8,7 +8,8 @@ namespace Prog3.RestoDotNet.Business.States
     {
         public override Task<bool> SaveAsync(OrderDto consumeDto)
         {
-            throw new NotImplementedException();
+            //do nothing
+            return Task.Run(() => { return true; });
         }
 
         public override Task<bool> CloseAsync(OrderDto consumeDto)

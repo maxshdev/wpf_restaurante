@@ -51,9 +51,10 @@
             this.PnlMapLoad.BackColor = System.Drawing.SystemColors.ControlLight;
             this.PnlMapLoad.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PnlMapLoad.BackgroundImage")));
             this.PnlMapLoad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PnlMapLoad.Location = new System.Drawing.Point(12, 246);
+            this.PnlMapLoad.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlMapLoad.Location = new System.Drawing.Point(0, 222);
             this.PnlMapLoad.Name = "PnlMapLoad";
-            this.PnlMapLoad.Size = new System.Drawing.Size(892, 515);
+            this.PnlMapLoad.Size = new System.Drawing.Size(1210, 551);
             this.PnlMapLoad.TabIndex = 2;
             this.PnlMapLoad.Visible = false;
             // 
@@ -87,12 +88,12 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 42);
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 24);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(891, 198);
+            this.pictureBox1.Size = new System.Drawing.Size(1210, 198);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -120,14 +121,14 @@
             // cargarMapaToolStripMenuItem
             // 
             this.cargarMapaToolStripMenuItem.Name = "cargarMapaToolStripMenuItem";
-            this.cargarMapaToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.cargarMapaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cargarMapaToolStripMenuItem.Text = "Cargar Mapa";
             this.cargarMapaToolStripMenuItem.Click += new System.EventHandler(this.CargarMapaToolStripMenuItem_Click);
             // 
             // crearMapaToolStripMenuItem
             // 
             this.crearMapaToolStripMenuItem.Name = "crearMapaToolStripMenuItem";
-            this.crearMapaToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.crearMapaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.crearMapaToolStripMenuItem.Text = "Crear Mapa";
             this.crearMapaToolStripMenuItem.Click += new System.EventHandler(this.CrearMapaToolStripMenuItem_Click);
             // 
@@ -142,11 +143,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(919, 773);
+            this.ClientSize = new System.Drawing.Size(1210, 773);
             this.ControlBox = false;
-            this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.PnlMapLoad);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;

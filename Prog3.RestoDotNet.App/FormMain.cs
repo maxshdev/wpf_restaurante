@@ -47,29 +47,41 @@ namespace Prog3.RestoDotNet.App
             foreach (MoveableTable item in PnlMapLoad.Controls.OfType<MoveableTable>())
             {
 
-                if (item.BindedEntity.State == TableStateEnum.DISPONIBLE && item.BindedEntity.Shape == TableShapeEnum.SQUARE)
+                if (item.BoundedEntity.State == TableStateEnum.DISPONIBLE && item.BoundedEntity.Shape == TableShapeEnum.SQUARE)
                 {
-                    item.Image =  Properties.Resources.table_x2_1;
+                    item.Image = Properties.Resources.table_x2_1;
                 }
-                else if (item.BindedEntity.State == TableStateEnum.DISPONIBLE && item.BindedEntity.Shape == TableShapeEnum.RECTANGLE)
+                else if (item.BoundedEntity.State == TableStateEnum.DISPONIBLE && item.BoundedEntity.Shape == TableShapeEnum.RECTANGLE)
                 {
                     item.Image = Properties.Resources.table_x4_1;
                 }
-                else if (item.BindedEntity.State == TableStateEnum.OCUPADO && item.BindedEntity.Shape == TableShapeEnum.SQUARE)
+                else if (item.BoundedEntity.State == TableStateEnum.DISPONIBLE && item.BoundedEntity.Shape == TableShapeEnum.CIRCLE)
+                {
+                    item.Image = Properties.Resources.table_x1_1;
+                }
+                else if (item.BoundedEntity.State == TableStateEnum.OCUPADO && item.BoundedEntity.Shape == TableShapeEnum.SQUARE)
                 {
                     item.Image = Properties.Resources.table_x2_2;
                 }
-                else if (item.BindedEntity.State == TableStateEnum.OCUPADO && item.BindedEntity.Shape == TableShapeEnum.RECTANGLE)
+                else if (item.BoundedEntity.State == TableStateEnum.OCUPADO && item.BoundedEntity.Shape == TableShapeEnum.RECTANGLE)
                 {
                     item.Image = Properties.Resources.table_x4_2;
                 }
-                else if (item.BindedEntity.State == TableStateEnum.RESERVADO && item.BindedEntity.Shape == TableShapeEnum.SQUARE)
+                else if (item.BoundedEntity.State == TableStateEnum.OCUPADO && item.BoundedEntity.Shape == TableShapeEnum.CIRCLE)
+                {
+                    item.Image = Properties.Resources.table_x1_2;
+                }
+                else if (item.BoundedEntity.State == TableStateEnum.RESERVADO && item.BoundedEntity.Shape == TableShapeEnum.SQUARE)
                 {
                     item.Image = Properties.Resources.table_x2_3;
                 }
-                else if (item.BindedEntity.State == TableStateEnum.RESERVADO && item.BindedEntity.Shape == TableShapeEnum.RECTANGLE)
+                else if (item.BoundedEntity.State == TableStateEnum.RESERVADO && item.BoundedEntity.Shape == TableShapeEnum.RECTANGLE)
                 {
                     item.Image = Properties.Resources.table_x4_3;
+                }
+                else if (item.BoundedEntity.State == TableStateEnum.RESERVADO && item.BoundedEntity.Shape == TableShapeEnum.CIRCLE)
+                {
+                    item.Image = Properties.Resources.table_x1_3;
                 }
             }
         }
@@ -86,12 +98,20 @@ namespace Prog3.RestoDotNet.App
 
             foreach (XmlTable item in xmlTables)
             {
-                MoveableObject temp = tableObjs.Any(t => t.MoveableTableId == item.Id)
-                    ? new MoveableTable
+                MoveableObject temp;
+                if (tableObjs.Any(t => t.MoveableTableId == item.Id))
+                {
+                    temp = new MoveableTable
                     {
-                        BindedEntity = tableObjs.First(t => t.MoveableTableId == item.Id),
+                        BoundedEntity = tableObjs.Single(t => t.MoveableTableId == item.Id),
                         ContextMenuStrip = cMenuStripMapLoad
-                    } : new MoveableObject();
+                    };
+                    var table = ((MoveableTable)temp).BoundedEntity;
+                    var tooltip = new ToolTip() { ShowAlways = true };
+                    tooltip.SetToolTip(temp, $"{table.Caption} - {table.State}");
+                }
+                else
+                    temp = new MoveableObject();
 
                 temp.Id = item.Id;
                 temp.Height = item.Height;
@@ -119,25 +139,9 @@ namespace Prog3.RestoDotNet.App
             PnlMapLoad.Visible = PnlMapLoad.Controls.Count > 0;
         }
 
-        private void VerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ToolStripItem item = (sender as ToolStripItem);
-            if (item != null)
-            {
-                ContextMenuStrip owner = item.Owner as ContextMenuStrip;
-                if (owner != null)
-                {
-                    _container.RegisterInstance((MoveableTable)owner.SourceControl);
-                    _container.Resolve<FormTableStatus>().ShowDialog();
-                    LoadXmlMap(openFile.FileName);
-                    UpdateTableImages();
-                }
-            }
-        }
-
         private void CargarMapaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ( PnlMapLoad.Controls.Count > 0)
+            if (PnlMapLoad.Controls.Count > 0)
             {
                 PnlMapLoad.Controls.Clear();
                 tableObjs = null;
@@ -154,13 +158,33 @@ namespace Prog3.RestoDotNet.App
             if (openFile.ShowDialog() != DialogResult.OK)
                 return;
 
+            Cursor.Current = Cursors.WaitCursor;//TODO: cambiar por un spinner
             LoadXmlMap(openFile.FileName);
             UpdateTableImages();
+            Cursor.Current = Cursors.Arrow;
         }
 
         private void Table_OnDoubleClick(object sender, EventArgs e)
         {
-            _container.RegisterInstance((MoveableTable)sender);
+            OpenStatusTableForm((MoveableTable)sender);
+        }
+
+        private void VerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripItem item = (sender as ToolStripItem);
+            if (item != null)
+            {
+                ContextMenuStrip owner = item.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    OpenStatusTableForm((MoveableTable)owner.SourceControl);
+                }
+            }
+        }
+
+        private void OpenStatusTableForm(MoveableTable tableObj)
+        {
+            _container.RegisterInstance(tableObj);
             _container.Resolve<FormTableStatus>().ShowDialog();
             LoadXmlMap(openFile.FileName);
             UpdateTableImages();

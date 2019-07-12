@@ -84,138 +84,6 @@ namespace Prog3.RestoDotNet.App
                 currentObj = sender is ReferenceTable ? CreateMoveableTable(sender) : CreateMoveableObj(sender);
                 currentObj.Left = 100 + (10 * PnlMap.Controls.Count);//para crear en diferentes lugares
                 currentObj.Top = 100 + (10 * PnlMap.Controls.Count);
-                currentObj.Width = 90;
-                currentObj.Height = 90;
-                currentObj.SizeMode = PictureBoxSizeMode.StretchImage;
-                currentObj.BackColor = Color.Transparent;
-                currentObj.ContextMenuStrip = this.cmenuStripTable;
-
-                currentObj.MouseDown += Ctr_MouseDown;
-                currentObj.MouseUp += Ctr_MouseUp;
-                currentObj.MouseMove += Ctr_MouseMove;
-
-                this.PnlMap.Controls.Add(currentObj);
-
-                this.BtnSave.Enabled = PnlMap.Controls.OfType<MoveableTable>().Count() > 0;
-
-                ActualizarEstado();
-            }
-        }
-
-        private void Table_MouseDown_x2(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                cont++;//para identificar posteriormente cada item en el mapa
-                currentObj = sender is ReferenceTable ? CreateMoveableTable(sender) : CreateMoveableObj(sender);
-                currentObj.Left = 100 + (10 * PnlMap.Controls.Count);//para crear en diferentes lugares
-                currentObj.Top = 100 + (10 * PnlMap.Controls.Count);
-                currentObj.Width = 120;
-                currentObj.Height = 120;
-                currentObj.SizeMode = PictureBoxSizeMode.StretchImage;
-                currentObj.BackColor = Color.Transparent;
-                currentObj.ContextMenuStrip = this.cmenuStripTable;
-
-                currentObj.MouseDown += Ctr_MouseDown;
-                currentObj.MouseUp += Ctr_MouseUp;
-                currentObj.MouseMove += Ctr_MouseMove;
-
-                this.PnlMap.Controls.Add(currentObj);
-
-                this.BtnSave.Enabled = PnlMap.Controls.OfType<MoveableTable>().Count() > 0;
-
-                ActualizarEstado();
-            }
-        }
-
-        private void Table_MouseDown_x4(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                cont++;//para identificar posteriormente cada item en el mapa
-                currentObj = sender is ReferenceTable ? CreateMoveableTable(sender) : CreateMoveableObj(sender);
-                currentObj.Left = 100 + (10 * PnlMap.Controls.Count);//para crear en diferentes lugares
-                currentObj.Top = 100 + (10 * PnlMap.Controls.Count);
-                currentObj.Width = 180;
-                currentObj.Height = 150;
-                currentObj.SizeMode = PictureBoxSizeMode.StretchImage;
-                currentObj.BackColor = Color.Transparent;
-                currentObj.ContextMenuStrip = this.cmenuStripTable;
-
-                currentObj.MouseDown += Ctr_MouseDown;
-                currentObj.MouseUp += Ctr_MouseUp;
-                currentObj.MouseMove += Ctr_MouseMove;
-
-                this.PnlMap.Controls.Add(currentObj);
-
-                this.BtnSave.Enabled = PnlMap.Controls.OfType<MoveableTable>().Count() > 0;
-
-                ActualizarEstado();
-            }
-        }
-
-        private void Table_MouseDown_wall(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                cont++;//para identificar posteriormente cada item en el mapa
-                currentObj = sender is ReferenceTable ? CreateMoveableTable(sender) : CreateMoveableObj(sender);
-                currentObj.Left = 100 + (10 * PnlMap.Controls.Count);//para crear en diferentes lugares
-                currentObj.Top = 100 + (10 * PnlMap.Controls.Count);
-                currentObj.Width = 110;
-                currentObj.Height = 100;
-                currentObj.SizeMode = PictureBoxSizeMode.StretchImage;
-                currentObj.BackColor = Color.Transparent;
-                currentObj.ContextMenuStrip = this.cmenuStripTable;
-
-                currentObj.MouseDown += Ctr_MouseDown;
-                currentObj.MouseUp += Ctr_MouseUp;
-                currentObj.MouseMove += Ctr_MouseMove;
-
-                this.PnlMap.Controls.Add(currentObj);
-
-                this.BtnSave.Enabled = PnlMap.Controls.OfType<MoveableTable>().Count() > 0;
-
-                ActualizarEstado();
-            }
-        }
-
-        private void Table_MouseDown_bar(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                cont++;//para identificar posteriormente cada item en el mapa
-                currentObj = sender is ReferenceTable ? CreateMoveableTable(sender) : CreateMoveableObj(sender);
-                currentObj.Left = 100 + (10 * PnlMap.Controls.Count);//para crear en diferentes lugares
-                currentObj.Top = 100 + (10 * PnlMap.Controls.Count);
-                currentObj.Width = 350;
-                currentObj.Height = 380;
-                currentObj.SizeMode = PictureBoxSizeMode.StretchImage;
-                currentObj.BackColor = Color.Transparent;
-                currentObj.ContextMenuStrip = this.cmenuStripTable;
-
-                currentObj.MouseDown += Ctr_MouseDown;
-                currentObj.MouseUp += Ctr_MouseUp;
-                currentObj.MouseMove += Ctr_MouseMove;
-
-                this.PnlMap.Controls.Add(currentObj);
-
-                this.BtnSave.Enabled = PnlMap.Controls.OfType<MoveableTable>().Count() > 0;
-
-                ActualizarEstado();
-            }
-        }
-
-        private void Table_MouseDown_cash(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                cont++;//para identificar posteriormente cada item en el mapa
-                currentObj = sender is ReferenceTable ? CreateMoveableTable(sender) : CreateMoveableObj(sender);
-                currentObj.Left = 100 + (10 * PnlMap.Controls.Count);//para crear en diferentes lugares
-                currentObj.Top = 100 + (10 * PnlMap.Controls.Count);
-                currentObj.Width = 200;
-                currentObj.Height = 180;
                 currentObj.SizeMode = PictureBoxSizeMode.StretchImage;
                 currentObj.BackColor = Color.Transparent;
                 currentObj.ContextMenuStrip = this.cmenuStripTable;
@@ -235,20 +103,20 @@ namespace Prog3.RestoDotNet.App
         private void ActualizarEstado()
         {
             var mesas = PnlMap.Controls.OfType<MoveableTable>();
-            LblEstado.Text = $"Mesas: {mesas.Count()} Capacidad Total: {mesas.Sum(m => m.BindedEntity.MaxChairs)}";
+            LblEstado.Text = $"Mesas: {mesas.Count()} Capacidad Total: {mesas.Sum(m => m.BoundedEntity.MaxChairs)}";
         }
 
         private MoveableObject CreateMoveableObj(object obj)
         {
-            var pctBx = obj as PictureBox;
+            var refObj = obj as ReferenceObject;
 
             return new MoveableObject
             {
                 Id = cont,
-                Image = pctBx.Image,
-                Location = pctBx.Location,
+                Image = refObj.Image,
+                Location = refObj.Location,
                 Name = $"temp_{cont}",
-                Size = pctBx.Size
+                Size = refObj.ResizeTo
             };
         }
 
@@ -262,10 +130,10 @@ namespace Prog3.RestoDotNet.App
                 Image = refTab.Image,
                 Location = refTab.Location,
                 Name = $"temp_{cont}",
-                Size = refTab.Size
+                Size = refTab.ResizeTo
             };
 
-            movTb.BindedEntity = new TableDto
+            movTb.BoundedEntity = new TableDto
                 (
                 caption: $"Mesa {cont}",
                 moveableTableId: cont,
@@ -305,6 +173,7 @@ namespace Prog3.RestoDotNet.App
 
             foreach (MoveableObject item in PnlMap.Controls.OfType<MoveableObject>())
             {
+                Cursor.Current = Cursors.WaitCursor;//TODO: cambiar por un spinner
                 // obtengo los valores ui del pictureBox.
                 var bounds = item.Bounds;
                 // voy a crear un objeto tipo tabla para poder guardar
@@ -328,7 +197,7 @@ namespace Prog3.RestoDotNet.App
                 xmlTables.Add(xTable);
 
                 if(item is MoveableTable)
-                    tableList.Add(((MoveableTable)item).BindedEntity);
+                    tableList.Add(((MoveableTable)item).BoundedEntity);
             }
 
             var svcResp = await _tableSvc.SetInitialTableArrangementAsync(tableList);
@@ -355,6 +224,7 @@ namespace Prog3.RestoDotNet.App
                 writer.Serialize(file, xmlTables);
                 file.Close();
 
+                Cursor.Current = Cursors.WaitCursor;
                 this.Close();
             }
         }

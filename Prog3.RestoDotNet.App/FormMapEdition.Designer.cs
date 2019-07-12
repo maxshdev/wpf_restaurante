@@ -41,19 +41,18 @@
             this.MesaRect = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
             this.MesaCuad = new Prog3.RestoDotNet.App.Custom_Items.ReferenceTable();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.WallHor = new System.Windows.Forms.PictureBox();
-            this.WallVer = new System.Windows.Forms.PictureBox();
+            this.WallHor = new Prog3.RestoDotNet.App.Custom_Items.ReferenceObject();
+            this.WallVer = new Prog3.RestoDotNet.App.Custom_Items.ReferenceObject();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.MissBar = new System.Windows.Forms.PictureBox();
+            this.MissTV = new Prog3.RestoDotNet.App.Custom_Items.ReferenceObject();
+            this.MissCash = new Prog3.RestoDotNet.App.Custom_Items.ReferenceObject();
+            this.MissBar = new Prog3.RestoDotNet.App.Custom_Items.ReferenceObject();
+            this.MissMenu = new Prog3.RestoDotNet.App.Custom_Items.ReferenceObject();
             this.PnlMap = new System.Windows.Forms.Panel();
             this.PnlButtons = new System.Windows.Forms.Panel();
             this.BtnSave = new System.Windows.Forms.Button();
-            this.BtnCancel = new System.Windows.Forms.Button();
             this.LblEstado = new System.Windows.Forms.Label();
             this.cmenuStripTable = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.fijarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,10 +68,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.WallHor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WallVer)).BeginInit();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MissTV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MissCash)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MissBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MissMenu)).BeginInit();
             this.PnlButtons.SuspendLayout();
             this.cmenuStripTable.SuspendLayout();
             this.SuspendLayout();
@@ -138,6 +137,7 @@
             this.MesaRed.Image = ((System.Drawing.Image)(resources.GetObject("MesaRed.Image")));
             this.MesaRed.Location = new System.Drawing.Point(36, 75);
             this.MesaRed.Name = "MesaRed";
+            this.MesaRed.ResizeTo = new System.Drawing.Size(90, 90);
             this.MesaRed.Shape = Prog3.RestoDotNet.Model.Enums.TableShapeEnum.CIRCLE;
             this.MesaRed.Size = new System.Drawing.Size(60, 60);
             this.MesaRed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -177,24 +177,26 @@
             this.MesaRect.Image = ((System.Drawing.Image)(resources.GetObject("MesaRect.Image")));
             this.MesaRect.Location = new System.Drawing.Point(36, 258);
             this.MesaRect.Name = "MesaRect";
+            this.MesaRect.ResizeTo = new System.Drawing.Size(180, 150);
             this.MesaRect.Shape = Prog3.RestoDotNet.Model.Enums.TableShapeEnum.RECTANGLE;
             this.MesaRect.Size = new System.Drawing.Size(60, 60);
             this.MesaRect.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.MesaRect.TabIndex = 1;
             this.MesaRect.TabStop = false;
-            this.MesaRect.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown_x4);
+            this.MesaRect.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
             // 
             // MesaCuad
             // 
             this.MesaCuad.Image = ((System.Drawing.Image)(resources.GetObject("MesaCuad.Image")));
             this.MesaCuad.Location = new System.Drawing.Point(36, 161);
             this.MesaCuad.Name = "MesaCuad";
+            this.MesaCuad.ResizeTo = new System.Drawing.Size(120, 120);
             this.MesaCuad.Shape = Prog3.RestoDotNet.Model.Enums.TableShapeEnum.SQUARE;
             this.MesaCuad.Size = new System.Drawing.Size(60, 60);
             this.MesaCuad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.MesaCuad.TabIndex = 1;
             this.MesaCuad.TabStop = false;
-            this.MesaCuad.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown_x2);
+            this.MesaCuad.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
             // 
             // tabPage2
             // 
@@ -215,22 +217,24 @@
             this.WallHor.Image = ((System.Drawing.Image)(resources.GetObject("WallHor.Image")));
             this.WallHor.Location = new System.Drawing.Point(28, 263);
             this.WallHor.Name = "WallHor";
+            this.WallHor.ResizeTo = new System.Drawing.Size(110, 100);
             this.WallHor.Size = new System.Drawing.Size(70, 70);
             this.WallHor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.WallHor.TabIndex = 5;
             this.WallHor.TabStop = false;
-            this.WallHor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown_wall);
+            this.WallHor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
             // 
             // WallVer
             // 
             this.WallVer.Image = ((System.Drawing.Image)(resources.GetObject("WallVer.Image")));
             this.WallVer.Location = new System.Drawing.Point(28, 142);
             this.WallVer.Name = "WallVer";
+            this.WallVer.ResizeTo = new System.Drawing.Size(110, 100);
             this.WallVer.Size = new System.Drawing.Size(70, 70);
             this.WallVer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.WallVer.TabIndex = 4;
             this.WallVer.TabStop = false;
-            this.WallVer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown_wall);
+            this.WallVer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
             // 
             // label6
             // 
@@ -252,10 +256,10 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.pictureBox3);
-            this.tabPage1.Controls.Add(this.pictureBox2);
-            this.tabPage1.Controls.Add(this.pictureBox1);
+            this.tabPage1.Controls.Add(this.MissTV);
+            this.tabPage1.Controls.Add(this.MissCash);
             this.tabPage1.Controls.Add(this.MissBar);
+            this.tabPage1.Controls.Add(this.MissMenu);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -264,49 +268,53 @@
             this.tabPage1.Text = "Deco";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // pictureBox3
+            // MissTV
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(18, 352);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(92, 81);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 8;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            this.MissTV.Image = ((System.Drawing.Image)(resources.GetObject("MissTV.Image")));
+            this.MissTV.Location = new System.Drawing.Point(18, 352);
+            this.MissTV.Name = "MissTV";
+            this.MissTV.ResizeTo = new System.Drawing.Size(90, 90);
+            this.MissTV.Size = new System.Drawing.Size(92, 81);
+            this.MissTV.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.MissTV.TabIndex = 8;
+            this.MissTV.TabStop = false;
+            this.MissTV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
             // 
-            // pictureBox2
+            // MissCash
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(18, 252);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(92, 81);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown_cash);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(18, 155);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(92, 81);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown_bar);
+            this.MissCash.Image = ((System.Drawing.Image)(resources.GetObject("MissCash.Image")));
+            this.MissCash.Location = new System.Drawing.Point(18, 252);
+            this.MissCash.Name = "MissCash";
+            this.MissCash.ResizeTo = new System.Drawing.Size(200, 180);
+            this.MissCash.Size = new System.Drawing.Size(92, 81);
+            this.MissCash.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.MissCash.TabIndex = 7;
+            this.MissCash.TabStop = false;
+            this.MissCash.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
             // 
             // MissBar
             // 
             this.MissBar.Image = ((System.Drawing.Image)(resources.GetObject("MissBar.Image")));
-            this.MissBar.Location = new System.Drawing.Point(18, 55);
+            this.MissBar.Location = new System.Drawing.Point(18, 155);
             this.MissBar.Name = "MissBar";
+            this.MissBar.ResizeTo = new System.Drawing.Size(350, 380);
             this.MissBar.Size = new System.Drawing.Size(92, 81);
             this.MissBar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.MissBar.TabIndex = 1;
+            this.MissBar.TabIndex = 5;
             this.MissBar.TabStop = false;
             this.MissBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
+            // 
+            // MissMenu
+            // 
+            this.MissMenu.Image = ((System.Drawing.Image)(resources.GetObject("MissMenu.Image")));
+            this.MissMenu.Location = new System.Drawing.Point(18, 55);
+            this.MissMenu.Name = "MissMenu";
+            this.MissMenu.ResizeTo = new System.Drawing.Size(90, 90);
+            this.MissMenu.Size = new System.Drawing.Size(92, 81);
+            this.MissMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.MissMenu.TabIndex = 1;
+            this.MissMenu.TabStop = false;
+            this.MissMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_MouseDown);
             // 
             // PnlMap
             // 
@@ -322,32 +330,24 @@
             // PnlButtons
             // 
             this.PnlButtons.Controls.Add(this.BtnSave);
-            this.PnlButtons.Controls.Add(this.BtnCancel);
+            this.PnlButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlButtons.Location = new System.Drawing.Point(3, 524);
             this.PnlButtons.Name = "PnlButtons";
-            this.PnlButtons.Size = new System.Drawing.Size(124, 40);
+            this.PnlButtons.Size = new System.Drawing.Size(142, 41);
             this.PnlButtons.TabIndex = 3;
             // 
             // BtnSave
             // 
+            this.BtnSave.BackColor = System.Drawing.Color.LightGreen;
             this.BtnSave.Enabled = false;
-            this.BtnSave.Location = new System.Drawing.Point(67, 9);
+            this.BtnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSave.Location = new System.Drawing.Point(10, 9);
             this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(54, 23);
+            this.BtnSave.Size = new System.Drawing.Size(120, 23);
             this.BtnSave.TabIndex = 5;
-            this.BtnSave.Text = "Guardar";
-            this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Text = "GUARDAR";
+            this.BtnSave.UseVisualStyleBackColor = false;
             this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
-            // 
-            // BtnCancel
-            // 
-            this.BtnCancel.Location = new System.Drawing.Point(6, 9);
-            this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(58, 23);
-            this.BtnCancel.TabIndex = 4;
-            this.BtnCancel.Text = "Cancelar";
-            this.BtnCancel.UseVisualStyleBackColor = true;
-            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // LblEstado
             // 
@@ -390,8 +390,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 568);
             this.Controls.Add(this.PnlLayout);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMapEdition";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar Mapa";
             this.PnlLayout.ResumeLayout(false);
             this.PnlToolBox.ResumeLayout(false);
@@ -406,10 +408,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.WallHor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WallVer)).EndInit();
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MissTV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MissCash)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MissBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MissMenu)).EndInit();
             this.PnlButtons.ResumeLayout(false);
             this.cmenuStripTable.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -427,21 +429,20 @@
         private System.Windows.Forms.Panel PnlMap;
         private System.Windows.Forms.Panel PnlButtons;
         private System.Windows.Forms.Button BtnSave;
-        private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ContextMenuStrip cmenuStripTable;
         private System.Windows.Forms.ToolStripMenuItem fijarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
-        private System.Windows.Forms.PictureBox WallHor;
-        private System.Windows.Forms.PictureBox WallVer;
+        private Prog3.RestoDotNet.App.Custom_Items.ReferenceObject WallHor;
+        private Prog3.RestoDotNet.App.Custom_Items.ReferenceObject WallVer;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.PictureBox MissBar;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private Prog3.RestoDotNet.App.Custom_Items.ReferenceObject MissMenu;
+        private Prog3.RestoDotNet.App.Custom_Items.ReferenceObject MissTV;
+        private Prog3.RestoDotNet.App.Custom_Items.ReferenceObject MissCash;
+        private Prog3.RestoDotNet.App.Custom_Items.ReferenceObject MissBar;
         private System.Windows.Forms.Label LblEstado;
         private System.Windows.Forms.Label label1;
         private Custom_Items.ReferenceTable MesaRed;

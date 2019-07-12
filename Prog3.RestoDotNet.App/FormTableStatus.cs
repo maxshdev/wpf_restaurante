@@ -22,7 +22,7 @@ namespace Prog3.RestoDotNet.App
 
             _orderSvc = orderSvc;
             _waiterSvc = waiterSvc;
-            _currentOrder = new OrderDto { Table = tableObj.BindedEntity };
+            _currentOrder = new OrderDto { Table = tableObj.BoundedEntity };
             LoadStockMeals();
             LoadAvailableWaiters();
             LoadTableDetail();
@@ -130,16 +130,23 @@ namespace Prog3.RestoDotNet.App
 
         private async void BtnSaveTable_Click(object sender, EventArgs e)
         {
-            foreach (MealDto item in mealDtoBindingSource.List)
-            {
-                _currentOrder.Meals.Add(item);
-            }
+            //foreach (MealDto item in mealDtoBindingSource.List)
+            //{
+            //    _currentOrder.Meals.Add(item);
+            //}
 
             _currentOrder.Waiter = CmbMesero.SelectedItem as WaiterDto;
+            _currentOrder.Table.Caption = tBoxDescription.Text;
             _currentOrder.Obs = rTBoxNotes.Text;
             _currentOrder.DateFrom = DateTime.Now;
 
             var svcRes = await _orderSvc.SaveOrderAsync(_currentOrder);
+
+            if (svcRes.HasError)
+            {
+                MessageBox.Show(string.Join(",", svcRes.Errors));
+                return;
+            }
 
             this.Close();
         }
@@ -158,7 +165,7 @@ namespace Prog3.RestoDotNet.App
 
         private void CBoxReserved_CheckedChanged(object sender, EventArgs e)
         {
-            dTPickerReserved.Enabled = ((RadioButton)sender).Checked;
+            dTPickerReserved.Enabled = ((CheckBox)sender).Checked;
         }
     }
 }

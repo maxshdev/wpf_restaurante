@@ -37,7 +37,7 @@ namespace Prog3.RestoDotNet.App
 
             // Register your types, for instance:
             //container.RegisterSingleton<IMapperCore, GenericMapperCore>();
-            container.RegisterSingleton<DbContext, RestoDbContext>();
+            container.RegisterType<DbContext, RestoDbContext>();
             container.RegisterType<IApplicationUow, ApplicationUow>();
             container.RegisterType<ITableSvc, TableSvc>();
             container.RegisterType<IOrderSvc, OrderSvc>();
