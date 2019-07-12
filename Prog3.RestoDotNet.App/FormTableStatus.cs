@@ -176,8 +176,8 @@ namespace Prog3.RestoDotNet.App
                 return;
             }
 
-            //TODO: hacer algo para mostrar el precio que trae svcRes.Data
-            MessageBox.Show($"El total consumido es: {svcRes.Data.ToString("C")}");
+            FormStatusSale status = new FormStatusSale(svcRes.Data.ToString("C"));
+            status.Show();
 
             Close();
         }
