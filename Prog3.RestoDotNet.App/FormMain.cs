@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using Unity;
+using Unity.Lifetime;
 
 namespace Prog3.RestoDotNet.App
 {
     public partial class FormMain : Form
     {
         private readonly IUnityContainer _container;
-        private readonly IOrderSvc _orderSvc;
         private readonly ITableSvc _tableSvc;
         private OpenFileDialog openFile;
         private List<TableDto> tableObjs;
@@ -27,9 +27,8 @@ namespace Prog3.RestoDotNet.App
         public FormMain(IUnityContainer container)
         {
             InitializeComponent();
-            _orderSvc = container.Resolve<IOrderSvc>();
-            _tableSvc = container.Resolve<ITableSvc>();
             _container = container;
+            _tableSvc = container.Resolve<ITableSvc>();
         }
 
         private void RetrieveRelatedTables(Guid trackId)
