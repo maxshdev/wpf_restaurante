@@ -122,9 +122,24 @@ namespace Prog3.RestoDotNet.Business.Services
             return response;
         }
 
-        public Task<BLSingleResponse<int>> SetReservationAndGetOrderIdAsync(TableDto tableDto)
+        public async Task<BLSingleResponse<int>> SetReservationAndGetOrderIdAsync(TableDto tableDto)
         {
-            throw new NotImplementedException();
+            var response = new BLSingleResponse<int>();
+
+            try
+            {
+                var entity = await _uow.EFRepository<Table>().GetByIdAsync(tableDto.Id);
+                entity.State = Model.Enums.TableStateEnum.RESERVADO;
+                await _uow.EFRepository<Table>().UpdateAsync(entity);
+
+                await _uow.CommitAsync();
+            }
+            catch (Exception ex)
+            {
+                HandleSVCException(response, ex);
+            }
+
+            return response;
         }
     }
 }

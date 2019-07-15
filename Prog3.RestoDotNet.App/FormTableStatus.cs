@@ -139,18 +139,25 @@ namespace Prog3.RestoDotNet.App
 
         private async void BtnSaveTable_Click(object sender, EventArgs e)
         {
-            _currentOrder.Meals = mealDtoBindingSource.List.Cast<MealDto>().ToList();
-            _currentOrder.Waiter = CmbMesero.SelectedItem as WaiterDto;
-            _currentOrder.Table.Caption = tBoxDescription.Text;
-            _currentOrder.Obs = rTBoxNotes.Text;
-            _currentOrder.DateFrom = DateTime.Now;
-
-            var svcRes = await _orderSvc.SaveOrderAsync(_currentOrder);
-
-            if (svcRes.HasError)
+            if (cBoxReserved.Checked)
             {
-                MessageBox.Show(string.Join(",", svcRes.Errors));
-                return;
+                await _orderSvc.SetReservationAndGetOrderIdAsync(_currentOrder.Table);
+            }
+            else
+            {
+                _currentOrder.Meals = mealDtoBindingSource.List.Cast<MealDto>().ToList();
+                _currentOrder.Waiter = CmbMesero.SelectedItem as WaiterDto;
+                _currentOrder.Table.Caption = tBoxDescription.Text;
+                _currentOrder.Obs = rTBoxNotes.Text;
+                _currentOrder.DateFrom = DateTime.Now;
+
+                var svcRes = await _orderSvc.SaveOrderAsync(_currentOrder);
+
+                if (svcRes.HasError)
+                {
+                    MessageBox.Show(string.Join(",", svcRes.Errors));
+                    return;
+                }
             }
 
             Close();
@@ -163,7 +170,10 @@ namespace Prog3.RestoDotNet.App
 
         private void CBoxReserved_CheckedChanged(object sender, EventArgs e)
         {
-            dTPickerReserved.Enabled = ((CheckBox)sender).Checked;
+            var checkbox = ((CheckBox)sender).Checked;
+            dTPickerReserved.Enabled = checkbox;
+            groupBox1.Enabled = !checkbox;
+            btnSaveTableState.Enabled = checkbox;
         }
 
         private async void BtnCloseTable_Click(object sender, EventArgs e)
@@ -177,7 +187,7 @@ namespace Prog3.RestoDotNet.App
             }
 
             FormStatusSale status = new FormStatusSale(svcRes.Data.ToString("C"));
-            status.Show();
+            status.ShowDialog();
 
             Close();
         }

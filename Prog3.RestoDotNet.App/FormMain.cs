@@ -140,7 +140,7 @@ namespace Prog3.RestoDotNet.App
 
         private void CargarMapaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (PnlMapLoad.Controls.Count > 0)
+            if (PnlMapLoad.Controls.Count > 0)//borrar panel si tiene algo
             {
                 PnlMapLoad.Controls.Clear();
                 tableObjs = null;
